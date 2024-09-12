@@ -7,19 +7,20 @@ from mongoengine import Document, StringField, ListField, BooleanField, \
     DateField, ReferenceField, DateTimeField, \
     EmbeddedDocument, EnumField, EmbeddedDocumentField, IntField, DictField, ObjectIdField, signals
 from bson import ObjectId
-from dto.invoice_class_type import InvoiceClassType
-from dto.collect_rule_export_enum import CollectRuleExportEnum
-from dto.delivery_rule_mode_enum import DeliveryRuleModeEnum
-from dto.execution_status_enum import ExecutionStatusEnum
-from dto.frequency_enum import FrequencyEnum
+from .dto.invoice_class_type import InvoiceClassType
+from .dto.collect_rule_export_enum import CollectRuleExportEnum
+from .dto.delivery_rule_mode_enum import DeliveryRuleModeEnum
+from .dto.execution_status_enum import ExecutionStatusEnum
+from .dto.frequency_enum import FrequencyEnum
 from enum import Enum
 
-from dto.enum_security_type import EnumSecurityType
-from dto.role_enum import EnumRole
-from dto.user_meta_data import UserMetadata
+#from .dto.enum_security_type import EnumSecurityType
+from .dto.enum_security_type import EnumSecurityType
+from .dto.role_enum import EnumRole
+from .dto.user_meta_data import UserMetadata
 
-from utils.utils import Utils
-from dto.export_type_enum import ExportType
+from .utils.utils import Utils
+from .dto.export_type_enum import ExportType
 
 class EnumConnectionStatus(str, Enum):
     NOT_TESTED = 'NOT_TESTED'

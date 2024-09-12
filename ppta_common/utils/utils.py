@@ -1,4 +1,3 @@
-
 import base64
 import calendar
 from typing import Any, Tuple
@@ -6,6 +5,7 @@ import pytz
 import datetime, os
 
 from tzlocal import get_localzone
+
 
 class Utils:
 
@@ -20,8 +20,6 @@ class Utils:
         current_time_gmt = datetime.datetime.now(gmt_timezone)
 
         return current_time_gmt
-
-
 
     def convert_date_in_gmt_and_timstamp(date: datetime.datetime) -> int:
         """
@@ -41,7 +39,7 @@ class Utils:
         date_timestamp = int(date_in_gmt.timestamp())
 
         return date_timestamp
-    
+
     def get_file_extension(file):
         file_name = file.filename
         file_extension = file_name.split('.')[-1] if '.' in file_name else None
@@ -50,7 +48,7 @@ class Utils:
     @staticmethod
     def get_unique_key(s3_client, bucket_name, destination_prefix, file_name):
         base_name, extension = os.path.splitext(file_name)
-        
+
         base_key = f"{destination_prefix}/{base_name}"
 
         response = s3_client.list_objects_v2(Bucket=bucket_name, Prefix=destination_prefix)
@@ -64,8 +62,6 @@ class Utils:
             unique_key = f"{destination_prefix}/{base_name}_{counter}{extension}"
 
         return unique_key
-
-
 
     @staticmethod
     def get_last_day_of_month(year: int, month: int) -> datetime.date:
@@ -81,7 +77,7 @@ class Utils:
             next_month = month + 1
             next_year = year
         return next_year, next_month
-    
+
     @staticmethod
     def get_collect_rule_filter_date(year: int, month: int, before: str, after: str):
         print("get_collect_rule_filter_date year: %s, month:  %s, before:  %s, after:  %s", year, month, before, after)
@@ -92,7 +88,8 @@ class Utils:
 
         if before.lower() == 'l' and after.lower() == 'l':
             after_date = before_date
-        elif (before.lower() == 'l' and after.lower() != 'l') or (before.lower() != 'l' and after.lower() != 'l' and int(before) > int(after)):
+        elif (before.lower() == 'l' and after.lower() != 'l') or (
+                before.lower() != 'l' and after.lower() != 'l' and int(before) > int(after)):
             next_year, next_month = Utils.get_next_month(year, month)
             after_date = datetime.date(next_year, next_month, int(after))
         elif after.lower() == 'l':
@@ -113,5 +110,6 @@ class Utils:
             media_type = "image/jpeg"
         elif file_extension == "pdf":
             media_type = "application/pdf"
-        else:raise ValueError("the extension is not yet taken into account.")
+        else:
+            raise ValueError("the extension is not yet taken into account.")
         return media_type
