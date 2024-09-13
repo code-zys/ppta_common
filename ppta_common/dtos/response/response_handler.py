@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from typing import Any, Dict
 
-from response.rest_response import RestResponse
+from .rest_response import RestResponse
 from utils.enums import EnumStatusResponse
 
 app = FastAPI()

@@ -1,6 +1,6 @@
 
 from pydantic import BaseModel, Field
-from professional_info_dto import ProfessionalInfoDto
+from .professional_info_dto import ProfessionalInfoDto
 from utils.enums import EnumUserType
 
 class UserDto(BaseModel):
