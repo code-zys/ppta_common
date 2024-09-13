@@ -2,12 +2,13 @@ from setuptools import setup, find_packages
 
 setup(
     name='ppta_common',
-    version='0.1.5',
+    version='0.1.6',
     packages=find_packages(),
     install_requires=[
         'mongoengine',
         'tzlocal',
-        'pytz'
+        'pytz',
+        'boto3'
     ],
     description='Prepa Compta common module',
     author='Peter',

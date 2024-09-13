@@ -1,8 +1,5 @@
-import base64
-import calendar
-from typing import Any, Tuple
-import pytz
-import datetime, os
+from typing import Tuple
+import pytz, boto3, datetime, os, base64, calendar
 
 from tzlocal import get_localzone
 
@@ -113,3 +110,21 @@ class Utils:
         else:
             raise ValueError("the extension is not yet taken into account.")
         return media_type
+    
+    @staticmethod
+    def kms_encrypt(data: str, KEY_ID) -> str:
+        kms_client = boto3.client('kms')
+        kms_response = kms_client.encrypt(
+            KeyId=KEY_ID,
+            Plaintext=data.encode('utf-8')
+        )
+        return base64.b64encode(kms_response['CiphertextBlob']).decode('utf-8')
+
+    @staticmethod
+    def kms_decrypt(data: str) -> str:
+        ciphertext_blob = base64.b64decode(data)
+        kms_client = boto3.client('kms')
+        response = kms_client.decrypt(
+            CiphertextBlob=ciphertext_blob
+        )
+        return response['Plaintext'].decode('utf-8')
