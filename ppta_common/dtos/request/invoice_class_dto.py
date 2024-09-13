@@ -1,7 +1,7 @@
 from typing import Optional
 from pydantic import BaseModel, validator
 
-class InvoiceDto(BaseModel):
+class InvoiceClassDto(BaseModel):
     supplier: str
     name: str
     description: Optional[str] = ""
