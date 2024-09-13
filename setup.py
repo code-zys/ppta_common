@@ -8,7 +8,10 @@ setup(
         'mongoengine',
         'tzlocal',
         'pytz',
-        'boto3'
+        'boto3',
+        'blinker',
+        'pydantic',
+        'python-jose'
     ],
     description='Prepa Compta common module',
     author='Peter',
