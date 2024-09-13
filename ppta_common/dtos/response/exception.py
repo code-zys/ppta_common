@@ -1,5 +1,5 @@
 
-from response.enum_response import EnumStatusCode
+from .enum_response import EnumStatusCode
 
 
 class GenericException(Exception):
