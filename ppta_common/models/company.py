@@ -1,8 +1,8 @@
 
 from mongoengine import StringField, EmbeddedDocumentField, BooleanField, IntField, ListField
-from address import Address
-from base_document import BaseDocument
-from timezone import TimeZone
+from .address import Address
+from .base_document import BaseDocument
+from .timezone import TimeZone
 from utils.enums import EnumUserType
 from utils.utils import Utils
 from datetime import datetime

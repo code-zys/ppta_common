@@ -1,4 +1,4 @@
-from mail_connection import MailConnection
+from .mail_connection import MailConnection
 from mongoengine import StringField, IntField, ReferenceField
 
 from .company import Company
