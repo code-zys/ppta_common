@@ -1,9 +1,9 @@
 from mongoengine import StringField, EmbeddedDocumentField, BooleanField, ReferenceField, IntField
 
 from base_document import BaseDocument
-from company import Company
-from professional_info import ProfessionalInfo
-from user_metadata import UserMetadata
+from .company import Company
+from .professional_info import ProfessionalInfo
+from .user_metadata import UserMetadata
 from .user import User
 from utils.enums import EnumRole, EnumUserType
 

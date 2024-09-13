@@ -1,8 +1,8 @@
 from mongoengine import EmbeddedDocumentField, StringField, Document, BooleanField
 
-from timezone import TimeZone
+from .timezone import TimeZone
 from utils.enums import EnumUserType
-from professional_info import ProfessionalInfo
+from .professional_info import ProfessionalInfo
 
 class User(Document):
     firstname = StringField(required=False, default="")

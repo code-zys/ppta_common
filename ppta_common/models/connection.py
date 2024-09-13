@@ -1,7 +1,7 @@
 from mail_connection import MailConnection
 from mongoengine import StringField, IntField, ReferenceField
 
-from company import Company
+from .company import Company
 from utils.enums import EnumSecurityType
 
 class Connection(MailConnection):

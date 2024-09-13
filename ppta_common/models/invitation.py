@@ -1,8 +1,8 @@
 from mongoengine import StringField, ReferenceField, ListField
 
-from base_document import BaseDocument
-from company import Company
-from shared_document import SharedDocument
+from .base_document import BaseDocument
+from .company import Company
+from .shared_document import SharedDocument
 from utils.enums import EnumOriginInvitation, EnumSatusInvitation
 from .user import User
 

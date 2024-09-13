@@ -1,7 +1,7 @@
 from datetime import datetime
 from mongoengine import Document, BooleanField, EmbeddedDocumentField, IntField, signals
 
-from models.user_metadata import UserMetadata
+from .user_metadata import UserMetadata
 from utils.utils import Utils
 
 

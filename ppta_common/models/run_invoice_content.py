@@ -1,6 +1,6 @@
 from mongoengine import StringField, ListField, IntField, DateTimeField, ReferenceField, EnumField
 
-from base_document import BaseDocument
+from .base_document import BaseDocument
 from utils.enums import FrequencyEnum
 
 class RunInvoiceContent(BaseDocument):

@@ -1,7 +1,7 @@
 from mongoengine import Document, EmbeddedDocument, EnumField, StringField, FloatField, IntField, BooleanField, ReferenceField, ListField, EmbeddedDocumentField
 from enum import Enum
-from company import Company
-from user_metadata import UserMetadata
+from .company import Company
+from .user_metadata import UserMetadata
 
 class EnumBilling(Enum):
     MONTHLY = "monthly"

@@ -1,7 +1,7 @@
 from typing import Generic, TypeVar, Optional, Union
 
-from response.enum_response import EnumStatusResponse, EnumStatusCode
-from response.exception import GenericException
+from .enum_response import EnumStatusResponse, EnumStatusCode
+from .exception import GenericException
 
 T = TypeVar('T')
 

@@ -1,7 +1,7 @@
 from mongoengine import  IntField, ReferenceField, BooleanField
 from .user import User
-from company import Company
-from base_document import BaseDocument
+from .company import Company
+from .base_document import BaseDocument
 
 class SharedDocument(BaseDocument):
     user = ReferenceField(User)

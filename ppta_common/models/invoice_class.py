@@ -1,9 +1,9 @@
 from mongoengine import StringField, ListField, EmbeddedDocumentField, EnumField, IntField, BooleanField, ObjectIdField
-from base_document import BaseDocument
-from collect_rule import CollectRule
-from delivery_rule import DeliveryRule
+from .base_document import BaseDocument
+from .collect_rule import CollectRule
+from .delivery_rule import DeliveryRule
 from utils.enums import EnumRole, InvoiceClassType
-from user_metadata import UserMetadata
+from .user_metadata import UserMetadata
 
 class InvoiceClass(BaseDocument):
     supplier = StringField()
