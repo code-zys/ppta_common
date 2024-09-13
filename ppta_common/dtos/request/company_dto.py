@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from typing import Any, Dict, Optional
-from request.address_dto import AddressDto
+from address_dto import AddressDto
 from timezone_dto import TimezoneDto
 from utils.enums import EnumUserType
 

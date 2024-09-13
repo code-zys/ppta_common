@@ -1,7 +1,7 @@
 from typing import Any, Dict
 from pydantic import BaseModel
 
-from request.professional_info_dto import ProfessionalInfoDto
+from professional_info_dto import ProfessionalInfoDto
 from utils.enums import EnumUserType
 
 class MemberDto(BaseModel):
