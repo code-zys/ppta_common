@@ -1,6 +1,6 @@
 from mongoengine import StringField, EmbeddedDocument, EnumField
 
-from utils.enums import DeliveryRuleModeEnum
+from ..utils.enums import DeliveryRuleModeEnum
 
 class RunDeliveryRule(EmbeddedDocument):
     """

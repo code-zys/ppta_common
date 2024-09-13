@@ -2,7 +2,7 @@ from datetime import datetime
 from mongoengine import Document, BooleanField, EmbeddedDocumentField, IntField, signals
 
 from .user_metadata import UserMetadata
-from utils.utils import Utils
+from ..utils.utils import Utils
 
 
 class BaseDocument(Document):

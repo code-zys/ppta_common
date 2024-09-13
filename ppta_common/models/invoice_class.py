@@ -2,7 +2,7 @@ from mongoengine import StringField, ListField, EmbeddedDocumentField, EnumField
 from .base_document import BaseDocument
 from .collect_rule import CollectRule
 from .delivery_rule import DeliveryRule
-from utils.enums import EnumRole, InvoiceClassType
+from ..utils.enums import EnumRole, InvoiceClassType
 from .user_metadata import UserMetadata
 
 class InvoiceClass(BaseDocument):

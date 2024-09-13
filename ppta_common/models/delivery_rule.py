@@ -1,5 +1,5 @@
 from mongoengine import StringField, BooleanField, EnumField, EmbeddedDocument, DateTimeField
-from utils.enums import DeliveryRuleModeEnum
+from ..utils.enums import DeliveryRuleModeEnum
 from datetime import datetime
 
 class DeliveryRule(EmbeddedDocument):

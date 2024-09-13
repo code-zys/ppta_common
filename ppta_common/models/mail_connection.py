@@ -1,7 +1,7 @@
 from mongoengine import StringField, IntField
 
-from base_document import BaseDocument
-from utils.enums import EnumConnectionStatus
+from .base_document import BaseDocument
+from ..utils.enums import EnumConnectionStatus
 
 class MailConnection(BaseDocument):
     type = StringField(required=True)

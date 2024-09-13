@@ -2,7 +2,7 @@ from mongoengine import StringField, ListField, BooleanField, \
     IntField, ReferenceField, EmbeddedDocumentField, EnumField
 
 from .base_document import BaseDocument
-from utils.enums import FrequencyEnum, InvoiceClassType
+from ..utils.enums import FrequencyEnum, InvoiceClassType
 from .run_collect_rule import RunCollectRule
 from .run_invoice_content import RunInvoiceContent
 from .run_delivery_rule import RunDeliveryRule

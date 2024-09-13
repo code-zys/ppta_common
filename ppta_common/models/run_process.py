@@ -2,7 +2,7 @@ from mongoengine import StringField, ListField, BooleanField, \
     DateField, IntField, ReferenceField, EnumField
 
 from .base_document import BaseDocument
-from utils.enums import FrequencyEnum, ExecutionStatusEnum
+from ..utils.enums import FrequencyEnum, ExecutionStatusEnum
 from datetime import datetime
 
 from .run_invoice_class import RunInvoiceClass

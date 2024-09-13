@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from typing import Any, Dict, Optional
 from .address_dto import AddressDto
 from .timezone_dto import TimezoneDto
-from utils.enums import EnumUserType
+from ...utils.enums import EnumUserType
 
 class CompanyDto(BaseModel):
     siret: str

@@ -2,7 +2,7 @@ from mongoengine import StringField, ListField, BooleanField, \
     DateField, IntField
 
 from .base_document import BaseDocument
-from utils.enums import FrequencyEnum
+from ..utils.enums import FrequencyEnum
 
 class ProcessRule(BaseDocument):
     """

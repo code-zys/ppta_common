@@ -2,7 +2,7 @@ from typing import Optional, TypeVar, Generic, Dict, Any, ClassVar, List
 
 from pydantic import BaseModel
 
-from utils.enums import EnumStatusResponse
+from ...utils.enums import EnumStatusResponse
 
 DataT = TypeVar("DataT")
 

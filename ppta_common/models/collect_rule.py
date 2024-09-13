@@ -1,5 +1,5 @@
 from mongoengine import StringField, BooleanField, EnumField, EmbeddedDocument, IntField
-from utils.enums import ExportType, EnumConnectionStatus
+from ..utils.enums import ExportType, EnumConnectionStatus
 
 class CollectRule(EmbeddedDocument):
     id = StringField()

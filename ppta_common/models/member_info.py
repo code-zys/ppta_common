@@ -1,4 +1,4 @@
-from utils.enums import EnumRole
+from ..utils.enums import EnumRole
 
 class MemberInfo:
     memberId: str

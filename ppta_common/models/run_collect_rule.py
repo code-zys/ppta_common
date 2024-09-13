@@ -1,6 +1,6 @@
 from mongoengine import StringField, ListField, BooleanField, \
     EmbeddedDocument, DateTimeField, EnumField
-from utils.enums import FrequencyEnum, ExportType
+from ..utils.enums import FrequencyEnum, ExportType
 
 
 class RunCollectRule(EmbeddedDocument):
