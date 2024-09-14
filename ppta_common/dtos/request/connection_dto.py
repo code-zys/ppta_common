@@ -3,6 +3,7 @@ from pydantic import BaseModel
 
 from utils.enums import EnumSecurityType
 
+
 class ConnectionDto(BaseModel):
     title: Optional[str] = ""
     host: Optional[str] = ""
