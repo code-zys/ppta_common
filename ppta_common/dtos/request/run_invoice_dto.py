@@ -1,0 +1,26 @@
+from typing import Optional, List
+
+from .extended_base_model import ExtendedBaseModel
+from .run_collect_rule_dto import RunCollectRuleDto
+from .run_delivery_rule_dto import RunDeliveryRuleDto
+from .invoice_class_type import InvoiceClassType
+
+class RunInvoiceDto(ExtendedBaseModel):
+    id: Optional[str] = None
+    user_id: Optional[str] = None
+    name: Optional[str] = None
+    supplier: Optional[str] = None
+    code: Optional[str] = None
+    type: Optional[InvoiceClassType] = None
+    invoice_class_id: Optional[str] = None
+    # run_process: Optional[RunProcessDto]= None
+    run_collect_rule: Optional[List[RunCollectRuleDto]] = []
+    # run_invoice_content: Optional[List[RunInvoiceContentDto]] = []
+    run_delivery_rule: Optional[List[RunDeliveryRuleDto]] = []
+
+    model_config = {
+        "populate_by_name": True,
+        "validate_assignment": True,
+        "protected_namespaces": (),
+        "from_attributes": True  # mandatory
+    }
