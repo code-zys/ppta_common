@@ -3,7 +3,7 @@ from typing import Optional, List
 from .extended_base_model import ExtendedBaseModel
 from .run_collect_rule_dto import RunCollectRuleDto
 from .run_delivery_rule_dto import RunDeliveryRuleDto
-from .invoice_class_type import InvoiceClassType
+from ...utils.enums import InvoiceClassType
 
 class RunInvoiceDto(ExtendedBaseModel):
     id: Optional[str] = None
