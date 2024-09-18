@@ -1,9 +1,10 @@
-from mongoengine import StringField, ListField, EmbeddedDocumentField, EnumField, IntField, BooleanField, ObjectIdField
+from mongoengine import StringField, ListField, EmbeddedDocumentField, EnumField, IntField, BooleanField, ReferenceField
 from .base_document import BaseDocument
 from .collect_rule import CollectRule
 from .delivery_rule import DeliveryRule
 from ..utils.enums import EnumRole, InvoiceClassType
 from .user_metadata import UserMetadata
+from .company import Company
 
 class InvoiceClass(BaseDocument):
     supplier = StringField()
@@ -23,7 +24,7 @@ class InvoiceClass(BaseDocument):
     
     collect_rules = ListField(EmbeddedDocumentField(CollectRule))
     delivery_rules = ListField(EmbeddedDocumentField(DeliveryRule))
-    company_id = ObjectIdField(required=True)
+    company =  ReferenceField(Company, required=True)
     only_visible_by = ListField(StringField(choices=[e.value for e in EnumRole]), default = [])
     can_upload = ListField(StringField(choices=[e.value for e in EnumRole]), default = [])
 
