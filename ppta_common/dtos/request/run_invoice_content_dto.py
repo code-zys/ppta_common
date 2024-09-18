@@ -17,6 +17,8 @@ class RunInvoiceContentDto(ExtendedBaseModel):
     month: Optional[int] = 0
     year: Optional[int] = 0
     subject: Optional[str] = None
+    validated: Optional[bool] = False
+    date_validated: Optional[int] = None
     __properties: ClassVar[List[str]] = ["id", "run_invoice_id", "invoice_received_date", "name"]
 
     model_config = {

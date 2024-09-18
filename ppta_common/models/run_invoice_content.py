@@ -1,4 +1,4 @@
-from mongoengine import StringField, ListField, IntField, DateTimeField, ReferenceField, EnumField
+from mongoengine import StringField, ListField, IntField, DateTimeField, ReferenceField, EnumField, DictField, BooleanField
 
 from .base_document import BaseDocument
 from ..utils.enums import FrequencyEnum
@@ -20,8 +20,10 @@ class RunInvoiceContent(BaseDocument):
     year = IntField()
     subject = StringField()
     company_id = StringField()
-    sync_history = ListField(IntField())
+    synchro_history = ListField(DictField())
     proprietor = ReferenceField("Member")
+    validated = BooleanField(default=False)
+    date_validated = IntField(default=None)
 
     def __str__(self):
         return f"RunInvoiceContent<file_path = {self.file_path}, run_invoice_id = {self.run_invoice_id}, invoice_received_date = {self.invoice_received_date}, subject = {self.subject}>"
