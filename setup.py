@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='ppta_common',
-    version='0.1.8',
+    version='0.1.9',
     packages=find_packages(),
     install_requires=[
         'mongoengine',
@@ -11,7 +11,8 @@ setup(
         'boto3',
         'blinker',
         'pydantic',
-        'python-jose'
+        'python-jose',
+        'imap_tools'
     ],
     description='Prepa Compta common module',
     author='Peter',

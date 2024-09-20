@@ -21,7 +21,7 @@ class RunInvoiceContent(BaseDocument):
     subject = StringField()
     company_id = StringField()
     synchro_history = ListField(DictField())
-    proprietor = ReferenceField("Member")
+    proprietor = ReferenceField("Member", default=None)
     validated = BooleanField(default=False)
     date_validated = IntField(default=None)
 
