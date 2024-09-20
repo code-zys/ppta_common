@@ -6,7 +6,7 @@ class DeliveryRule(EmbeddedDocument):
     id = StringField()
     title = StringField()
     receiver = StringField()
-    mode = EnumField(DeliveryRuleModeEnum)
+    mode = StringField(choices=[e.value for e in DeliveryRuleModeEnum])
     receiver_mail = StringField()
     api = StringField()
     validate_before = BooleanField()
