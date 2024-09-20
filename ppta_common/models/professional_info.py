@@ -8,4 +8,4 @@ class ProfessionalInfo(EmbeddedDocument):
     start_date = DateTimeField(required=True)
     validation_date = DateTimeField(default=None)
     company_id = ObjectIdField(required=True)
-    approved = BooleanField(required=True)
+    approved = BooleanField(required=False)
