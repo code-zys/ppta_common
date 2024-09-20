@@ -1,4 +1,4 @@
-from mongoengine import StringField, BooleanField, EnumField, EmbeddedDocument, DateTimeField
+from mongoengine import StringField, BooleanField, EnumField, EmbeddedDocument, IntField
 from ..utils.enums import DeliveryRuleModeEnum
 from datetime import datetime
 
@@ -11,6 +11,6 @@ class DeliveryRule(EmbeddedDocument):
     api = StringField()
     validate_before = BooleanField()
     invoice_id = StringField()
-    created_at = DateTimeField(default=datetime.now)
-    updated_at = DateTimeField(default=None)
+    created_at = IntField(default=datetime.now)
+    updated_at = IntField(default=None)
    
