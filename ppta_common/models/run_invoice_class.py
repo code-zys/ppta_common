@@ -2,7 +2,7 @@ from mongoengine import StringField, ListField, BooleanField, \
     IntField, ReferenceField, EmbeddedDocumentField, EnumField
 
 from .base_document import BaseDocument
-from ..utils.enums import FrequencyEnum, InvoiceClassType
+from ..utils.enums import EnumRole, FrequencyEnum, InvoiceClassType
 from .run_collect_rule import RunCollectRule
 from .run_invoice_content import RunInvoiceContent
 from .run_delivery_rule import RunDeliveryRule
@@ -26,7 +26,9 @@ class RunInvoiceClass(BaseDocument):
     run_collect_rule = ListField(EmbeddedDocumentField(RunCollectRule))
     run_invoice_content = ListField(ReferenceField(RunInvoiceContent))
     run_delivery_rule = ListField(EmbeddedDocumentField(RunDeliveryRule))
-
+    only_visible_by = ListField(StringField(choices=[e.value for e in EnumRole]), default = [])
+    can_upload = ListField(StringField(choices=[e.value for e in EnumRole]), default = [])
+    
     meta = {'collection': 'run_invoice_class',
             'indexes': [
                 'company_id', 'deleted'  # Index on the company_id field
