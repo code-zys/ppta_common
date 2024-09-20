@@ -14,7 +14,7 @@ class User(Document):
     is_contractor = BooleanField(required=True, default=False)
     timeZone = EmbeddedDocumentField(TimeZone, default = None)
     professional_info = EmbeddedDocumentField(ProfessionalInfo, default=None)
-    user_type = StringField(choices=[e.value for e in EnumUserType], required=True)
+    user_type = StringField(choices=[e.value for e in EnumUserType], required=False)
 
     meta = {
         'collection': 'users',
