@@ -7,5 +7,5 @@ class ProfessionalInfo(EmbeddedDocument):
     professional_email = StringField(required=True)
     start_date = DateTimeField(required=True)
     validation_date = DateTimeField(default=None)
-    company_id = ObjectIdField(required=True)
+    company_id = ObjectIdField(required=False)
     approved = BooleanField(required=False)
