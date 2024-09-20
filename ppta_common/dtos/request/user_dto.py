@@ -7,6 +7,7 @@ class UserDto(BaseModel):
     professional_info: ProfessionalInfoDto
     user_type:EnumUserType
     company_id: str
+    user_type: str
 
 class UserDtoMetadata(BaseModel):
     id: str = Field(..., alias='_id')
