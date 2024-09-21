@@ -19,8 +19,8 @@ class RunInvoiceDto(ExtendedBaseModel):
     run_delivery_rule: Optional[List[RunDeliveryRuleDto]] = []
     validated: Optional[bool] = False
     date_validated: Optional[int] = None
-    only_visible_by: Optional[str] = []
-    can_upload: Optional[str] = []
+    only_visible_by: Optional[list[str]] = []
+    can_upload: Optional[list[str]] = []
 
     model_config = {
         "populate_by_name": True,
