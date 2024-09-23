@@ -3,7 +3,7 @@ from mongoengine import StringField, IntField, ReferenceField
 
 from .company import Company
 from ..utils.enums import EnumSecurityType
-
+from ..enums.connection_category_enum import ConnectionCategoryEnum
 class Connection(MailConnection):
     host = StringField(required=False)
     port = IntField(required=False)
@@ -18,7 +18,7 @@ class Connection(MailConnection):
     access_token = StringField(required=False)
     refresh_token = StringField(required=False)
     company =  ReferenceField(Company, default=None)
-    category = StringField(required=False)
+    category = StringField(choices=[e.value for e in ConnectionCategoryEnum], default=None)
     name_folder = StringField(required=False)
 
     def __repr__(self):
