@@ -22,7 +22,7 @@ class Connection(MailConnection):
     name_folder = StringField(required=False)
 
     def __repr__(self):
-        return (f"Connection(title={self.title!r}, provider={self.provider!r}, "
+        return (f"Connection(title={self.title!r}, provider={self.provider!r}, category={self.category},"
                 f"email={self.email!r}, host={self.host!r}, port={self.port!r}, "
                 f"user_name={'***' if self.user_name else None}, "
                 f"last_connection_status={self.last_connection_status!r}, "
