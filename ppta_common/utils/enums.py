@@ -39,7 +39,7 @@ class ExportType(str, Enum):
   ATTACHMENT = "ATTACHMENT"
   BODY = "BODY"
 
-class DeliveryRuleModeEnum(Enum):
+class DeliveryRuleModeEnum(str, Enum):
     """
         Enum values
     """
