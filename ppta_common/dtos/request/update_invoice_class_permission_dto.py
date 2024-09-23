@@ -1,10 +1,8 @@
 from pydantic import BaseModel
-from typing import Any, Dict, Optional
-from .address_dto import AddressDto
-from .timezone_dto import TimezoneDto
+from typing import Any, Dict
 from ...utils.enums import FrequencyEnum, EnumRole
 
-class UpdateInvoiceClassPermission(BaseModel):
+class UpdateInvoiceClassPermissionDto(BaseModel):
     invoice_class_id: str
     year: str
     month: str
