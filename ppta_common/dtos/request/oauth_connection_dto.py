@@ -6,6 +6,7 @@ class OauthConnectionDto(BaseModel):
     title: Optional[str] = ""
     authorization_code: str
     category: ConnectionCategoryEnum
+    name_folder: Optional[str] = None
     # tsl is bool
 
 
