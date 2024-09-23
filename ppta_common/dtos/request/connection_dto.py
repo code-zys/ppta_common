@@ -16,7 +16,7 @@ class ConnectionDto(BaseModel):
     email: Optional[str] = ""
     access_token: Optional[str] = ""
     refresh_token: Optional[str] = ""
-    category: ConnectionCategoryEnum
+    category: str
 
 
     def __str__(self):
