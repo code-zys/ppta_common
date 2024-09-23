@@ -1,9 +1,11 @@
 from typing import Any, Dict, Optional
 from pydantic import BaseModel
+from ...enums.connection_category_enum import ConnectionCategoryEnum
 
 class OauthConnectionDto(BaseModel):
     title: Optional[str] = ""
     authorization_code: str
+    category: ConnectionCategoryEnum
     # tsl is bool
 
 

@@ -2,7 +2,7 @@ from typing import Any, Dict, Optional
 from pydantic import BaseModel
 
 from utils.enums import EnumSecurityType
-
+from ...enums.connection_category_enum import ConnectionCategoryEnum
 
 class ConnectionDto(BaseModel):
     title: Optional[str] = ""
@@ -16,6 +16,7 @@ class ConnectionDto(BaseModel):
     email: Optional[str] = ""
     access_token: Optional[str] = ""
     refresh_token: Optional[str] = ""
+    category: ConnectionCategoryEnum
 
 
     def __str__(self):
