@@ -21,9 +21,9 @@ class RunInvoiceDto(ExtendedBaseModel):
     date_validated: Optional[int] = None
     only_visible_by: Optional[list[str]] = []
     can_upload: Optional[list[str]] = []
-    year = Optional[int] = None
-    month = Optional[int] = None
-    frequency = Optional[str] = None
+    year: Optional[int] = None
+    month: Optional[int] = None
+    frequency: Optional[str] = None
 
     model_config = {
         "populate_by_name": True,
