@@ -10,7 +10,7 @@ class RunDeliveryRuleDto(ExtendedBaseModel):
     """
     id: Optional[str] = None
     receiver: Optional[str] = None
-    mode: Optional[DeliveryRuleModeEnum] = None
+    mode: Optional[str] = None
     receiver_mail: Optional[str] = None
     validate_before: Optional[bool] = None
 
