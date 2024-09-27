@@ -16,3 +16,4 @@ class CollectRuleResponse(BaseModel):
     invoice_id: str
     last_connection_date: Optional[int]
     last_connection_status: Optional[str]
+    created_at: Optional[int]
