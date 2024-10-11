@@ -2,6 +2,7 @@ from typing import Optional
 from pydantic import BaseModel, validator
 
 class InvoiceClassDto(BaseModel):
+    id: Optional[str] = None
     supplier: str
     name: str
     description: Optional[str] = ""
