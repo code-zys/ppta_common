@@ -19,6 +19,8 @@ class EnumStatusResponse(Enum):
 class EnumUserType(str, Enum):
     CERTIFIED_ACCOUNTANT = 'CERTIFIED_ACCOUNTANT'
     CONTRACTOR = 'CONTRACTOR'
+    FREELANCE = 'FREELANCE'
+    EMPLOYEE = 'EMPLOYEE'
 
 class EnumSatusInvitation(str, Enum):
     PENDING = 'PENDING'
