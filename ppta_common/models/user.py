@@ -12,6 +12,8 @@ class User(Document):
     email = StringField(required=False, default="")
     is_certified_accountant = BooleanField(required=True, default=False)
     is_contractor = BooleanField(required=True, default=False)
+    is_employee = BooleanField(required=True, default=False)
+    is_freelance = BooleanField(required=True, default=False)
     timeZone = EmbeddedDocumentField(TimeZone, default = None)
     professional_info = EmbeddedDocumentField(ProfessionalInfo, default=None)
     user_type = StringField(choices=[e.value for e in EnumUserType], required=False)
