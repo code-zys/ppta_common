@@ -10,6 +10,7 @@ class Invitation(BaseDocument):
     user = ReferenceField(User, required=False)
     user_email = StringField(required=False)
     company =  ReferenceField(Company)
+    company_email = StringField(required=False)
     status = StringField(choices=[e.value for e in EnumSatusInvitation], required=True)
     origin = StringField(choices=[e.value for e in EnumOriginInvitation], required=True)
     shared_documents = ListField(ReferenceField(SharedDocument))
