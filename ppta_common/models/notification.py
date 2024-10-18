@@ -38,7 +38,7 @@ class Notification(BaseDocument):
     notification_type = StringField(choices=[e.value for e in NotificationType], required=True)
     data = DictField()
     status = StringField(choices=[e.value for e in NotificationStatus], required=True, default=NotificationStatus.UNREAD.value)
-    from_user = ReferenceField(User, required=True)
+    from_user = ReferenceField(User, required=False)
     to_user = ReferenceField(User, required=False)
     to_company = ReferenceField(Company, required=False)
     recipient_roles = ListField(StringField(choices=[e.value for e in EnumRole], required=True), default=[])
