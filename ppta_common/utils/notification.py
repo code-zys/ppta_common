@@ -6,7 +6,7 @@ class NotificationService:
     @staticmethod
     def send(url: str, payload: Notification):
         result = NotificationService.create(payload)
-        requests.post(str, data=result)
+        requests.post(url, data=result)
         return result
 
 
