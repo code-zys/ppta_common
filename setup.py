@@ -12,7 +12,7 @@ setup(
         'blinker',
         'pydantic',
         'python-jose',
-        'imap_tools'
+        'imap_tools',
         'requests'
     ],
     description='Prepa Compta common module',
