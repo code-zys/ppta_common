@@ -7,8 +7,18 @@ from ..dtos.response.exception import GenericException
 from imap_tools import MailMessage
 from email.message import EmailMessage
 from botocore.exceptions import ClientError
+from ..dtos.request.user_dto import UserDtoMetadata
+from ..models.user_metadata import UserMetadata
 
 class Utils:
+
+    @staticmethod
+    def construct_user_meta_data(current_user: UserDtoMetadata) -> UserMetadata:
+        """
+        construit et retourne un objet user meta data
+        """
+        return UserMetadata(id=current_user.id, fullname=current_user.firstname +" "+ current_user.lastname, user_id=current_user.userId, email=current_user.email)
+    
 
     def get_date_in_gmt() -> int:
         """
