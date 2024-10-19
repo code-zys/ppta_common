@@ -9,11 +9,12 @@ from email.message import EmailMessage
 from botocore.exceptions import ClientError
 from ..dtos.request.user_dto import UserDtoMetadata
 from ..models.user_metadata import UserMetadata
+from ..models.user import User
 
 class Utils:
 
     @staticmethod
-    def construct_user_meta_data(current_user: UserDtoMetadata) -> UserMetadata:
+    def construct_user_meta_data(current_user: User) -> UserMetadata:
         """
         construit et retourne un objet user meta data
         """
