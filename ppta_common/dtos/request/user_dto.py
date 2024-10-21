@@ -15,6 +15,6 @@ class UserDtoMetadata(BaseModel):
     email: str
     firstname: str
     lastname: str
-    enabled: bool
+    enabled: Optional[bool]
     disabledByAdmin: Optional[bool]
     userId: Optional[str]
