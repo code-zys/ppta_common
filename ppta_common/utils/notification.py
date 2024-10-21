@@ -22,16 +22,16 @@ class NotificationService:
                 siret=notification.to_company.siret,
                 name=notification.to_company.name,
                 activity=notification.to_company.activity,
-                type=notification.to_company.type
+                # type=notification.to_company.type
             )
 
         notification_dto = NotificationDto(
             id=str(notification.id),
             room=notification.room,
             message=notification.message,
-            notification_type=NotificationType(notification.notification_type),
+            notification_type=notification.notification_type,
             data=notification.data,
-            status=NotificationStatus(notification.status),
+            status=notification.status,
             from_user= Utils.construct_user_meta_data_dto(notification.from_user) if notification.from_user else None,
             to_user=Utils.construct_user_meta_data_dto(notification.to_user) if notification.to_user else None,
             to_company=company_dto,
