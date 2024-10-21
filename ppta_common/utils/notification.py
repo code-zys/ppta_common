@@ -1,11 +1,11 @@
 import requests
 
-from facture.src.enums.role import EnumRole
 from ..models.notification import Notification, NotificationStatus, NotificationType
 from ..dtos.request.notification_dto import NotificationDto
 from ..dtos.request.company_dto import CompanyDto
 from .utils import Utils
 import json
+from ..enums.role_enum import EnumRole
 
 class NotificationService:
 
