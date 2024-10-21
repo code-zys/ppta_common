@@ -22,23 +22,23 @@ class NotificationService:
                 siret=notification.to_company.siret,
                 name=notification.to_company.name,
                 activity=notification.to_company.activity,
-                type=str(notification.to_company.type.value)
+                type=notification.to_company.type
             )
 
         notification_dto = NotificationDto(
             id=str(notification.id),
             room=notification.room,
             message=notification.message,
-            notification_type=str(notification.notification_type.value),
+            notification_type=notification.notification_type,
             data=notification.data,
-            status=str(notification.status.value),
+            status=notification.status,
             from_user= Utils.construct_user_meta_data_dto(notification.from_user) if notification.from_user else None,
             to_user=Utils.construct_user_meta_data_dto(notification.to_user) if notification.to_user else None,
             to_company=company_dto,
             recipient_roles=[EnumRole(role) for role in notification.recipient_roles]
         )
         
-        notification_data:str = notification_dto.model_dump()
+        notification_data:str = notification_dto.model_dump(use_enum_values=True)
 
         print('Notificaiton data:: ', notification_data)
         post_result = requests.post(url, data=notification_data)
