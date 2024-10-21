@@ -22,7 +22,7 @@ class Utils:
     
     @staticmethod
     def construct_user_meta_data_dto(current_user: User) -> UserDtoMetadata:
-        return UserDtoMetadata(id=current_user.id, email=current_user.email, firstname=current_user.firstname, lastname=current_user.lastname, enabled=current_user.enabled, disabledByAdmin=current_user.disabledByAdmin, userId=current_user.userId)
+        return UserDtoMetadata(id=str(current_user.id), email=current_user.email, firstname=current_user.firstname, lastname=current_user.lastname, enabled=current_user.enabled, disabledByAdmin=current_user.disabledByAdmin, userId=current_user.userId)
 
     def get_date_in_gmt() -> int:
         """
