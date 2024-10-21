@@ -38,7 +38,7 @@ class NotificationService:
             recipient_roles=[EnumRole(role) for role in notification.recipient_roles]
         )
         
-        notification_data:str = json.dumps(notification_dto)
+        notification_data:str = notification_dto.model_dump()
 
         print('Notificaiton data:: ', notification_data)
         post_result = requests.post(url, data=notification_data)
