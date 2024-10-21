@@ -22,7 +22,7 @@ class NotificationService:
                 siret=notification.to_company.siret,
                 name=notification.to_company.name,
                 activity=notification.to_company.activity,
-                # type=notification.to_company.type
+                type=str(notification.to_company.type)
             )
 
         notification_dto = NotificationDto(
