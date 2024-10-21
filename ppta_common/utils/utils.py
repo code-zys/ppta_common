@@ -27,9 +27,9 @@ class Utils:
             'email': current_user.email, 
             'firstname': current_user.firstname, 
             'lastname': current_user.lastname, 
-            'enabled': current_user.enabled, 
+            'enabled': None, 
             'disabledByAdmin': None, 
-            'userId': None,
+            'userId': current_user.userId,
         }
         return UserDtoMetadata(**data)
 
