@@ -32,8 +32,8 @@ class NotificationService:
             notification_type=NotificationType(notification.notification_type),
             data=notification.data,
             status=NotificationStatus(notification.status),
-            from_user= Utils.construct_user_meta_data(notification.from_user) if notification.from_user else None,
-            to_user=Utils.construct_user_meta_data(notification.to_user) if notification.to_user else None,
+            from_user= Utils.construct_user_meta_data_dto(notification.from_user) if notification.from_user else None,
+            to_user=Utils.construct_user_meta_data_dto(notification.to_user) if notification.to_user else None,
             to_company=company_dto,
             recipient_roles=[EnumRole(role) for role in notification.recipient_roles]
         )

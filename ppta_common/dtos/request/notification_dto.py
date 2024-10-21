@@ -1,6 +1,4 @@
 from typing import Dict, Optional
-
-from ...models.user_metadata import UserMetadata
 from .extended_base_model import ExtendedBaseModel
 from ...models.notification import NotificationType, NotificationStatus
 from typing import Optional, List, Dict
@@ -15,7 +13,7 @@ class NotificationDto(ExtendedBaseModel):
     notification_type: NotificationType
     data: Optional[Dict] = {}
     status: NotificationStatus = NotificationStatus.UNREAD
-    from_user: Optional[UserMetadata] = None
-    to_user: Optional[UserMetadata] = None
+    from_user: Optional[UserDtoMetadata] = None
+    to_user: Optional[UserDtoMetadata] = None
     to_company: Optional[CompanyDto] = None
     recipient_roles: List[EnumRole] = []
