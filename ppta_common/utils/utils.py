@@ -28,8 +28,8 @@ class Utils:
             'firstname': current_user.firstname, 
             'lastname': current_user.lastname, 
             'enabled': current_user.enabled, 
-            'disabledByAdmin': current_user.disabledByAdmin, 
-            'userId': current_user.userId,
+            'disabledByAdmin': None, 
+            'userId': None,
         }
         return UserDtoMetadata(**data)
 

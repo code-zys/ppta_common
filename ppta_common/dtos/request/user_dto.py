@@ -1,4 +1,5 @@
 
+from typing import Optional
 from pydantic import BaseModel, Field
 from .professional_info_dto import ProfessionalInfoDto
 from ...utils.enums import EnumUserType
@@ -15,5 +16,5 @@ class UserDtoMetadata(BaseModel):
     firstname: str
     lastname: str
     enabled: bool
-    disabledByAdmin: bool
-    userId: str
+    disabledByAdmin: Optional[bool]
+    userId: Optional[str]

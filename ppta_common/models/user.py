@@ -17,8 +17,8 @@ class User(Document):
     timeZone = EmbeddedDocumentField(TimeZone, default = None)
     professional_info = EmbeddedDocumentField(ProfessionalInfo, default=None)
     user_type = StringField(choices=[e.value for e in EnumUserType], required=False)
-    enabled = BooleanField(required=False, default=False)
-    disabledByAdmin = BooleanField(required=False, default=False)
+    # enabled = BooleanField(required=False, default=False)
+    # disabledByAdmin = BooleanField(required=False, default=False)
     meta = {
         'collection': 'users',
         "strict": False
