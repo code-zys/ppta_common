@@ -1,5 +1,6 @@
 import datetime
-from mongoengine import  StringField, ReferenceField, ListField, IntField, DictField, EnumField
+from mongoengine import  StringField, ReferenceField, ListField, IntField, DictField, EnumField, EmbeddedDocumentField
+from .user_metadata import UserMetadata
 from .base_document import BaseDocument
 from .user import User
 from .company import Company
@@ -42,6 +43,8 @@ class Notification(BaseDocument):
     to_user = ReferenceField(User, required=False)
     to_company = ReferenceField(Company, required=False)
     recipient_roles = ListField(StringField(choices=[e.value for e in EnumRole], required=True), default=[])
+    read_at = IntField(default=None)
+    read_by = EmbeddedDocumentField(UserMetadata)
 
     def __str__(self):
         return f"Notification:{self.room}, {self.message}"
