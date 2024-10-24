@@ -10,7 +10,7 @@ setup(
         'pytz',
         'boto3',
         'blinker',
-        'pydantic==2.2.2',
+        'pydantic',
         'pydantic-settings',
         'python-jose',
         'imap_tools',
