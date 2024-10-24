@@ -1,11 +1,9 @@
 import requests
 
-from ..dtos.request.user_dto import UserDtoMetadata
 
-from ..models.notification import Notification, NotificationStatus, NotificationType
+from ..models.notification import Notification
 from ..dtos.request.notification_dto import NotificationDto
 from ..dtos.request.company_dto import CompanyDto
-import json
 from ..enums.role_enum import EnumRole
 from ..utils.utils import Utils
 class NotificationService:

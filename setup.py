@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='ppta_common',
-    version='0.1.65',
+    version='0.1.66',
     packages=find_packages(),
     install_requires=[
         'mongoengine',
@@ -11,6 +11,7 @@ setup(
         'boto3',
         'blinker',
         'pydantic',
+        'pydantic-settings',
         'python-jose',
         'imap_tools',
         'requests'
