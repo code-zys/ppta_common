@@ -1,9 +1,17 @@
 from .mail_connection import MailConnection
-from mongoengine import StringField, IntField, ReferenceField
+from mongoengine import StringField, IntField, ReferenceField, EmbeddedDocumentField, DateTimeField, BooleanField
 
 from .company import Company
 from ..utils.enums import EnumSecurityType
 from ..enums.connection_category_enum import ConnectionCategoryEnum
+class PrecomptaSherpaData:
+    token = StringField(required=True)
+    tokenType = StringField(required=True)
+    token_expiration_date = IntField(required=True)
+    sherpa_user_id=StringField(required=True)
+    enabled = BooleanField(required=False)
+
+
 class Connection(MailConnection):
     host = StringField(required=False)
     port = IntField(required=False)
@@ -20,6 +28,7 @@ class Connection(MailConnection):
     company =  ReferenceField(Company, default=None)
     category = StringField(choices=[e.value for e in ConnectionCategoryEnum], default=None)
     name_folder = StringField(required=False)
+    precompta_sherpa = EmbeddedDocumentField(PrecomptaSherpaData)
 
     def __repr__(self):
         return (f"Connection(title={self.title!r}, provider={self.provider!r}, category={self.category},"
