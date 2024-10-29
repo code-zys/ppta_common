@@ -2,11 +2,12 @@ from .mail_connection import MailConnection
 from mongoengine import StringField, IntField, ReferenceField, EmbeddedDocumentField, DateTimeField, BooleanField
 
 from .company import Company
+from ..enums.token_type_enum import TokenTypeEnum
 from ..utils.enums import EnumSecurityType
 from ..enums.connection_category_enum import ConnectionCategoryEnum
 class PrecomptaSherpaData:
     token = StringField(required=True)
-    tokenType = StringField(required=True)
+    tokenType = StringField(choices=[e.value for e in TokenTypeEnum], default=TokenTypeEnum.BEARER)
     token_expiration_date = IntField(required=True)
     sherpa_user_id=StringField(required=True)
     enabled = BooleanField(required=False)

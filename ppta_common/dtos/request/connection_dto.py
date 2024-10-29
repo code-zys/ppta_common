@@ -3,9 +3,12 @@ from pydantic import BaseModel
 
 from utils.enums import EnumSecurityType
 from ...enums.connection_category_enum import ConnectionCategoryEnum
+from ...enums.token_type_enum import TokenTypeEnum
+
+
 class PrecomptaSherpaDataDto:
     token: str
-    tokenType: str = "Bearer"
+    token_type: TokenTypeEnum = TokenTypeEnum.BEARER
     token_expiration_date: int = 0
     sherpa_user_id= Optional[str]= ""
 
