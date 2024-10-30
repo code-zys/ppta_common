@@ -10,7 +10,7 @@ class PrecomptaSherpaData(EmbeddedDocument):
     token_type = StringField(choices=[e.value for e in TokenTypeEnum], default=TokenTypeEnum.BEARER, required=False)
     token_expiration_date = IntField(required=False)
     client_id = StringField(required=False)
-    enabled = BooleanField(required=False)
+    enabled = BooleanField(required=False, default=True)
 
 
 class Connection(MailConnection):

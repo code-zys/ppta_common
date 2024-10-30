@@ -11,6 +11,7 @@ class PrecomptaSherpaDataDto(BaseModel):
     token_type: TokenTypeEnum = TokenTypeEnum.BEARER
     token_expiration_date: int = 0
     client_id: Optional[str]= ""
+    enabled: Optional[bool]= True
 
     def __str__(self):
         return self.__repr__()
