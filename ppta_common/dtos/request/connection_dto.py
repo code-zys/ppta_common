@@ -6,7 +6,7 @@ from ...enums.connection_category_enum import ConnectionCategoryEnum
 from ...enums.token_type_enum import TokenTypeEnum
 
 
-class PrecomptaSherpaDataDto:
+class PrecomptaSherpaDataDto(BaseModel):
     token: str
     token_type: TokenTypeEnum = TokenTypeEnum.BEARER
     token_expiration_date: int = 0
