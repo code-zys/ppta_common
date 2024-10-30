@@ -7,9 +7,9 @@ from ..utils.enums import EnumSecurityType
 from ..enums.connection_category_enum import ConnectionCategoryEnum
 class PrecomptaSherpaData(EmbeddedDocument):
     token = StringField(required=True)
-    tokenType = StringField(choices=[e.value for e in TokenTypeEnum], default=TokenTypeEnum.BEARER)
-    token_expiration_date = IntField(required=True)
-    sherpa_user_id=StringField(required=True)
+    token_type = StringField(choices=[e.value for e in TokenTypeEnum], default=TokenTypeEnum.BEARER, required=false)
+    token_expiration_date = IntField(required=False)
+    client_id = StringField(required=False)
     enabled = BooleanField(required=False)
 
 
