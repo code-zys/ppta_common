@@ -19,7 +19,6 @@ class Connection(MailConnection):
     user_name = StringField(required=False)
     password = StringField(required=False)
     security_type = StringField(choices=[e.value for e in EnumSecurityType], default=None)
-    password = StringField(required=False)
     title = StringField(required=False)
     provider = StringField(required=False)
     user_id = StringField(required=False)
@@ -29,7 +28,7 @@ class Connection(MailConnection):
     company =  ReferenceField(Company, default=None)
     category = StringField(choices=[e.value for e in ConnectionCategoryEnum], default=None)
     name_folder = StringField(required=False)
-    precompta_sherpa = EmbeddedDocumentField(PrecomptaSherpaData)
+    precompta_sherpa = EmbeddedDocumentField(PrecomptaSherpaData, required=False, default=None)
 
     def __repr__(self):
         return (f"Connection(title={self.title!r}, provider={self.provider!r}, category={self.category},"

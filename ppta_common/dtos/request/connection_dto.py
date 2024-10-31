@@ -47,7 +47,7 @@ class ConnectionDto(BaseModel):
     access_token: Optional[str] = ""
     refresh_token: Optional[str] = ""
     category: Optional[str] = ""
-    precompta_sherpa: Optional[PrecomptaSherpaDataDto]
+    precompta_sherpa: Optional[PrecomptaSherpaDataDto] = None
 
 
     def __str__(self):
