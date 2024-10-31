@@ -24,7 +24,6 @@ class RunInvoiceContent(BaseDocument):
     proprietor = ReferenceField("Member", default=None)
     validated = BooleanField(default=False)
     date_validated = IntField(default=None)
-    verified = BooleanField(default=False)
 
     def __str__(self):
         return f"RunInvoiceContent<file_path = {self.file_path}, run_invoice_id = {self.run_invoice_id}, invoice_received_date = {self.invoice_received_date}, subject = {self.subject}>"
