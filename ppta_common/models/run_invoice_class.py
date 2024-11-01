@@ -28,7 +28,9 @@ class RunInvoiceClass(BaseDocument):
     run_delivery_rule = ListField(EmbeddedDocumentField(RunDeliveryRule))
     only_visible_by = ListField(StringField(choices=[e.value for e in EnumRole]), default = [])
     can_upload = ListField(StringField(choices=[e.value for e in EnumRole]), default = [])
-    
+    validated = BooleanField(default=False)
+    date_validated = IntField(default=None)
+
     meta = {'collection': 'run_invoice_class',
             'indexes': [
                 'company_id', 'deleted'  # Index on the company_id field
