@@ -9,6 +9,7 @@ class SharedDocument(BaseDocument):
     month = IntField()
     year = IntField()
     read_only = BooleanField(default=True)
+    accepted = BooleanField(default=False)
 
     meta = {
             'collection': 'shared_document'        
