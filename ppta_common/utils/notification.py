@@ -40,7 +40,7 @@ class NotificationService:
         notification_data:str = notification_dto.model_dump_json()
 
         print('Notificaiton data:: ', notification_data)
-        post_result = requests.post(url, data=notification_data)
+        post_result = requests.post(url, data=notification_data, verify=False)
         print('Post result:: ', post_result)
         return notification_dto
 
