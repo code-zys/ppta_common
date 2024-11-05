@@ -1,7 +1,9 @@
+from bson import ObjectId
 from mongoengine import Document, EmbeddedDocument, EnumField, StringField, FloatField, IntField, BooleanField, ReferenceField, ListField, EmbeddedDocumentField
 from enum import Enum
 from .company import Company
 from .user_metadata import UserMetadata
+from datetime import datetime
 
 class EnumBilling(Enum):
     MONTHLY = "monthly"
@@ -44,4 +46,26 @@ class Subscription(Document):
     meta = {'collection': 'subscriptions',
             'strict': False
         }
+    
+    def to_dict(self):
+        data = self.to_mongo().to_dict()
+        def convert_object_id(value):
+            if isinstance(value, ObjectId):
+                return str(value)
+            elif isinstance(value, datetime):
+                return value.isoformat()
+            elif isinstance(value, dict):
+                return {k: convert_object_id(v) for k, v in value.items()}
+            elif isinstance(value, list):
+                return [convert_object_id(v) for v in value]
+            else:
+                return value
+
+        data = convert_object_id(data)
+
+        # Replace the _id field with id
+        if '_id' in data:
+            data['id'] = data.pop('_id')
+
+        return data
 
