@@ -26,7 +26,7 @@ class Connection(MailConnection):
     access_token = StringField(required=False)
     refresh_token = StringField(required=False)
     company =  ReferenceField(Company, default=None)
-    category = StringField(choices=[e.value for e in ConnectionCategoryEnum], default=None)
+    category = StringField(choices=[e.value for e in ConnectionCategoryEnum], required=False)
     name_folder = StringField(required=False)
     precompta_sherpa = EmbeddedDocumentField(PrecomptaSherpaData, required=False, default=None)
 
