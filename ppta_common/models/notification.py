@@ -25,6 +25,7 @@ class NotificationType(str, Enum):
     FILE_OWNER_CHANGED = 'FILE_OWNER_CHANGED'
     PAYMENT_SUCCESS = 'PAYMENT_SUCCESS'
     PAYMENT_FAILED = 'PAYMENT_FAILED'
+    SUBSCRIBE_TO_PLAN = 'SUBSCRIBE_TO_PLAN'
 
 class NotificationStatus(str, Enum):
     READ = 'READ'
