@@ -1,4 +1,4 @@
-from mongoengine import StringField, ReferenceField, ListField
+from mongoengine import StringField, ReferenceField, ListField, BooleanField
 
 from .base_document import BaseDocument
 from .company import Company
@@ -14,4 +14,5 @@ class Invitation(BaseDocument):
     status = StringField(choices=[e.value for e in EnumSatusInvitation], required=True)
     origin = StringField(choices=[e.value for e in EnumOriginInvitation], required=True)
     shared_documents = ListField(ReferenceField(SharedDocument))
+    can_manage_invitation = BooleanField(required=False,default=False)
    
