@@ -1,4 +1,5 @@
-from mongoengine import StringField, ReferenceField, ListField, BooleanField
+from mongoengine import StringField, ReferenceField, ListField, BooleanField, IntField, EmbeddedDocumentField
+from .user_metadata import UserMetadata
 
 from .base_document import BaseDocument
 from .company import Company
@@ -15,4 +16,5 @@ class Invitation(BaseDocument):
     origin = StringField(choices=[e.value for e in EnumOriginInvitation], required=True)
     shared_documents = ListField(ReferenceField(SharedDocument))
     can_manage_invitation = BooleanField(required=False,default=False)
-   
+    updated_can_manage_invitation_at = IntField(required=True)
+    update_can_manage_invitation_by = EmbeddedDocumentField(UserMetadata, default=None)
