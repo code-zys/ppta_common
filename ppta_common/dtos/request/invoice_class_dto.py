@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import List, Optional
 from pydantic import BaseModel, validator
 from ...enums.role_enum import EnumRole
 
@@ -7,8 +7,8 @@ class InvoiceClassDto(BaseModel):
     supplier: str
     name: str
     description: Optional[str] = ""
-    only_visible_by = Optional[list[EnumRole]] = []
-    can_upload = Optional[list[EnumRole]] = []
+    only_visible_by: Optional[List[EnumRole]] = []
+    can_upload = Optional[List[EnumRole]] = []
 
     
     @validator("supplier")
