@@ -8,7 +8,7 @@ class InvoiceClassDto(BaseModel):
     name: str
     description: Optional[str] = ""
     only_visible_by: List[EnumRole] = []
-    can_upload = List[EnumRole] = []
+    can_upload: List[EnumRole] = []
 
     
     @validator("supplier")
