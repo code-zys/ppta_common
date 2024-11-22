@@ -16,5 +16,5 @@ class Invitation(BaseDocument):
     origin = StringField(choices=[e.value for e in EnumOriginInvitation], required=True)
     shared_documents = ListField(ReferenceField(SharedDocument))
     can_manage_subscription = BooleanField(required=False,default=False)
-    updated_can_manage_subscription_at = IntField(required=True)
-    update_can_manage_subscription_by = EmbeddedDocumentField(UserMetadata, default=None)
+    updated_can_manage_subscription_at = IntField(required=False)
+    updated_can_manage_subscription_by = EmbeddedDocumentField(UserMetadata, default=None, required=False)
