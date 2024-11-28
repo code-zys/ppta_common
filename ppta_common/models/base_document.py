@@ -32,6 +32,7 @@ class BaseDocument(Document):
         if hasattr(document, 'created_at'):
             if not document.created_at:
                 document.created_at = Utils.convert_date_in_gmt_and_timstamp(datetime.now())
+                document.updated_at = document.created_at
             else:
                 document.updated_at = Utils.convert_date_in_gmt_and_timstamp(datetime.now())
 
