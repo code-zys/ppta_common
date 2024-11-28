@@ -32,3 +32,4 @@ class Company(BaseDocument):
 
     monthCountMember = IntField(required=True, default = 0)
     yearCountMember = IntField(required=True, default = 0)
+    logo = StringField(required=False)
