@@ -34,4 +34,4 @@ class Company(BaseDocument):
     yearCountMember = IntField(required=True, default = 0)
     logo = StringField(required=False)
     powens_access_token = StringField(required=False)
-    powen_user_id = StringField(required=False)
+    powen_user_id = IntField(required=False)
