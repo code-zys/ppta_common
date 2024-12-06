@@ -7,7 +7,7 @@ from mongoengine import (
     DictField
 )
 
-class Transaction(BaseDocument):
+class PowenTransaction(BaseDocument):
     account_id = StringField(required=True, default="")
     webid = StringField(required=True, default="")
     application_date = StringField(required=True, default="")
