@@ -12,6 +12,7 @@ from mongoengine import (
     ReferenceField
 )
 from .powens_connection import PowensConnection
+from .base_document import BaseDocument
 
 
 class PowenCurrency(EmbeddedDocument):
@@ -24,7 +25,7 @@ class PowenCurrency(EmbeddedDocument):
     datetime = DateTimeField(null=True)
     name = StringField(null=True)
 
-class PowenAccount(Document):
+class PowenAccount(BaseDocument):
     powen_account_id = IntField(required=True, primary_key=True)
     id_connection = IntField(required=True)
     id_user = IntField(required=True)
@@ -58,7 +59,7 @@ class PowenAccount(Document):
     powen_connection = ReferenceField(PowensConnection)
 
     meta = {
-        "collection": "accounts",
+        "collection": "powen_accounts",
         "strict": False,
         "cascade": True,
         "cascade_kwargs": {"delete_rule": NULLIFY}
