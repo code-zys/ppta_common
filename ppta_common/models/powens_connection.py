@@ -4,7 +4,8 @@ from mongoengine import (
     DateTimeField,
     BooleanField,
     fields,
-    ReferenceField
+    ReferenceField,
+    DictField
 )
 from .base_document import BaseDocument
 from .company import Company
@@ -26,6 +27,7 @@ class PowensConnection(BaseDocument):
     id_bank = IntField(required=True)
     connector_uuid = StringField(null=True)
     company = ReferenceField(Company)
+    connector = DictField()
 
 
     meta = {
