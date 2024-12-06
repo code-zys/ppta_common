@@ -26,7 +26,7 @@ class PowenCurrency(EmbeddedDocument):
     name = StringField(null=True)
 
 class PowenAccount(BaseDocument):
-    powen_account_id = IntField(required=True, primary_key=True)
+    account_id = IntField(required=True)
     id_connection = IntField(required=True)
     id_user = IntField(required=True)
     id_source = IntField(required=True)
