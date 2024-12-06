@@ -30,6 +30,7 @@ class RunInvoiceClass(BaseDocument):
     can_upload = ListField(StringField(choices=[e.value for e in EnumRole]), default = [])
     validated = BooleanField(default=False)
     is_shared = BooleanField(default=False)
+    shared_at = IntField(default=None)
     date_validated = IntField(default=None)
 
     meta = {'collection': 'run_invoice_class',
