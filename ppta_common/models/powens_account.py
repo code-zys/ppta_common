@@ -57,6 +57,8 @@ class PowenAccount(BaseDocument):
     information = DictField()
     loan = DictField()
     powen_connection = ReferenceField(PowensConnection)
+    last_sync_next_url = StringField(required=False)
+    last_sync_date = IntField(required=False)
 
     meta = {
         "collection": "powen_accounts",
