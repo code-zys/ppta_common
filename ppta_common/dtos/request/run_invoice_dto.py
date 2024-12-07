@@ -24,6 +24,7 @@ class RunInvoiceDto(ExtendedBaseModel):
     year: Optional[int] = None
     month: Optional[int] = None
     frequency: Optional[str] = None
+    is_shared: Optional[bool] = False
 
     model_config = {
         "populate_by_name": True,
