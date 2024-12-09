@@ -33,6 +33,7 @@ class EnumRole(str, Enum):
     OWNER = 'OWNER'
     MANAGER = 'MANAGER'
     EMPLOYEE = 'EMPLOYEE'
+    ACCOUNTANT = 'ACCOUNTANT'
 
 class EnumOriginInvitation(str, Enum):
     FROM_USER_TO_COMPANY = 'FROM-USER-TO-COMPANY'
