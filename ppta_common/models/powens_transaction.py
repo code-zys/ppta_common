@@ -24,7 +24,7 @@ class PowensTransaction(BaseDocument):
     last_update = StringField(required=True, default=None)
     original_value = FloatField(required=False, default=None)
     original_gross_value = StringField(required=False, default=None)
-    original_currency = StringField(required=False, default=None)
+    original_currency = DictField(required=False, default=None)
     commission = FloatField(required=False, default=None)
     commission_currency = StringField(required=False, default=None)
     card = StringField(required=True, default=None)
