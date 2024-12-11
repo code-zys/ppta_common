@@ -7,7 +7,8 @@ from mongoengine import (
     DictField
 )
 
-class PowenTransaction(BaseDocument):
+class PowensTransaction(BaseDocument):
+    transaction_id = IntField(required=True)
     account_id = StringField(required=True, default="")
     webid = StringField(required=True, default="")
     application_date = StringField(required=True, default="")
@@ -21,7 +22,6 @@ class PowenTransaction(BaseDocument):
     cluster_id = StringField(required=True, default=None)
     comment = StringField(required=True, default=None)
     last_update = StringField(required=True, default=None)
-    deleted = BooleanField(required=True, default=False)
     original_value = FloatField(required=True, default=None)
     original_gross_value = StringField(required=True, default=None)
     original_currency = StringField(required=True, default=None)
