@@ -1,7 +1,9 @@
-from mongoengine import StringField, ListField, IntField, DateTimeField, ReferenceField, EnumField, DictField, BooleanField
+from mongoengine import StringField, ListField, IntField, DateTimeField, ReferenceField, EnumField, DictField, BooleanField, EmbeddedDocumentField
 
 from .base_document import BaseDocument
 from ..utils.enums import FrequencyEnum
+from ..enums.invoice_ocr_status_enum import InvoiceOcrStatus
+from ..models.invoice_ocr import InvoiceOCR
 
 class RunInvoiceContent(BaseDocument):
     """
@@ -24,6 +26,10 @@ class RunInvoiceContent(BaseDocument):
     proprietor = ReferenceField("Member", default=None)
     validated = BooleanField(default=False)
     date_validated = IntField(default=None)
+    ocr_status = StringField(choices=[status.value for status in InvoiceOcrStatus], default=None)
+    ocr_started_at = DateTimeField()
+    ocr_end_at = DateTimeField()
+    ocr_data = EmbeddedDocumentField(InvoiceOCR)
 
     def __str__(self):
         return f"RunInvoiceContent<file_path = {self.file_path}, run_invoice_id = {self.run_invoice_id}, invoice_received_date = {self.invoice_received_date}, subject = {self.subject}>"

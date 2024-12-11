@@ -4,7 +4,7 @@ from typing import Any, ClassVar, Dict, List, Optional, Self
 
 from .extended_base_model import ExtendedBaseModel
 from ...enums.frequency_enum import FrequencyEnum
-
+from .invoice_ocr_dto import InvoiceOcrDto
 class RunInvoiceContentDto(ExtendedBaseModel):
     id: Optional[str] = None
     run_invoice_id: Optional[str] = None
@@ -19,6 +19,11 @@ class RunInvoiceContentDto(ExtendedBaseModel):
     subject: Optional[str] = None
     validated: Optional[bool] = False
     date_validated: Optional[int] = None
+    ocr_status: Optional[str] = None
+    ocr_started_at: Optional[int] = None
+    ocr_end_at: Optional[int] = None
+    ocr_data: Optional[InvoiceOcrDto] = None
+
     __properties: ClassVar[List[str]] = ["id", "run_invoice_id", "invoice_received_date", "name"]
 
     model_config = {
@@ -81,6 +86,12 @@ class RunInvoiceContentDto(ExtendedBaseModel):
             "month": obj.get("month"),
             "year": obj.get("year"),
             "subject": obj.get("subject"),
+            "validated": obj.get("validated"),
+            "date_validated": obj.get("date_validated"),
+            "ocr_status": obj.get("ocr_status"),
+            "ocr_started_at": obj.get("ocr_started_at"),
+            "ocr_end_at": obj.get("ocr_end_at"),
+            "ocr_data": obj.get("ocr_data"),
             "invoice_received_date": obj.get("invoice_received_date"),
             "created_at": obj.get("created_at"),
             "created_by": obj.get("created_by"),
