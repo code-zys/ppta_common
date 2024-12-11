@@ -4,12 +4,15 @@ from mongoengine import (
     StringField,
     FloatField,
     BooleanField,
-    DictField
+    DictField,
+    ReferenceField
 )
+from .powens_account import PowenAccount
 
 class PowensTransaction(BaseDocument):
     transaction_id = IntField(required=True)
     account_id = IntField(required=True)
+    powen_account = ReferenceField(PowenAccount)
     webid = StringField(required=True, default="")
     application_date = StringField(required=True, default="")
     date = StringField(required=True, default="")
