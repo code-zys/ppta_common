@@ -1,5 +1,6 @@
 from typing import Optional
 from pydantic import BaseModel
+from datetime import datetime
 
 class InvoiceOcrDto(BaseModel):
     invoice_id: Optional[str] = None
@@ -7,7 +8,7 @@ class InvoiceOcrDto(BaseModel):
     currency: Optional[str] = None
     va_number: Optional[str] = None
     tva_value: Optional[str] = None
-    invoice_date: Optional[int] = None
+    invoice_date: Optional[datetime] = None
     sender_name: Optional[str] = None
     sender_address: Optional[str] = None
 
