@@ -5,6 +5,7 @@ from typing import Any, ClassVar, Dict, List, Optional, Self
 from .extended_base_model import ExtendedBaseModel
 from ...enums.frequency_enum import FrequencyEnum
 from .invoice_ocr_dto import InvoiceOcrDto
+from datetime import datetime
 class RunInvoiceContentDto(ExtendedBaseModel):
     id: Optional[str] = None
     run_invoice_id: Optional[str] = None
@@ -20,7 +21,7 @@ class RunInvoiceContentDto(ExtendedBaseModel):
     validated: Optional[bool] = False
     date_validated: Optional[int] = None
     ocr_status: Optional[str] = None
-    ocr_started_at: Optional[int] = None
+    ocr_started_at: Optional[datetime] = None
     ocr_end_at: Optional[int] = None
     ocr_data: Optional[InvoiceOcrDto] = None
 

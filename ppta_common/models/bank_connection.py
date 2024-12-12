@@ -13,6 +13,7 @@ from ..enums.bank_provider_enum import BankProviderEnum
 
 
 class BankConnection(BaseDocument):
+    title = StringField()
     company = ReferenceField(Company)
     institution_name = StringField()
     source = StringField(

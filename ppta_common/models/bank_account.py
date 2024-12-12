@@ -2,7 +2,8 @@ from mongoengine import (
     IntField,
     StringField,
     DictField,
-    ReferenceField
+    ReferenceField,
+    DateField
 )
 from .bank_connection import BankConnection
 from .base_document import BaseDocument
@@ -19,9 +20,9 @@ class BankAccount(BaseDocument):
 
     bank_connection = ReferenceField(BankConnection)
 
-    from_sync_date =  IntField(required=False)
-    to_sync_date = IntField(required = False)
-    last_sync_date = IntField(required=False)
+    from_sync_date =  DateField(required=False)
+    to_sync_date = DateField(required = False)
+    last_sync_date = DateField(required=False)
 
     source = StringField(
         choices=[status.value for status in BankProviderEnum],
