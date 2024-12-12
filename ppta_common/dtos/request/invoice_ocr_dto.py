@@ -1,6 +1,7 @@
 from typing import Optional
+from pydantic import BaseModel
 
-class InvoiceOcrDto():
+class InvoiceOcrDto(BaseModel):
     invoice_id: Optional[str] = None
     total_amount: Optional[float] = None
     currency: Optional[str] = None
