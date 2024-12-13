@@ -1,3 +1,4 @@
+from .company import Company
 from .base_document import BaseDocument
 from mongoengine import (
     IntField,
@@ -15,6 +16,7 @@ class BankTransaction(BaseDocument):
     date = DateField(required=True)
     type = StringField(required=True)
     value = IntField(required=True)
+    company = ReferenceField(Company)
 
     bank_account = ReferenceField(BankAccount)
     source = StringField(
