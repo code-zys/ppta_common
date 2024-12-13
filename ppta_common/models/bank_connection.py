@@ -20,7 +20,8 @@ class BankConnection(BaseDocument):
         choices=[status.value for status in BankProviderEnum],
         required=True
     )
-    
+    expire = DateTimeField()
+    active = BooleanField(required=True)
     data = DictField(required=True)
 
     meta = {
