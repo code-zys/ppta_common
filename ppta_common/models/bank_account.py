@@ -17,7 +17,7 @@ class BankAccount(BaseDocument):
     currency_name = StringField(required=True)
     currency_symbol = StringField(required=True)
     type = StringField(required=True)
-    iban = StringField(required=True)
+    iban = StringField()
     balance = IntField(required=True)
 
 
