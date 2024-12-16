@@ -3,7 +3,6 @@ from pydantic import BaseModel, validator
 from ...enums.role_enum import EnumRole
 
 class InvoiceCategoryDto(BaseModel):
-    id: Optional[str] = None
     name: str
     code: str
     description: str
