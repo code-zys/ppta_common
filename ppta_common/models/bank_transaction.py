@@ -21,7 +21,7 @@ class BankTransaction(BaseDocument):
     original_currency = StringField()
     formatted_value = StringField(required=True)
 
-    company = ReferenceField(Company)
+    company = ReferenceField(Company, required=True)
 
     bank_account = ReferenceField(BankAccount)
     source = StringField(
