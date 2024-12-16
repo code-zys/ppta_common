@@ -16,6 +16,11 @@ class BankTransaction(BaseDocument):
     date = DateField(required=True)
     type = StringField(required=True)
     value = IntField(required=True)
+    
+    original_value = IntField(required=True)
+    original_currency = StringField(required=True)
+    formatted_value = StringField(required=True)
+
     company = ReferenceField(Company)
 
     bank_account = ReferenceField(BankAccount)
@@ -23,6 +28,7 @@ class BankTransaction(BaseDocument):
         choices=[status.value for status in BankProviderEnum],
         required=True
     )
+
     data = DictField(required=True)
 
     meta = {
