@@ -17,8 +17,8 @@ class BankTransaction(BaseDocument):
     type = StringField(required=True)
     value = IntField(required=True)
     
-    original_value = IntField(required=True)
-    original_currency = StringField(required=True)
+    original_value = IntField()
+    original_currency = StringField()
     formatted_value = StringField(required=True)
 
     company = ReferenceField(Company)
