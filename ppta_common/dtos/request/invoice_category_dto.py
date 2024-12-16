@@ -7,4 +7,3 @@ class InvoiceCategoryDto(BaseModel):
     code: str
     description: str
     is_system: bool
-    company_id: str
