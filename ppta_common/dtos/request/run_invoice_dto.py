@@ -9,6 +9,7 @@ class RunInvoiceDto(ExtendedBaseModel):
     id: Optional[str] = None
     user_id: Optional[str] = None
     name: Optional[str] = None
+    description: Optional[str] = None
     supplier: Optional[str] = None
     code: Optional[str] = None
     type: Optional[InvoiceClassType] = None
