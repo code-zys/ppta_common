@@ -28,6 +28,7 @@ class BankTransaction(BaseDocument):
         choices=[status.value for status in BankProviderEnum],
         required=True
     )
+    source_transaction_id=StringField()
 
     data = DictField(required=True)
 
