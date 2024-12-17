@@ -34,5 +34,11 @@ class BankTransaction(BaseDocument):
 
     meta = {
         'collection': 'bank_transactions',
-        "strict": False
+        "strict": False,
+        'indexes': [
+            {
+                'fields': ['company', 'bank_account','source_transaction_id'],
+                'unique': True 
+            }
+        ]
     }
