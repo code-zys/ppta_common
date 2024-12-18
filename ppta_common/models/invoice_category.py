@@ -1,4 +1,4 @@
-from mongoengine import Document, StringField, BooleanField, ReferenceField
+from mongoengine import StringField, BooleanField, ReferenceField
 from .company import Company
 from .base_document import BaseDocument
 
@@ -7,7 +7,7 @@ class InvoiceCategory(BaseDocument):
     code = StringField(required=True, unique=True, max_length=50)
     description = StringField(max_length=500)
     is_system = BooleanField(default=False)
-    company = ReferenceField(Company, required=True)
+    company = ReferenceField(Company, required=False)
 
     meta = {
         'collection': 'invoice_categories',
