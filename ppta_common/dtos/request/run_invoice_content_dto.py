@@ -24,6 +24,8 @@ class RunInvoiceContentDto(ExtendedBaseModel):
     ocr_started_at: Optional[datetime] = None
     ocr_end_at: Optional[int] = None
     ocr_data: Optional[InvoiceOcrDto] = None
+    company: Optional[str] = None
+    invoice_class_code: Optional[str] = None
 
     __properties: ClassVar[List[str]] = ["id", "run_invoice_id", "invoice_received_date", "name"]
 
