@@ -1,7 +1,7 @@
 from typing import Optional
 
 from bson import ObjectId
-from pydantic import BaseModel, field_validator, validator
+from pydantic import BaseModel, model_validator
 from ..response.user_meta_data_reponse import UserMetadataResponse
 
 
@@ -12,9 +12,12 @@ class ExtendedBaseModel(BaseModel):
     created_by: Optional[UserMetadataResponse] = None # TODO: NEW UPDATE
     
 
-    @field_validator("id", mode="before")
-    def transform_object_id_to_string(cls, value):
-        if isinstance(value, ObjectId):
-            return str(value)
-        return value
+    @model_validator(mode="before")
+    def convert_objectids(cls, values):
+        values=values.to_dict()
+        if isinstance(values, dict):
+            for key, value in values.items():
+                if isinstance(value, ObjectId):
+                    values[key] = str(value)
+        return values
 
