@@ -13,7 +13,7 @@ from ..enums.bank_provider_enum import BankProviderEnum
 
 class BankTransaction(BaseDocument):
     wording = StringField(required=True)
-    date = DateField(required=True)
+    date = IntField(required=True)
     type = StringField(required=True)
     value = IntField(required=True)
     
