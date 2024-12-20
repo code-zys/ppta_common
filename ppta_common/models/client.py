@@ -1,12 +1,8 @@
-from mongoengine import StringField, EmbeddedDocument, EmbeddedDocumentField, BooleanField
+from mongoengine import StringField, EmbeddedDocumentField, BooleanField
 from .base_document import BaseDocument
+from .contact import Contact
+from .address import Address
 
-    
-# class Address(EmbeddedDocument):
-#     street = StringField(default="", required=True)
-#     city = StringField(default="", required=True)
-#     postalCode = StringField(default="", required=True)
-#     country = StringField(default="", required=True)
 
 class Client(BaseDocument):
     name = StringField(required=True, default="")

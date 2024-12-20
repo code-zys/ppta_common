@@ -1,7 +1,7 @@
 from mongoengine import ReferenceField, StringField, EmbeddedDocumentField, IntField
 from .base_document import BaseDocument
 from .company import Company
-from .client import Contact
+from .contact import Contact
 from ..enums.settings_type_enum import SettingType
 from ..enums.transaction_type_enum import TransactionType
 from .condition import Condition
