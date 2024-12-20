@@ -2,6 +2,7 @@ from .company import Company
 from .invoice_category import InvoiceCategory
 from .invoice_class import InvoiceClass
 from .base_document import BaseDocument
+from .client import Client
 from mongoengine import (
     IntField,
     StringField,
@@ -12,7 +13,6 @@ from mongoengine import (
 from .bank_account import BankAccount
 from ..enums.bank_provider_enum import BankProviderEnum
 from ..enums.bank_transaction_type_enum import BankTransactionTypeEnum
-
 
 class BankTransaction(BaseDocument):
     wording = StringField(required=True)
@@ -30,7 +30,7 @@ class BankTransaction(BaseDocument):
     category = ReferenceField(InvoiceCategory, required=False)
     provider = ReferenceField(InvoiceClass, required=False)
     method = StringField(required=True)
-    # client = 
+    client = ReferenceField(Client)
     bank_account = ReferenceField(BankAccount)
     source = StringField(
         choices=[status.value for status in BankProviderEnum],
