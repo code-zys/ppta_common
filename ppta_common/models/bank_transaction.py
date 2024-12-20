@@ -7,7 +7,7 @@ from mongoengine import (
     StringField,
     DictField,
     ReferenceField,
-    DateField
+    FloatField
 )
 from .bank_account import BankAccount
 from ..enums.bank_provider_enum import BankProviderEnum
@@ -21,8 +21,7 @@ class BankTransaction(BaseDocument):
         choices=[status.value for status in BankTransactionTypeEnum],
         required=True
     )
-    value = IntField(required=True)
-    
+    value = FloatField(required=True)
     original_value = IntField()
     original_currency = StringField()
     formatted_value = StringField(required=True)
