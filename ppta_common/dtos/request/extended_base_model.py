@@ -14,7 +14,9 @@ class ExtendedBaseModel(BaseModel):
 
     @model_validator(mode="before")
     def convert_objectids(cls, values):
-        values=values.to_dict()
+        if hasattr(values, "to_dict") and callable(values.to_dict):
+            values = values.to_dict()
+            
         if isinstance(values, dict):
             for key, value in values.items():
                 if isinstance(value, ObjectId):
