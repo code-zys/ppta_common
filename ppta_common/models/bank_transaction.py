@@ -22,7 +22,7 @@ class BankTransaction(BaseDocument):
         required=True
     )
     value = FloatField(required=True)
-    original_value = IntField()
+    original_value = FloatField()
     original_currency = StringField()
     formatted_value = StringField(required=True)
 
