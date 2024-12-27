@@ -5,6 +5,7 @@ from ..utils.enums import FrequencyEnum
 from ..enums.invoice_ocr_status_enum import InvoiceOcrStatus
 from ..models.invoice_ocr import InvoiceOCR
 from .company import Company
+from .invoice_category import InvoiceCategory
 
 class RunInvoiceContent(BaseDocument):
     """
@@ -33,6 +34,7 @@ class RunInvoiceContent(BaseDocument):
     ocr_data = EmbeddedDocumentField(InvoiceOCR)
     company = ReferenceField(Company)
     invoice_class_code = StringField()
+    category = ReferenceField(InvoiceCategory, required=False)
 
     def __str__(self):
         return f"RunInvoiceContent<file_path = {self.file_path}, run_invoice_id = {self.run_invoice_id}, invoice_received_date = {self.invoice_received_date}, subject = {self.subject}>"
