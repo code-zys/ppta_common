@@ -35,3 +35,4 @@ class Company(BaseDocument):
     logo = StringField(required=False)
     powens_access_token = StringField(required=False)
     powen_user_id = IntField(required=False)
+    bridge_user_id = StringField(required=False)
