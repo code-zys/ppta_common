@@ -22,7 +22,7 @@ class RunInvoiceContentDto(ExtendedBaseModel):
     date_validated: Optional[int] = None
     ocr_status: Optional[str] = None
     ocr_started_at: Optional[datetime] = None
-    ocr_end_at: Optional[int] = None
+    ocr_end_at: Optional[datetime] = None
     ocr_data: Optional[InvoiceOcrDto] = None
     company: Optional[str] = None
     category: Optional[str] = None

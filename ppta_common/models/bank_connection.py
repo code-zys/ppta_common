@@ -24,6 +24,10 @@ class BankConnection(BaseDocument):
     active = BooleanField(required=True)
     data = DictField(required=True)
 
+    # last_successful_refresh
+    # last_try_refresh
+    # status = 
+
     meta = {
         'collection': 'bank_connections'
     }
