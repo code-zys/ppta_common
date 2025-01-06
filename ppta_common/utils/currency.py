@@ -16,3 +16,8 @@ class CurrencyHelper:
     def get_by_alpha_code(code: str) -> Currency:
         currency = by_alpha3(code)
         return Currency(currency.alpha3)
+    
+    @staticmethod
+    def get_symbol_by_code(code: str) -> str:
+        currency = by_alpha3(code)
+        return currency.symbols[0] if currency.symbols else None
