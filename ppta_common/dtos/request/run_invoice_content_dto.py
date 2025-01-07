@@ -27,6 +27,9 @@ class RunInvoiceContentDto(ExtendedBaseModel):
     company: Optional[str] = None
     category: Optional[str] = None
     invoice_class_code: Optional[str] = None
+    is_accepted: Optional[bool] = None
+    accepted_at: Optional[int] = None
+    accepted_by: Optional[dict] = None
 
     __properties: ClassVar[List[str]] = ["id", "run_invoice_id", "invoice_received_date", "name"]
 
