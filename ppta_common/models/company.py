@@ -36,3 +36,4 @@ class Company(BaseDocument):
     powens_access_token = StringField(required=False)
     powen_user_id = IntField(required=False)
     bridge_user_uuid = StringField(required=False)
+    currency = StringField(required=False)

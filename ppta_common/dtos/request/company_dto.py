@@ -18,6 +18,7 @@ class CompanyDto(BaseModel):
     address: Optional[AddressDto] = None
 
     billing_email : Optional[str]= None
+    currency : Optional[str]= None
     billing_address : Optional[AddressDto] = None
     use_contact_as_billing_info : Optional[bool] = True
 

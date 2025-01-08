@@ -39,6 +39,7 @@ class RunInvoiceContent(BaseDocument):
     is_accepted = BooleanField(required=False)
     accepted_at = IntField(required=False)
     accepted_by = EmbeddedDocumentField(UserMetadata, default=None) 
-
+    pricing = DictField(required = False)
+    
     def __str__(self):
         return f"RunInvoiceContent<file_path = {self.file_path}, run_invoice_id = {self.run_invoice_id}, invoice_received_date = {self.invoice_received_date}, subject = {self.subject}>"
