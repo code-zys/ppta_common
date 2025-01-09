@@ -38,6 +38,7 @@ class BankTransaction(BaseDocument):
     )
     source_transaction_id=StringField()
     currency_name = StringField(required=True)
+    pricing = DictField(required = True)
 
     data = DictField(required=True)
 

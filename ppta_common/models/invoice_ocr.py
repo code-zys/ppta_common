@@ -1,15 +1,14 @@
 from mongoengine import EmbeddedDocument
 from mongoengine.fields import (
-    StringField, DateTimeField, FloatField, DictField)
+    StringField, DateTimeField, FloatField, DictField, EmbeddedDocumentField)
 from iso4217 import Currency
+from .total import Totals
 
 class InvoiceOCR(EmbeddedDocument):
     invoice_id = StringField(required=True)
-    total_amount = FloatField(required=True)
     currency = StringField(choices=[c.value for c in Currency], required=True)
-    tva_number = StringField()  # Optional
-    tva_value = StringField()  # Optional
+    total = EmbeddedDocumentField(Totals, required=True)
     invoice_date = DateTimeField(required=True)
     sender_name = StringField(required=True)
     sender_address = StringField(required=True)
-    pricing = DictField(required=False)
+    pricing = DictField(required=True)
