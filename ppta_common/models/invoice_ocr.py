@@ -1,6 +1,6 @@
 from mongoengine import EmbeddedDocument
 from mongoengine.fields import (
-    StringField, DateTimeField, FloatField)
+    StringField, DateTimeField, FloatField, DictField)
 from iso4217 import Currency
 
 class InvoiceOCR(EmbeddedDocument):
@@ -12,3 +12,4 @@ class InvoiceOCR(EmbeddedDocument):
     invoice_date = DateTimeField(required=True)
     sender_name = StringField(required=True)
     sender_address = StringField(required=True)
+    pricing = DictField(required=False)
