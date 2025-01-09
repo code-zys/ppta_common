@@ -3,7 +3,8 @@ from mongoengine import (
     StringField,
     DictField,
     ReferenceField,
-    DateField
+    DateField,
+    FloatField
 )
 
 from ppta_common.models.company import Company
@@ -18,7 +19,7 @@ class BankAccount(BaseDocument):
     currency_symbol = StringField(required=True)
     type = StringField(required=True)
     iban = StringField()
-    balance = IntField(required=True)
+    balance = FloatField(required=True)
 
 
     bank_connection = ReferenceField(BankConnection)
