@@ -1,5 +1,5 @@
 from .company import Company
-from .invoice_category import InvoiceCategory
+from .category import Category
 from .invoice_class import InvoiceClass
 from .base_document import BaseDocument
 from .client import Client
@@ -27,7 +27,7 @@ class BankTransaction(BaseDocument):
     formatted_value = StringField(required=True)
 
     company = ReferenceField(Company, required=True)
-    category = ReferenceField(InvoiceCategory, required=False)
+    category = ReferenceField(Category, required=False)
     provider = ReferenceField(InvoiceClass, required=False)
     method = StringField(required=True)
     client = ReferenceField(Client)
