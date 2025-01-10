@@ -5,7 +5,7 @@ from ..utils.enums import FrequencyEnum
 from ..enums.invoice_ocr_status_enum import InvoiceOcrStatus
 from ..models.invoice_ocr import InvoiceOCR
 from .company import Company
-from .invoice_category import InvoiceCategory
+from .category import Category
 from .user_metadata import UserMetadata
 
 class RunInvoiceContent(BaseDocument):
@@ -35,7 +35,7 @@ class RunInvoiceContent(BaseDocument):
     ocr_data = EmbeddedDocumentField(InvoiceOCR)
     company = ReferenceField(Company)
     invoice_class_code = StringField()
-    category = ReferenceField(InvoiceCategory, required=False)
+    category = ReferenceField(Category, required=False)
     is_accepted = BooleanField(required=False)
     accepted_at = IntField(required=False)
     accepted_by = EmbeddedDocumentField(UserMetadata, default=None) 
