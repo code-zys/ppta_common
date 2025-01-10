@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='ppta_common',
-    version='0.2.92',
+    version='0.2.93',
     packages=find_packages(),
     install_requires=[
         'mongoengine',
