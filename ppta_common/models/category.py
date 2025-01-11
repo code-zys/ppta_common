@@ -7,7 +7,7 @@ class Category(BaseDocument):
     code = StringField(required=True)
     description = StringField(max_length=500)
     is_system = BooleanField(default=False)
-    company = ReferenceField(Company, required=False)
+    company = ReferenceField(Company, required=False) #TODO: confirm if category is eagerly loaded and if it's the case change to id
     parent = ReferenceField('self', required = False)
 
     meta = {

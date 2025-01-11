@@ -11,7 +11,9 @@ class InvoiceOCR(EmbeddedDocument):
     invoice_date = DateTimeField(required=True)
     sender_name = StringField(required=True)
     sender_address = StringField(required=True)
+    pricing = DictField(field=EmbeddedDocumentField(Totals), required=False, default={})
+
+
     meta = {
-        "strict": False
+        'strict': False
     }
-   
