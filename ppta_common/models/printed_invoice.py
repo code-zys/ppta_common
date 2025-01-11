@@ -28,8 +28,7 @@ class PrintedInvoice(BaseDocument):
     order_number = StringField(required=False, default="")
     pdf_link = StringField(required=False, default="")
     
-    pricing= DictField(required=True,
-    default={})
+    pricing = DictField(field=EmbeddedDocumentField(Totals), required=False, default={})
     
     meta = {
         'collection': 'printed_invoices',
