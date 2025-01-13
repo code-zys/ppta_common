@@ -13,7 +13,6 @@ class InvoiceOCR(EmbeddedDocument):
     sender_address = StringField(required=True)
     pricing = DictField(field=EmbeddedDocumentField(Totals), required=False, default={})
 
-
     meta = {
         'strict': False
     }
