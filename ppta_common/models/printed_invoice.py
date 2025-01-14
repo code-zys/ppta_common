@@ -9,6 +9,7 @@ from .base_document import BaseDocument
 from .invoice_item import InvoiceItem
 from ..enums.invoice_status_enum import EnumInvoiceStatus
 from ..enums.invoice_state_enum import EnumInvoiceState
+from .category import Category
 
 class PrintedInvoice(BaseDocument):
     number = StringField(required=True, default="")
@@ -27,7 +28,7 @@ class PrintedInvoice(BaseDocument):
     recuring_invoice_template = ReferenceField(RecurringInvoice,required=False)
     order_number = StringField(required=False, default="")
     pdf_link = StringField(required=False, default="")
-    
+    category = ReferenceField(Category, required=False)
     pricing = DictField(field=EmbeddedDocumentField(Totals), required=False, default={})
     
     meta = {
