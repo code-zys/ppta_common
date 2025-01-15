@@ -34,7 +34,7 @@ class PrintedInvoice(BaseDocument):
     payed_by = EmbeddedDocumentField(UserMetadata, default=None)
     payed_at = DateField( default=None,required=False)
     pricing = DictField(field=EmbeddedDocumentField(Totals), required=False, default={})
-    reconciliation = EmbeddedDocumentField(InvoiceReconciliation, required=False)
+    reconciliations = ListField(EmbeddedDocumentField(InvoiceReconciliation, required=False, default=[]))
     
     meta = {
         'collection': 'printed_invoices',
