@@ -8,11 +8,13 @@ from mongoengine import (
     StringField,
     DictField,
     ReferenceField,
-    FloatField
+    FloatField,
+    ListField
 )
 from .bank_account import BankAccount
 from ..enums.bank_provider_enum import BankProviderEnum
 from ..enums.bank_transaction_type_enum import BankTransactionTypeEnum
+from .transaction_reconciliation import TransactionReconciliation
 
 class BankTransaction(BaseDocument):
     wording = StringField(required=True)
@@ -39,6 +41,7 @@ class BankTransaction(BaseDocument):
     source_transaction_id=StringField()
     currency_name = StringField(required=True)
     pricing = DictField(required = True)
+    reconciliations = ListField(TransactionReconciliation, required=False, default=[])
 
     data = DictField(required=True)
 

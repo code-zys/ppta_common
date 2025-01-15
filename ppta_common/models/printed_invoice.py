@@ -11,6 +11,7 @@ from ..enums.invoice_status_enum import EnumInvoiceStatus
 from ..enums.invoice_state_enum import EnumInvoiceState
 from .category import Category
 from .user_metadata import UserMetadata
+from .invoice_reconciliation import InvoiceReconciliation
 
 class PrintedInvoice(BaseDocument):
     number = StringField(required=True, default="")
@@ -33,6 +34,7 @@ class PrintedInvoice(BaseDocument):
     payed_by = EmbeddedDocumentField(UserMetadata, default=None)
     payed_at = DateField( default=None,required=False)
     pricing = DictField(field=EmbeddedDocumentField(Totals), required=False, default={})
+    reconciliation = EmbeddedDocumentField(InvoiceReconciliation, required=False)
     
     meta = {
         'collection': 'printed_invoices',

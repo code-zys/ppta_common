@@ -8,7 +8,7 @@ from .company import Company
 from .category import Category
 from .user_metadata import UserMetadata
 from .total import Totals
-
+from .invoice_reconciliation import InvoiceReconciliation
 class RunInvoiceContent(BaseDocument):
     """
     RunInvoiceContent document
@@ -41,6 +41,7 @@ class RunInvoiceContent(BaseDocument):
     accepted_at = IntField(required=False)
     accepted_by = EmbeddedDocumentField(UserMetadata, default=None) 
     pricing = DictField(field=EmbeddedDocumentField(Totals), required=False, default={})
+    reconciliation = EmbeddedDocumentField(InvoiceReconciliation, required=False)
 
     
     def __str__(self):
