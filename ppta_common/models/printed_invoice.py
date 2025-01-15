@@ -10,6 +10,7 @@ from .invoice_item import InvoiceItem
 from ..enums.invoice_status_enum import EnumInvoiceStatus
 from ..enums.invoice_state_enum import EnumInvoiceState
 from .category import Category
+from .user_metadata import UserMetadata
 
 class PrintedInvoice(BaseDocument):
     number = StringField(required=True, default="")
@@ -29,6 +30,8 @@ class PrintedInvoice(BaseDocument):
     order_number = StringField(required=False, default="")
     pdf_link = StringField(required=False, default="")
     category = ReferenceField(Category, required=False)
+    payed_by = EmbeddedDocumentField(UserMetadata, default=None)
+    payed_at = DateField( default=None,required=False)
     pricing = DictField(field=EmbeddedDocumentField(Totals), required=False, default={})
     
     meta = {
