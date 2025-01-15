@@ -9,7 +9,8 @@ from mongoengine import (
     DictField,
     ReferenceField,
     FloatField,
-    ListField
+    ListField,
+    EmbeddedDocumentField,
 )
 from .bank_account import BankAccount
 from ..enums.bank_provider_enum import BankProviderEnum
@@ -41,7 +42,7 @@ class BankTransaction(BaseDocument):
     source_transaction_id=StringField()
     currency_name = StringField(required=True)
     pricing = DictField(required = True)
-    reconciliations = ListField(TransactionReconciliation, required=False, default=[])
+    reconciliations = ListField(EmbeddedDocumentField(TransactionReconciliation, required=False, default=[]))
 
     data = DictField(required=True)
 

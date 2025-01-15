@@ -41,7 +41,7 @@ class RunInvoiceContent(BaseDocument):
     accepted_at = IntField(required=False)
     accepted_by = EmbeddedDocumentField(UserMetadata, default=None) 
     pricing = DictField(field=EmbeddedDocumentField(Totals), required=False, default={})
-    reconciliation = EmbeddedDocumentField(InvoiceReconciliation, required=False)
+    reconciliations = ListField(EmbeddedDocumentField(InvoiceReconciliation, required=False, default=[]))
 
     
     def __str__(self):
