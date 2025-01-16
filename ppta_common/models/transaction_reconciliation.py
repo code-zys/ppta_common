@@ -7,6 +7,7 @@ class TransactionReconciliation(EmbeddedDocument):
     percentage = FloatField(required=True)
     date = IntField(required=True)
     file_path = StringField(required=True)
+    file_name = StringField(required=True)
 
     meta = {
         "strict": False,

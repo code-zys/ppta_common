@@ -1,4 +1,4 @@
-from typing import Any, Tuple
+from typing import Any, Tuple, Optional
 import pytz, boto3, datetime, os, base64, calendar
 
 from tzlocal import get_localzone
@@ -374,3 +374,10 @@ class Utils:
             media_type = "application/pdf"
         else:raise ValueError("the extension is not yet taken into account.")
         return media_type
+    
+    def percent_by_amount(invoiceAmount: float, transactionValue: float) -> Optional[Tuple[float, float]]:
+        if transactionValue == 0 or invoiceAmount == 0:
+            return None
+        percent_invoice_to_transaction = (invoiceAmount / transactionValue) * 100
+        percent_transaction_to_invoice = (transactionValue / invoiceAmount) * 100
+        return percent_invoice_to_transaction, percent_transaction_to_invoice
