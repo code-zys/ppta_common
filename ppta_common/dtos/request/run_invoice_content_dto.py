@@ -6,6 +6,7 @@ from .extended_base_model import ExtendedBaseModel
 from ...enums.frequency_enum import FrequencyEnum
 from .invoice_ocr_dto import InvoiceOcrDto
 from datetime import datetime
+from .invoice_reconciliation_dto import InvoiceReconciliationDTO
 class RunInvoiceContentDto(ExtendedBaseModel):
     id: Optional[str] = None
     run_invoice_id: Optional[str] = None
@@ -31,6 +32,7 @@ class RunInvoiceContentDto(ExtendedBaseModel):
     accepted_at: Optional[int] = None
     accepted_by: Optional[dict] = None
     pricing: Optional[dict] = None
+    reconciliations: Optional[list[InvoiceReconciliationDTO]] = None
 
     __properties: ClassVar[List[str]] = ["id", "run_invoice_id", "invoice_received_date", "name"]
 
