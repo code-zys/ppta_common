@@ -377,7 +377,7 @@ class Utils:
     
     def percent_by_amount(invoiceAmount: float, transactionValue: float) -> Optional[Tuple[float, float]]:
         if transactionValue == 0 or invoiceAmount == 0:
-            return None
-        percent_invoice_to_transaction = (invoiceAmount / transactionValue) * 100
-        percent_transaction_to_invoice = (transactionValue / invoiceAmount) * 100
+            return  0.0, 0.0
+        percent_invoice_to_transaction = round((invoiceAmount / transactionValue) * 100, 2)
+        percent_transaction_to_invoice = round((transactionValue / invoiceAmount) * 100, 2)
         return percent_invoice_to_transaction, percent_transaction_to_invoice
