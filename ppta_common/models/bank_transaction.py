@@ -1,7 +1,7 @@
+from .base_document import BaseDocument
 from .company import Company
 from .category import Category
 from .invoice_class import InvoiceClass
-from .base_document import BaseDocument
 from .client import Client
 from mongoengine import (
     IntField,
