@@ -11,7 +11,6 @@ from botocore.exceptions import ClientError
 from ..dtos.request.user_dto import UserDtoMetadata
 from ..models.user_metadata import UserMetadata
 from ..models.user import User
-from ..models.bank_transaction import BankTransaction
 
 class Utils:
 
@@ -384,7 +383,7 @@ class Utils:
         percent_transaction_to_invoice = round((transactionValue / invoiceAmount) * 100, 2)
         return percent_invoice_to_transaction, percent_transaction_to_invoice
     
-    def export_to_csv(transactions: list[BankTransaction], company_name: str):
+    def export_to_csv(transactions, company_name: str):
         """
         Export the transactions to a CSV file.
         """
@@ -411,7 +410,7 @@ class Utils:
             "file_name": file_name
         }
     
-    def export_to_xml(transactions: list[BankTransaction], company_name: str):
+    def export_to_xml(transactions, company_name: str):
         """
         Export the transactions to an XML file.
         """
@@ -453,7 +452,7 @@ class Utils:
             "file_name": file_name
         }
     
-    def export_to_json(transactions: list[BankTransaction], company_name: str):
+    def export_to_json(transactions, company_name: str):
         """
         Export the transactions to a JSON file.
         """
@@ -482,7 +481,7 @@ class Utils:
             "file_name": file_name
         }
                
-    def export_to_sepa(transactions: list[BankTransaction], company_name: str):
+    def export_to_sepa(transactions, company_name: str):
         """
         Export the transactions to a SEPA file.
         """
