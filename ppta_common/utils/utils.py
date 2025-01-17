@@ -1,5 +1,6 @@
 from typing import Any, Tuple, Optional
-import pytz, boto3, datetime, os, base64, calendar
+import pytz, boto3, datetime, os, io, base64, calendar, json, xml.etree.ElementTree as ET
+from datetime import datetime, timedelta
 
 from tzlocal import get_localzone
 from ..dtos.response.enum_response import EnumStatusCode
@@ -10,6 +11,7 @@ from botocore.exceptions import ClientError
 from ..dtos.request.user_dto import UserDtoMetadata
 from ..models.user_metadata import UserMetadata
 from ..models.user import User
+from ..models.bank_transaction import BankTransaction
 
 class Utils:
 
@@ -381,3 +383,174 @@ class Utils:
         percent_invoice_to_transaction = round((invoiceAmount / transactionValue) * 100, 2)
         percent_transaction_to_invoice = round((transactionValue / invoiceAmount) * 100, 2)
         return percent_invoice_to_transaction, percent_transaction_to_invoice
+    
+    def export_to_csv(transactions: list[BankTransaction], company_name: str):
+        """
+        Export the transactions to a CSV file.
+        """
+        output = io.StringIO()
+        output.write("Wording,Amount,Date,Original Value,Original Currency,Category,Provider,Method\n")
+        
+        # Write the transactions
+        for transaction in transactions:
+            output.write(
+                f"{str(transaction.wording)},{str(transaction.value)},{str(transaction.date)},{str(transaction.original_value)},{str(transaction.original_currency)},{str(transaction.category)},{str(transaction.provider)},{str(transaction.method)}\n"
+            )
+
+        csv_data = output.getvalue()
+        output.close()
+        
+        # Generate the filename
+        current_datetime = datetime.now().strftime("%Y%m%d_%H%M%S")
+        file_name = f"{company_name}_transactions_{current_datetime}.csv"
+        
+        print("CSV file created successfully.")
+        return {
+            "data": csv_data.encode('utf-8'),
+            "media_type": "text/csv",
+            "file_name": file_name
+        }
+    
+    def export_to_xml(transactions: list[BankTransaction], company_name: str):
+        """
+        Export the transactions to an XML file.
+        """
+        # Create an in-memory bytes buffer
+        buffer = io.BytesIO()
+        
+        # Write the XML content to the buffer
+        buffer.write(b"<?xml version='1.0' encoding='UTF-8'?>\n")
+        buffer.write(b"<transactions>\n")
+
+        # Write the transactions
+        for transaction in transactions:
+            buffer.write(
+                f"<transaction>\n"
+                f"  <wording>{str(transaction.wording)}</wording>\n"
+                f"  <amount>{str(transaction.value)}</amount>\n"
+                f"  <date>{str(transaction.date)}</date>\n"
+                f"  <original_value>{str(transaction.original_value)}</original_value>\n"
+                f"  <original_currency>{str(transaction.original_currency)}</original_currency>\n"
+                f"  <category>{str(transaction.category)}</category>\n"
+                f"  <provider>{str(transaction.provider)}</provider>\n"
+                f"  <method>{str(transaction.method)}</method>\n"
+                f"</transaction>\n".encode('utf-8')
+            )
+
+        buffer.write(b"</transactions>\n")
+        
+        # Get the byte content
+        xml_bytes = buffer.getvalue()
+        buffer.close()
+        
+        current_datetime = datetime.now().strftime("%Y%m%d_%H%M%S")
+        file_name = f"{company_name}_transactions_{current_datetime}.xml"
+        
+        print("XML byte stream created successfully.")
+        return {
+            "data": xml_bytes,
+            "media_type": "application/xml",
+            "file_name": file_name
+        }
+    
+    def export_to_json(transactions: list[BankTransaction], company_name: str):
+        """
+        Export the transactions to a JSON file.
+        """
+        # Serialize the transactions to JSON
+        transactions_json = json.dumps([{
+            "wording": transaction.wording,
+            "amount": transaction.value,
+            "date": transaction.date,
+            "original_value": transaction.original_value,
+            "original_currency": transaction.original_currency,
+            "category": transaction.category,
+            "provider": transaction.provider,
+            "method": transaction.method
+        } for transaction in transactions], indent=2)
+        
+        # Convert the JSON string to bytes
+        transactions_bytes = transactions_json.encode('utf-8')
+        
+        current_datetime = datetime.now().strftime("%Y%m%d_%H%M%S")
+        file_name = f"{company_name}_transactions_{current_datetime}.json"
+        
+        print("JSON byte stream created successfully.")
+        return {
+            "data": transactions_bytes,
+            "media_type": "application/json",
+            "file_name": file_name
+        }
+               
+    def export_to_sepa(transactions: list[BankTransaction], company_name: str):
+        """
+        Export the transactions to a SEPA file.
+        """
+        root = ET.Element("Document", xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03")
+        cstmr_cdt_trf_initn = ET.SubElement(root, "CstmrCdtTrfInitn")
+        
+        grp_hdr = ET.SubElement(cstmr_cdt_trf_initn, "GrpHdr")
+        ET.SubElement(grp_hdr, "MsgId").text = f"FICHIER-{datetime.now().strftime('%Y%m%d')}-001"
+        ET.SubElement(grp_hdr, "CreDtTm").text = datetime.now().isoformat()
+        ET.SubElement(grp_hdr, "NbOfTxs").text = str(len(transactions))
+        ET.SubElement(grp_hdr, "CtrlSum").text = f"{sum(tx.value for tx in transactions):.2f}"
+        initg_pty = ET.SubElement(grp_hdr, "InitgPty")
+        ET.SubElement(initg_pty, "Nm").text = "Entreprise ABC"
+        
+        pmt_inf = ET.SubElement(cstmr_cdt_trf_initn, "PmtInf")
+        ET.SubElement(pmt_inf, "PmtInfId").text = f"PAYMENT-{datetime.now().strftime('%Y%m%d')}-001"
+        ET.SubElement(pmt_inf, "PmtMtd").text = "TRF"
+        ET.SubElement(pmt_inf, "BtchBookg").text = "false"
+        ET.SubElement(pmt_inf, "ReqdExctnDt").text = (datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d')
+        
+        # dbtr = ET.SubElement(pmt_inf, "Dbtr")
+        # ET.SubElement(dbtr, "Nm").text = "Entreprise ABC"
+        # dbtr_acct = ET.SubElement(pmt_inf, "DbtrAcct")
+        # dbtr_acct_id = ET.SubElement(dbtr_acct, "Id")
+        # ET.SubElement(dbtr_acct_id, "IBAN").text = "FR7630004000031234567890143"
+        
+        # dbtr_agt = ET.SubElement(pmt_inf, "DbtrAgt")
+        # fin_instn_id = ET.SubElement(dbtr_agt, "FinInstnId")
+        # ET.SubElement(fin_instn_id, "BIC").text = "BNPAFRPPXXX"
+        
+        for tx in transactions:
+            cdt_trf_tx_inf = ET.SubElement(pmt_inf, "CdtTrfTxInf")
+            pmt_id = ET.SubElement(cdt_trf_tx_inf, "PmtId")
+            ET.SubElement(pmt_id, "EndToEndId").text = f"{tx.value:.2f}" #TODO: generate a unique ID
+            amt = ET.SubElement(cdt_trf_tx_inf, "Amt")
+            ET.SubElement(amt, "InstdAmt", Ccy=f"{tx.original_currency}").text = f"{tx.value:.2f}"
+            
+            cdtr_agt = ET.SubElement(cdt_trf_tx_inf, "CdtrAgt")
+            fin_instn_id = ET.SubElement(cdtr_agt, "FinInstnId")
+            ET.SubElement(fin_instn_id, "BIC").text = "BNPAFRPPXXX"
+            
+            cdtr = ET.SubElement(cdt_trf_tx_inf, "Cdtr")
+            ET.SubElement(cdtr, "Nm").text = tx.wording
+            cdtr_acct = ET.SubElement(cdt_trf_tx_inf, "CdtrAcct")
+            cdtr_acct_id = ET.SubElement(cdtr_acct, "Id")
+            ET.SubElement(cdtr_acct_id, "IBAN").text = tx.bank_account.iban
+            
+            rmt_inf = ET.SubElement(cdt_trf_tx_inf, "RmtInf")
+            ET.SubElement(rmt_inf, "Ustrd").text = f"{tx.value:.2f}" #TODO: generate remittance info
+        
+        # Create an in-memory byte buffer
+        byte_stream = io.BytesIO()
+        
+        # Write XML content to the byte buffer
+        tree = ET.ElementTree(root)
+        tree.write(byte_stream, encoding="utf-8", xml_declaration=True)
+        
+        # Get the byte content
+        xml_bytes = byte_stream.getvalue()
+        byte_stream.close()
+        
+        current_datetime = datetime.now().strftime("%Y%m%d_%H%M%S")
+        file_name = f"{company_name}_sepa_transactions_{current_datetime}.xml"
+        
+        print("SEPA byte stream created successfully.")
+        return {
+            "data": xml_bytes,
+            "media_type": "application/xml",
+            "file_name": file_name
+        }
+ 
