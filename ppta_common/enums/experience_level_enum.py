@@ -1,0 +1,7 @@
+from enum import Enum
+
+
+class ExperienceLevel(Enum):
+    TWO_TO_FIVE_YEARS = "2 to 5 years"
+    FIVE_TO_TEN_YEARS = "5 to 10 years"
+    TEN_PLUS_YEARS = "10+ years"
