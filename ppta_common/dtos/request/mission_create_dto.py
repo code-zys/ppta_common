@@ -7,7 +7,7 @@ from ...enums.experience_level_enum import ExperienceLevel
 from ...enums.duration_type_enum import DurationType
 from .workplace_dto import WorkplaceDto
 
-class CreationMissionDto(BaseModel):
+class MissionCreateDto(BaseModel):
     job_title: str = Field(..., description="Title of the job")
     reference: str = Field(..., description="Reference identifier for the mission")
     contract_type: ContractType = Field(..., description="Type of contract for the mission")
