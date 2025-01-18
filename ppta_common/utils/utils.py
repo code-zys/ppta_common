@@ -400,7 +400,7 @@ class Utils:
         output.close()
         
         # Generate the filename
-        current_datetime = datetime.now().strftime("%Y%m%d_%H%M%S")
+        current_datetime = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         file_name = f"{company_name}_transactions_{current_datetime}.csv"
         
         print("CSV file created successfully.")
@@ -442,7 +442,7 @@ class Utils:
         xml_bytes = buffer.getvalue()
         buffer.close()
         
-        current_datetime = datetime.now().strftime("%Y%m%d_%H%M%S")
+        current_datetime = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         file_name = f"{company_name}_transactions_{current_datetime}.xml"
         
         print("XML byte stream created successfully.")
@@ -471,7 +471,7 @@ class Utils:
         # Convert the JSON string to bytes
         transactions_bytes = transactions_json.encode('utf-8')
         
-        current_datetime = datetime.now().strftime("%Y%m%d_%H%M%S")
+        current_datetime = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         file_name = f"{company_name}_transactions_{current_datetime}.json"
         
         print("JSON byte stream created successfully.")
@@ -543,7 +543,7 @@ class Utils:
         xml_bytes = byte_stream.getvalue()
         byte_stream.close()
         
-        current_datetime = datetime.now().strftime("%Y%m%d_%H%M%S")
+        current_datetime = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
         file_name = f"{company_name}_sepa_transactions_{current_datetime}.xml"
         
         print("SEPA byte stream created successfully.")
