@@ -5,7 +5,7 @@ from ppta_common.models.member_info import MemberInfo
 from starlette import status
 from typing import List, Optional
 
-from utils.enums import EnumRole
+from ..enums.role_enum import EnumRole
 
 def get_current_user_dependency(secret_key: str, algorithm: str):
     async def get_current_user(authorization: Optional[str] = Header(None)) -> UserDtoMetadata:
