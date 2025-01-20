@@ -16,3 +16,5 @@ class Member(BaseDocument):
     approved_at = IntField(default=None)
     approved_by = EmbeddedDocumentField(UserMetadata, default=None) 
     user_type = StringField(choices=[e.value for e in EnumUserType], required=True)
+    is_consultant = BooleanField(default=False)
+    is_commercial = BooleanField(default=False)
