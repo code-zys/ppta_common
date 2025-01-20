@@ -11,6 +11,7 @@ from ..enums.duration_type_enum import DurationType
 
 class Mission(BaseDocument):
     job_title = StringField(required=True, description="Title of the job")
+    slug = StringField(required=True, description="Title of the job")
     reference = StringField(required=True, description="Reference identifier for the mission")
     contract_type = EnumField(ContractType, required=True, description="Type of contract for the mission")
     min_daily_rate = FloatField(required=True, min_value=0, default=0)
@@ -37,7 +38,7 @@ class Mission(BaseDocument):
     meta = {
         'collection': 'missions',
         'indexes': [
-            {'fields': ['reference', 'company'], 'unique': True},
+            {'fields': ['reference', 'company', 'slug'], 'unique': True},
         ],
         'strict': False
     }
