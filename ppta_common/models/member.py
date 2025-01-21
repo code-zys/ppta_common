@@ -1,4 +1,4 @@
-from mongoengine import StringField, EmbeddedDocumentField, BooleanField, ReferenceField, IntField
+from mongoengine import StringField, EmbeddedDocumentField, BooleanField, ReferenceField, IntField, ListField
 
 from .base_document import BaseDocument
 from .company import Company
@@ -18,3 +18,4 @@ class Member(BaseDocument):
     user_type = StringField(choices=[e.value for e in EnumUserType], required=True)
     is_consultant = BooleanField(default=False)
     is_commercial = BooleanField(default=False)
+    skills = ListField(StringField(max_length=100), required=True)

@@ -5,20 +5,20 @@ from mongoengine import (
     StringField,
     FloatField
 )
-from ..enums.application_match_type_enum import ApplicationMatchType
+from ..enums.mission_match_type_enum import MissionMatchType
 
 
-class ApplicationMatch(BaseDocument):
+class MissionMatch(BaseDocument):
     company = ReferenceField("Company", required=True)
     member = ReferenceField("Member", required=True)
     mission = ReferenceField("Mission", required=True)
-    skills = ListField(StringField(max_length=100), required=True)
+    mission_skills = ListField(StringField(max_length=100), required=True)
     percentage_match = FloatField(min_value=0, max_value=100, required=True)
-    type = StringField(choices=[e.value for e in ApplicationMatchType], required=True)
+    type = StringField(choices=[e.value for e in MissionMatchType], required=True)
 
 
     meta = {
-        "collection": "application_matches",
+        "collection": "mission_matches",
         "indexes": [
             "company",
             "member",

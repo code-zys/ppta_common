@@ -1,5 +1,5 @@
 from enum import Enum
 
-class ApplicationMatchType(Enum):
+class MissionMatchType(Enum):
     PROFIL = "Profil"
     MISSION = "Mission"
