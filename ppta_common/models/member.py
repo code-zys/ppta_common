@@ -18,4 +18,4 @@ class Member(BaseDocument):
     user_type = StringField(choices=[e.value for e in EnumUserType], required=True)
     is_consultant = BooleanField(default=False)
     is_commercial = BooleanField(default=False)
-    skills = ListField(StringField(max_length=100), required=True)
+    skills = ListField(StringField(max_length=100), required=False)
