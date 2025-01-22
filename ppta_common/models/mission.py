@@ -34,6 +34,7 @@ class Mission(BaseDocument):
     duration = IntField(min_value=1, description="Duration of the mission")
     duration_type = EnumField(DurationType, required=True, description="Duration type: DAYS, MONTHS, YEARS")
     is_renewable = BooleanField(default=False, description="Indicates if the mission is renewable")
+    currency = StringField(required=True)
 
     meta = {
         'collection': 'missions',
