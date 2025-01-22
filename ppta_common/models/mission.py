@@ -3,8 +3,6 @@ from ppta_common.models.company import Company
 from .base_document import BaseDocument
 from ..enums.contract_type_enum import ContractType
 from ..enums.experience_level_enum import ExperienceLevel
-from ..enums.know_how import KnowHow
-from ..enums.skill_enum import Skill
 from .workplace import Workplace
 from ..enums.remote_work_type_enum import RemoteWorkType
 from ..enums.duration_type_enum import DurationType
