@@ -9,6 +9,7 @@ from .company import Company
 from .total import Totals
 from .quote_version import QuoteVersion
 from .exoneration_nature import ExonerationNature
+from .discount import Discount
 
 class Quote(BaseDocument):
     number = StringField(required=True, default="")
@@ -27,6 +28,7 @@ class Quote(BaseDocument):
     is_send = BooleanField(default=False) 
     quote_versions = ListField(EmbeddedDocumentField(QuoteVersion), required=False)
     pricing = DictField(required=True, default={})
+    discount = EmbeddedDocumentField(Discount, required=False, default=None)
     exoneration = ReferenceField(ExonerationNature, required=False, default=None)
     
     meta = {

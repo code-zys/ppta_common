@@ -9,6 +9,7 @@ from .invoice_item import InvoiceItem
 from .programmation_details import Programmation_details
 from ..enums.mesure_unit_enum import EnumMesureUnit
 from .exoneration_nature import ExonerationNature
+from .discount import Discount
 
 class RecurringInvoice(BaseDocument):
     description = StringField(required=False, default="")
@@ -24,6 +25,7 @@ class RecurringInvoice(BaseDocument):
     custom_payment_condition = IntField(required=False, default=None)
     custom_payment_condition_unit = StringField(choices=[e.value for e in EnumMesureUnit],required=False )
     order_number = StringField(required=False, default=None)
+    discount = EmbeddedDocumentField(Discount, required=False, default=None)
     exoneration = ReferenceField(ExonerationNature, required=False, default=None)
     meta = {
         'collection': 'recurring_invoices',
