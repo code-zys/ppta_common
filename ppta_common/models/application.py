@@ -8,7 +8,8 @@ from .member import Member
 class Application(BaseDocument):
     mission = ReferenceField(Mission, required=True)
     company = ReferenceField(Company, required=True)
-    message = StringField(required=True)
+    applicant_message = StringField(required=False)
+    company_message = StringField(required=False)
     cv = URLField(required=True)
     application_status = StringField(choices=[e.value for e in ApplicationStatus], required=True)
     application_date = IntField(required=True)
