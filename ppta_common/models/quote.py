@@ -27,7 +27,7 @@ class Quote(BaseDocument):
     send_quote_at_generation = BooleanField(default=False)
     is_send = BooleanField(default=False) 
     quote_versions = ListField(EmbeddedDocumentField(QuoteVersion), required=False)
-    pricing = DictField(required=True, default={})
+    pricing = DictField(field=EmbeddedDocumentField(Totals), required=False, default={})
     discount = EmbeddedDocumentField(Discount, required=False, default=None)
     exoneration = ReferenceField(ExonerationNature, required=False, default=None)
     
