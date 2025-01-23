@@ -1,6 +1,7 @@
-from mongoengine import StringField, FloatField, EmbeddedDocument
+from mongoengine import StringField, FloatField, EmbeddedDocument, ReferenceField
 from ..enums.discount_type_enum import EnumDiscountType
 from ..enums.mesure_unit_enum import EnumMesureUnit
+from .exoneration_nature import ExonerationNature
 
 class InvoiceItem(EmbeddedDocument):
     description = StringField(required=True, default="")
@@ -11,3 +12,4 @@ class InvoiceItem(EmbeddedDocument):
     discountType = StringField(choices=[e.value for e in EnumDiscountType], required=False)
     unit = StringField(choices=[e.value for e in EnumMesureUnit], required=False)
     quantity = FloatField(required=False, default=None)
+    exoneration = ReferenceField(ExonerationNature, required=False, default=None)
