@@ -20,12 +20,5 @@ class MissionMatch(BaseDocument):
 
 
     meta = {
-        "collection": "mission_matches",
-        "indexes": [
-            "company",
-            "member",
-            "mission",
-            "percentage_match",
-            "type",
-        ],
+        "collection": "mission_matches"
     }
