@@ -6,11 +6,12 @@ from mongoengine import (
     FloatField
 )
 from ..enums.mission_match_type_enum import MissionMatchType
+from .company import Company
 
 
 class MissionMatch(BaseDocument):
-    member_company = ReferenceField("Company", required=True)
-    mission_company = ReferenceField("Company", required=True)
+    member_company = ReferenceField(Company, required=True)
+    mission_company = ReferenceField(Company, required=True)
     member = ReferenceField("Member", required=True)
     mission = ReferenceField("Mission", required=True)
     mission_skills = ListField(StringField(max_length=100), required=True)
