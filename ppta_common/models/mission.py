@@ -1,4 +1,4 @@
-from mongoengine import StringField, FloatField, IntField, BooleanField, ListField, EmbeddedDocumentField, EnumField, DateField, ReferenceField
+from mongoengine import StringField, FloatField, IntField, BooleanField, ListField, EmbeddedDocumentField, EnumField, DateField, ReferenceField, DictField
 from ppta_common.models.company import Company
 from .base_document import BaseDocument
 from ..enums.contract_type_enum import ContractType
@@ -6,6 +6,8 @@ from ..enums.experience_level_enum import ExperienceLevel
 from .workplace import Workplace
 from ..enums.remote_work_type_enum import RemoteWorkType
 from ..enums.duration_type_enum import DurationType
+from .skill import Skill
+from .job import Job
 
 class Mission(BaseDocument):
     job_title = StringField(required=True, description="Title of the job")
@@ -23,7 +25,6 @@ class Mission(BaseDocument):
     starts_asap = BooleanField(required=True, description="Indicates if the mission starts as soon as possible")
     type_remote_work = EnumField(RemoteWorkType, required=True, description="Type of remote work available")
     job_description = StringField(required=True, description="Description of the job")
-    expected_skills = ListField(StringField(), required=True, description="List of expected skills, e.g., AWS, Python, Pandas")
     know_how = ListField(StringField(), required=True, description="List of soft skills, e.g., communication, confidence")
     desired_profile = StringField(required=True, description="Description of the desired candidate profile")
     work_environment = StringField(required=True, description="Description of the work environment")
@@ -33,7 +34,8 @@ class Mission(BaseDocument):
     duration_type = EnumField(DurationType, required=True, description="Duration type: DAYS, MONTHS, YEARS")
     is_renewable = BooleanField(default=False, description="Indicates if the mission is renewable")
     currency = StringField(required=True)
-
+    skills= DictField(EmbeddedDocumentField(Skill))
+    job= EmbeddedDocumentField(Job, default=None) 
     meta = {
         'collection': 'missions',
         'indexes': [

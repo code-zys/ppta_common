@@ -4,6 +4,7 @@ from ..enums.application_status_enum import ApplicationStatus
 from .company import Company
 from .mission import Mission
 from .member import Member
+from ..enums.application_direction_enum import EnumApplicationDirection
 
 class Application(BaseDocument):
     mission = ReferenceField(Mission, required=True)
@@ -16,6 +17,8 @@ class Application(BaseDocument):
     interview_completed = BooleanField(default=False)  
     applied_by_member = ReferenceField(Member, required=True)
     applied_for_member = ReferenceField(Member, required=True)
+    origin = StringField(choices=[e.value for e in EnumApplicationDirection], required=True)
+
 
     meta = {
         "collection": "applications",
