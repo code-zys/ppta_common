@@ -25,7 +25,7 @@ class Mission(BaseDocument):
     starts_asap = BooleanField(required=True, description="Indicates if the mission starts as soon as possible")
     type_remote_work = EnumField(RemoteWorkType, required=True, description="Type of remote work available")
     job_description = StringField(required=True, description="Description of the job")
-    know_how = ListField(StringField(), required=True, description="List of soft skills, e.g., communication, confidence")
+    know_how = DictField(EmbeddedDocumentField(Skill), required=True, description="List of soft skills, e.g., communication, confidence")
     desired_profile = StringField(required=True, description="Description of the desired candidate profile")
     work_environment = StringField(required=True, description="Description of the work environment")
     company = ReferenceField(Company)
