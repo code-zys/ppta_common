@@ -7,7 +7,7 @@ from .member import Member
 from ..enums.application_direction_enum import EnumApplicationDirection
 
 class Application(BaseDocument):
-    mission = ReferenceField(Mission, required=True)
+    mission = ReferenceField("Mission", required=True)
     company = ReferenceField(Company, required=True)
     applicant_message = StringField(required=False)
     company_message = StringField(required=False)
