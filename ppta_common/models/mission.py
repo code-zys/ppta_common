@@ -8,7 +8,7 @@ from ..enums.remote_work_type_enum import RemoteWorkType
 from ..enums.duration_type_enum import DurationType
 from .skill import Skill
 from .job import Job
-
+from .application import Application
 class Mission(BaseDocument):
     job_title = StringField(required=True, description="Title of the job")
     slug = StringField(required=True, description="Title of the job")
@@ -34,8 +34,12 @@ class Mission(BaseDocument):
     duration_type = EnumField(DurationType, required=True, description="Duration type: DAYS, MONTHS, YEARS")
     is_renewable = BooleanField(default=False, description="Indicates if the mission is renewable")
     currency = StringField(required=True)
-    skills= DictField(EmbeddedDocumentField(Skill))
-    job= EmbeddedDocumentField(Job, default=None) 
+    skills = DictField(EmbeddedDocumentField(Skill))
+    job = EmbeddedDocumentField(Job, default=None)
+
+    application = ReferenceField(Application, required=False)
+    application_date = IntField(required=False)
+
     meta = {
         'collection': 'missions',
         'indexes': [
