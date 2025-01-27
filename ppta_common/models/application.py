@@ -2,7 +2,6 @@ from .base_document import BaseDocument
 from mongoengine import ReferenceField, URLField, StringField, IntField, BooleanField
 from ..enums.application_status_enum import ApplicationStatus
 from .company import Company
-from .mission import Mission
 from .member import Member
 from ..enums.application_direction_enum import EnumApplicationDirection
 
