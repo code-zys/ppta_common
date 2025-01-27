@@ -9,7 +9,8 @@ from ..enums.duration_type_enum import DurationType
 from .skill import Skill
 from .job import Job
 from .application import Application
-from ..enums.mission_status import MissionStatus
+from ..enums.mission_status_enum import MissionStatus
+
 class Mission(BaseDocument):
     job_title = StringField(required=True, description="Title of the job")
     slug = StringField(required=True, description="Title of the job")
