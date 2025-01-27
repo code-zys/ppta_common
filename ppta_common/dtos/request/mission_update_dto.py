@@ -10,7 +10,7 @@ from .workplace_dto import WorkplaceDto
 class MissionUpdateDto(BaseModel):
     job_title: Optional[str] = Field(None, description="Title of the job")
     reference: Optional[str] = Field(None, description="Reference identifier for the mission")
-    contract_type: Optional[list[ContractType]] = Field(None, description="Type of contracts for the mission")
+    contract_types: Optional[list[ContractType]] = Field(None, description="Type of contracts for the mission")
     min_daily_rate: Optional[float] = Field(None, description="Min daily rate for freelance contract")
     max_daily_rate: Optional[float] = Field(None, description="max daily rate for freelance contract")
     min_annual_gross_salary: Optional[float] = Field(None, description="Min annual gross salary range")
