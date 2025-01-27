@@ -25,8 +25,6 @@ class MissionCreateDto(BaseModel):
     know_how: Optional[dict] = Field(None, description="List of soft skills, e.g., communication, confidence")
     desired_profile: str = Field(..., description="Description of the desired candidate profile")
     work_environment: str = Field(..., description="Description of the work environment")
-    company: str = Field(..., description="ID of the company")
-    created_by_company: Optional[str] = Field(None, description="ID of the company that created the mission")
     duration: int = Field(..., ge=1, description="Duration of the mission")
     duration_type: DurationType = Field(..., description="Duration type: DAYS, MONTHS, YEARS")
     is_renewable: bool = Field(False, description="Indicates if the mission is renewable")
