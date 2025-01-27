@@ -6,7 +6,6 @@ from ...enums.experience_level_enum import ExperienceLevel
 from ...enums.remote_work_type_enum import RemoteWorkType
 from ...enums.duration_type_enum import DurationType
 from .workplace_dto import WorkplaceDto
-
 class MissionUpdateDto(BaseModel):
     job_title: Optional[str] = Field(None, description="Title of the job")
     reference: Optional[str] = Field(None, description="Reference identifier for the mission")
@@ -22,8 +21,9 @@ class MissionUpdateDto(BaseModel):
     starts_asap: Optional[bool] = Field(None, description="Indicates if the mission starts as soon as possible")
     type_remote_work: Optional[RemoteWorkType] = Field(None, description="Type of remote work available")
     job_description: Optional[str] = Field(None, description="Description of the job")
-    expected_skills: Optional[List[str]] = Field(None, description="List of expected skills, e.g., AWS, Python, Pandas")
-    know_how: Optional[List[str]] = Field(None, description="List of soft skills, e.g., communication, confidence")
+    skills:  Optional[dict] = Field(None, description="List of expected skills, e.g., AWS, Python, Pandas")
+    know_how: Optional[dict] = Field(None, description="List of soft skills, e.g., communication, confidence")
+    job:Optional[dict] =Field(None, description="The main daily activities")
     desired_profile: Optional[str] = Field(None, description="Description of the desired candidate profile")
     work_environment: Optional[str] = Field(None, description="Description of the work environment")
     company: Optional[str] = Field(None, description="ID of the company")
