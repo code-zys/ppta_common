@@ -4,7 +4,6 @@ from .professional_info_dto import ProfessionalInfoDto
 from ...utils.enums import EnumUserType
 from pydantic import BaseModel, Field
 from typing import Optional
-
 class MemberDto(BaseModel):
     professional_info:Optional[ProfessionalInfoDto]= Field(None, description="List of expected skills, e.g., AWS, Python, Pandas")
     user_type:Optional[EnumUserType]= Field(None, description="List of expected skills, e.g., AWS, Python, Pandas")

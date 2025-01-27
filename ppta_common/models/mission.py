@@ -10,6 +10,7 @@ from .skill import Skill
 from .job import Job
 from .application import Application
 from ..enums.mission_status_enum import MissionStatus
+from .know_how import KnowHow
 
 class Mission(BaseDocument):
     job_title = StringField(required=True, description="Title of the job")
@@ -27,7 +28,7 @@ class Mission(BaseDocument):
     starts_asap = BooleanField(required=True, description="Indicates if the mission starts as soon as possible")
     type_remote_work = EnumField(RemoteWorkType, required=True, description="Type of remote work available")
     job_description = StringField(required=True, description="Description of the job")
-    know_how = DictField(EmbeddedDocumentField(Skill), required=True, description="List of soft skills, e.g., communication, confidence")
+    know_how = DictField(EmbeddedDocumentField(KnowHow), required=True, description="List of soft skills, e.g., communication, confidence")
     desired_profile = StringField(required=True, description="Description of the desired candidate profile")
     work_environment = StringField(required=True, description="Description of the work environment")
     company = ReferenceField(Company)
