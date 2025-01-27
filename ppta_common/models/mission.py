@@ -9,6 +9,7 @@ from ..enums.duration_type_enum import DurationType
 from .skill import Skill
 from .job import Job
 from .application import Application
+from ..enums.mission_status import MissionStatus
 class Mission(BaseDocument):
     job_title = StringField(required=True, description="Title of the job")
     slug = StringField(required=True, description="Title of the job")
@@ -36,6 +37,7 @@ class Mission(BaseDocument):
     currency = StringField(required=True)
     skills = DictField(EmbeddedDocumentField(Skill))
     job = EmbeddedDocumentField(Job, default=None)
+    status = EnumField(MissionStatus, required=True, description="Status of the mission", default=MissionStatus.UNPUBLISHED)
 
     application = ReferenceField(Application, required=False)
     application_date = IntField(required=False)
