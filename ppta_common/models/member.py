@@ -21,5 +21,5 @@ class Member(BaseDocument):
     is_commercial = BooleanField(default=False)
     principal_skills = DictField(EmbeddedDocumentField(Skill))
     general_skills=  DictField(EmbeddedDocumentField(Skill))
-    know_how = DictField(EmbeddedDocumentField(KnowHow), required=True, description="List of soft skills, e.g., communication, confidence")
+    know_how = DictField(EmbeddedDocumentField(KnowHow), required=False, description="List of soft skills, e.g., communication, confidence")
     job= EmbeddedDocumentField(Job, default=None)

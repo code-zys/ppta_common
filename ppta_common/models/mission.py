@@ -44,7 +44,7 @@ class Mission(BaseDocument):
 
     application = ReferenceField(Application, required=False)
     application_date = IntField(required=False)
-    visibility = EnumField(MissionVisibility, required=True, description="The visibility of the mission", default=MissionVisibility.PRIVATE)
+    visibility = EnumField(MissionVisibility, required=True, description="The visibility of the mission", default=MissionVisibility.PUBLIC)
 
     meta = {
         'collection': 'missions',
