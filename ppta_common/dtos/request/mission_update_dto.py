@@ -6,6 +6,7 @@ from ...enums.experience_level_enum import ExperienceLevel
 from ...enums.remote_work_type_enum import RemoteWorkType
 from ...enums.duration_type_enum import DurationType
 from .workplace_dto import WorkplaceDto
+from ...enums.mission_visibility_enum import MissionVisibility
 
 class MissionUpdateDto(BaseModel):
     job_title: Optional[str] = Field(None, description="Title of the job")
@@ -31,3 +32,4 @@ class MissionUpdateDto(BaseModel):
     duration: Optional[int] = Field(None, ge=1, description="Duration of the mission")
     duration_type: Optional[DurationType] = Field(None, description="Duration type: DAYS, MONTHS, YEARS")
     is_renewable: Optional[bool] = Field(None, description="Indicates if the mission is renewable")
+    visibility: Optional[MissionVisibility] = Field(None, description="Defines the mission visibility")

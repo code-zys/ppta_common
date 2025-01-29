@@ -10,6 +10,7 @@ from .skill import Skill
 from .job import Job
 from .application import Application
 from ..enums.mission_status_enum import MissionStatus
+from ..enums.mission_visibility_enum import MissionVisibility
 from .know_how import KnowHow
 
 class Mission(BaseDocument):
@@ -43,6 +44,7 @@ class Mission(BaseDocument):
 
     application = ReferenceField(Application, required=False)
     application_date = IntField(required=False)
+    visibility = EnumField(MissionVisibility, required=True, description="The visibility of the mission", default=MissionVisibility.PRIVATE)
 
     meta = {
         'collection': 'missions',

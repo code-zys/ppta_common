@@ -5,6 +5,7 @@ from ...enums.contract_type_enum import ContractType
 from ...enums.remote_work_type_enum import RemoteWorkType
 from ...enums.experience_level_enum import ExperienceLevel
 from ...enums.duration_type_enum import DurationType
+from ...enums.mission_visibility_enum import MissionVisibility
 from .workplace_dto import WorkplaceDto
 class MissionCreateDto(BaseModel):
     job_title: str = Field(..., description="Title of the job")
@@ -29,3 +30,4 @@ class MissionCreateDto(BaseModel):
     duration_type: Optional[DurationType] = Field(None, description="Duration type: DAYS, MONTHS, YEARS")
     is_renewable: bool = Field(False, description="Indicates if the mission is renewable")
     job:Optional[dict] =Field(None, description="The main daily activities")
+    visibility: Optional[MissionVisibility] = Field(None, description="Defines the mission visibility")
