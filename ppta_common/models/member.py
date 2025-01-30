@@ -1,4 +1,4 @@
-from mongoengine import StringField, EmbeddedDocumentField, BooleanField, ReferenceField, IntField, DictField
+from mongoengine import StringField, EmbeddedDocumentField, BooleanField, ReferenceField, IntField, DictField, URLField, ListField
 from .base_document import BaseDocument
 from .company import Company
 from .professional_info import ProfessionalInfo
@@ -23,3 +23,5 @@ class Member(BaseDocument):
     general_skills=  DictField(EmbeddedDocumentField(Skill))
     know_how = DictField(EmbeddedDocumentField(KnowHow), required=False, description="List of soft skills, e.g., communication, confidence")
     job= EmbeddedDocumentField(Job, default=None)
+    cv = URLField(required=False)
+    other_cvs = ListField(URLField(), required=False, default = [])
