@@ -23,5 +23,5 @@ class Member(BaseDocument):
     general_skills=  DictField(EmbeddedDocumentField(Skill))
     know_how = DictField(EmbeddedDocumentField(KnowHow), required=False, description="List of soft skills, e.g., communication, confidence")
     job= EmbeddedDocumentField(Job, default=None)
-    cv = URLField(required=False)
-    other_cvs = ListField(URLField(), required=False, default = [])
+    cv = StringField(required=False)
+    other_cvs = ListField(StringField(), required=False, default = [])

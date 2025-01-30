@@ -1,5 +1,5 @@
 from .base_document import BaseDocument
-from mongoengine import ReferenceField, URLField, StringField, IntField, BooleanField
+from mongoengine import ReferenceField, StringField, IntField, BooleanField
 from ..enums.application_status_enum import ApplicationStatus
 from .company import Company
 from .member import Member
@@ -10,7 +10,7 @@ class Application(BaseDocument):
     company = ReferenceField(Company, required=True)
     applicant_message = StringField(required=False)
     company_message = StringField(required=False)
-    cv = URLField(required=True)
+    cv = StringField(required=True)
     application_status = StringField(choices=[e.value for e in ApplicationStatus], required=True)
     application_date = IntField(required=True)
     interview_completed = BooleanField(default=False)  
