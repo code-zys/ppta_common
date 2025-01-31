@@ -42,8 +42,8 @@ class Mission(BaseDocument):
     job = EmbeddedDocumentField(Job, default=None)
     status = EnumField(MissionStatus, required=True, description="Status of the mission", default=MissionStatus.UNPUBLISHED)
 
-    application = ReferenceField(Application, required=False)
-    application_date = IntField(required=False)
+    application_accepted = ReferenceField(Application, required=False)
+    application_accepted_date = IntField(required=False)
     visibility = EnumField(MissionVisibility, required=True, description="The visibility of the mission", default=MissionVisibility.PUBLIC)
 
     meta = {
