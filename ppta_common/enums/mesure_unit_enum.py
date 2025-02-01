@@ -1,7 +1,6 @@
 from enum import Enum
 
-
-class EnumMesureUnit(str,Enum):
+class EnumMesureUnit(str, Enum):
     UNIT = "UNIT"
     HOUR = "HOUR"
     DAY = "DAY"
@@ -9,3 +8,44 @@ class EnumMesureUnit(str,Enum):
     MONTH = "MONTH"
     YEAR = "YEAR"
     MINUTE = "MINUTE"
+    SECOND = "SECOND"
+    TWO_WEEKS = "TWO_WEEKS"
+    SEMESTER = "SEMESTER"
+    
+    GRAM = "GRAM"
+    KILOGRAM = "KILOGRAM"
+    MILLIGRAM = "MILLIGRAM"
+    
+    LITRE = "LITRE"
+    MILLILITER = "MILLILITER"
+    
+    METER = "METER"
+    CENTIMETER = "CENTIMETER"
+    MILLIMETER = "MILLIMETER"
+    SQUARE_METER = "SQUARE_METER"
+    CUBIC_METER = "CUBIC_METER"
+    CUBIC_METER_PER_HECTARE = "CUBIC_METER_PER_HECTARE"
+    
+    AMPERE = "AMPERE"
+    
+    ARTICLE = "ARTICLE"
+    PAIR = "PAIR"
+    SET = "SET"
+    
+    JOULE = "JOULE"
+    KILOJOULE = "KILOJOULE"
+    MEGAJOULE = "MEGAJOULE"
+    GIGAJOULE = "GIGAJOULE"
+    
+    KILOVAR = "KILOVAR"
+    
+    KILOWATT = "KILOWATT"
+    MEGAWATT = "MEGAWATT"
+    GIGAWATT = "GIGAWATT"
+    
+    KILOWATT_HOUR = "KILOWATT_HOUR"
+    MEGAWATT_HOUR = "MEGAWATT_HOUR"
+    GIGAWATT_HOUR = "GIGAWATT_HOUR"
+    WATT_HOUR = "WATT_HOUR"
+    
+    TON = "TON"
