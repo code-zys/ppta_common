@@ -6,4 +6,4 @@ class TimesheetCreateDTO(BaseModel):
     month: str
     year: int
     mission: str
-    type: TimesheetType
+    #TODO: make use of user_type in member, type should be removed. Make use of member to whom the mission is assigned

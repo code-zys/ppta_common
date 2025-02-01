@@ -13,7 +13,8 @@ class Timesheet(Document):
     member = ReferenceField(Member, required=True)
     mission = ReferenceField(Mission, required=True)
     function = ReferenceField(Function)
-    project_or_team = StringField()
+    project = StringField() #TODO: title of mission by default, can be updated
+    team = StringField()
     type = ReferenceField(TimesheetType, required=True)
 
     published_by_company = ReferenceField(Company, required=True)
