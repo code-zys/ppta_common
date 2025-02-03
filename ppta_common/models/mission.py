@@ -47,7 +47,7 @@ class Mission(BaseDocument):
     visibility = EnumField(MissionVisibility, required=True, description="The visibility of the mission", default=MissionVisibility.PUBLIC)
 
     meta = {
-        'collection': 'missions',
+        'collection': 'offer_requests',
         'indexes': [
             {'fields': ['reference', 'company', 'slug'], 'unique': True},
         ],
