@@ -6,4 +6,3 @@ class EnumQuoteStatus(str, Enum):
     SEND = "SEND"         # Envoyé au client (non modifiable, non supprimable)
     ACCEPTED = "ACCEPTED" # Accepté (non modifiable, non supprimable)
     DENIED = "DENIED" 
-    INVALID_QUOTE_STATUS = "INVALID_QUOTE_STATUS"
