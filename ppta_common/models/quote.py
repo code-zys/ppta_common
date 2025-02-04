@@ -10,6 +10,7 @@ from .total import Totals
 from .quote_version import QuoteVersion
 from .exoneration_nature import ExonerationNature
 from .discount import Discount
+from ..enums.quote_status_enum import EnumQuoteStatus
 
 class Quote(BaseDocument):
     number = StringField(required=True, default="")
@@ -30,6 +31,7 @@ class Quote(BaseDocument):
     pricing = DictField(field=EmbeddedDocumentField(Totals), required=False, default={})
     discount = EmbeddedDocumentField(Discount, required=False, default=None)
     exoneration = ReferenceField(ExonerationNature, required=False, default=None)
+    status =  StringField(choices=[e.value for e in EnumQuoteStatus], required=True, default=EnumQuoteStatus.DRAFT.value)
     
     meta = {
         'collection': 'quotes',
