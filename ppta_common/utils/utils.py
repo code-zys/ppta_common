@@ -158,8 +158,11 @@ class Utils:
         return response['Plaintext'].decode('utf-8')
     
     @staticmethod
-    def upload_file_with_incremental_key(bucket_name, prefix_key, file_name, file_content):
-        s3 = boto3.client('s3')
+    def upload_file_with_incremental_key(bucket_name, prefix_key, file_name, file_content, s3_endpoint_url=None):
+        if s3_endpoint_url:
+            s3 = boto3.client('s3', endpoint_url=s3_endpoint_url)
+        else:
+            s3 = boto3.client('s3')
 
         unique_key = Utils.get_unique_key(s3, bucket_name, prefix_key, file_name)
         
@@ -172,8 +175,11 @@ class Utils:
     
 
     @staticmethod
-    def move_file_with_incremental_key(bucket_name, source_key, destination_prefix):
-        s3 = boto3.client('s3')
+    def move_file_with_incremental_key(bucket_name, source_key, destination_prefix, s3_endpoint_url=None):
+        if s3_endpoint_url:
+            s3 = boto3.client('s3', endpoint_url=s3_endpoint_url)
+        else:
+            s3 = boto3.client('s3')
 
         file_name = os.path.basename(source_key)
 
@@ -190,9 +196,12 @@ class Utils:
         return unique_key, new_file_name
 
 
-    def delete_file_from_s3(bucket_name, unique_key):
+    def delete_file_from_s3(bucket_name, unique_key, s3_endpoint_url=None):
         # Initialize S3 client
-        s3 = boto3.client('s3')
+        if s3_endpoint_url:
+            s3 = boto3.client('s3', endpoint_url=s3_endpoint_url)
+        else:
+            s3 = boto3.client('s3')
         
         # Delete the object from S3
         s3.delete_object(Bucket=bucket_name, Key=unique_key)
@@ -200,8 +209,11 @@ class Utils:
         print(f'File deleted from {bucket_name}/{unique_key}')
 
 
-    def rename_file_in_s3(bucket_name, prefix_key, file_name, new_file_name):
-        s3 = boto3.client('s3')
+    def rename_file_in_s3(bucket_name, prefix_key, file_name, new_file_name, s3_endpoint_url=None):
+        if s3_endpoint_url:
+            s3 = boto3.client('s3', endpoint_url=s3_endpoint_url)
+        else:
+            s3 = boto3.client('s3')
     
         # Check whether a file with the proposed new name already exists among the existing files
         response = s3.list_objects_v2(Bucket=bucket_name, Prefix=prefix_key)
@@ -221,8 +233,11 @@ class Utils:
 
         return new_key, new_file_name
 
-    def send_message_on_sqs(message: Any, region_name: str, queue_url: str):
-        sqs = boto3.client('sqs', region_name=region_name)
+    def send_message_on_sqs(message: Any, region_name: str, queue_url: str, sqs_endpoint_url: str = None):
+        if sqs_endpoint_url:
+            sqs = boto3.client('sqs', region_name=region_name, endpoint_url=sqs_endpoint_url)
+        else:
+            sqs = boto3.client('sqs', region_name=region_name)
 
         # Send a message to the queue
         response = sqs.send_message(
@@ -325,8 +340,11 @@ class Utils:
             } for part in obj.iter_attachments()]
         }
         
-    def get_file_in_s3(bucket_name, prefix_key):
-        s3 = boto3.client('s3')
+    def get_file_in_s3(bucket_name, prefix_key, s3_endpoint_url=None):
+        if s3_endpoint_url:
+            s3 = boto3.client('s3', endpoint_url=s3_endpoint_url)
+        else:
+            s3 = boto3.client('s3')
         try:
             response = s3.get_object(Bucket=bucket_name, Key=prefix_key)
             print("response:: ", response)
@@ -339,8 +357,11 @@ class Utils:
                 raise Exception(f"An error occurred while retrieving the file from S3: {error_code}")
         return response
     
-    def fetch_s3_files(bucket_name, file_paths,drive_paths):
-        s3 = boto3.client('s3')
+    def fetch_s3_files(bucket_name, file_paths,drive_paths, s3_endpoint_url=None):
+        if s3_endpoint_url:
+            s3 = boto3.client('s3', endpoint_url=s3_endpoint_url)
+        else: 
+            s3 = boto3.client('s3')
         downloaded_files = []
 
         try:
