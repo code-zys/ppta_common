@@ -1,9 +1,10 @@
 from .base_document import BaseDocument
-from mongoengine import ReferenceField, StringField, IntField, BooleanField
+from mongoengine import ReferenceField, StringField, IntField, BooleanField, EmbeddedDocumentField
 from ..enums.application_status_enum import ApplicationStatus
 from .company import Company
 from .member import Member
 from ..enums.application_direction_enum import EnumApplicationDirection
+from .application_match import ApplicationMatch
 
 class Application(BaseDocument):
     mission = ReferenceField("Mission", required=True)
@@ -17,6 +18,7 @@ class Application(BaseDocument):
     applied_by_member = ReferenceField(Member, required=True)
     applied_for_member = ReferenceField(Member, required=True)
     origin = StringField(choices=[e.value for e in EnumApplicationDirection], required=True)
+    matching = EmbeddedDocumentField(ApplicationMatch,required=False)
 
 
     meta = {
