@@ -30,7 +30,6 @@ class MissionCreateDto(BaseModel):
     duration_type: Optional[DurationType] = Field(None, description="Duration type: DAYS, MONTHS, YEARS")
     is_renewable: bool = Field(False, description="Indicates if the mission is renewable")
     job:Optional[dict] =Field(None, description="The main daily activities")
-    visibility: Optional[MissionVisibility] = Field(None, description="Defines the mission visibility")
     is_final: Optional[bool] = Field(False, description="Indicates if tender call should be marked as unpublished or maintained as draft after creation")
     client: Optional[str] = Field(None, description="Field for to indicate the client for this tender call")
     is_client_public: Optional[bool] = Field(False, description="the fields indicates if the client can be displayed to applicants")
