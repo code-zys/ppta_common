@@ -9,7 +9,6 @@ from datetime import datetime
 
 class Company(BaseDocument):
     siret = StringField(required=False)
-    siren = StringField(required=False)
     name = StringField(required=False)
     activity = StringField(required=False)
     type = StringField(choices=[e.value for e in EnumUserType], required=True)

@@ -7,7 +7,6 @@ from ...utils.enums import EnumUserType
 class CompanyDto(BaseModel):
     id: Optional[str] = None
     siret: str
-    siren: str
     name: str
     activity: str
     type: EnumUserType
