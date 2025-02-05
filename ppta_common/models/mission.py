@@ -47,6 +47,7 @@ class Mission(BaseDocument):
     visibility = EnumField(MissionVisibility, required=True, description="The visibility of the mission", default=MissionVisibility.PUBLIC)
     client = ReferenceField(Company, required=False, description="The final client company for which the tender call was created")
     is_client_public = BooleanField(required=False, default=False, description="the fields indicates if the client can be displayed to applicants")
+    questions = ListField(StringField(required=True), default = [], required=False)
 
     meta = {
         'collection': 'offer_requests',
