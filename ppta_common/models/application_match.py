@@ -1,7 +1,6 @@
-from .base_document import BaseDocument
-from mongoengine import FloatField
+from mongoengine import FloatField, EmbeddedDocument
 
-class ApplicationMatch(BaseDocument):
+class ApplicationMatch(EmbeddedDocument):
     skill = FloatField(required=True)
     experience = FloatField(required=True)
     language = FloatField(required=True)
