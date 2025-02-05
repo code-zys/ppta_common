@@ -27,8 +27,6 @@ class MissionUpdateDto(BaseModel):
     job:Optional[dict] =Field(None, description="The main daily activities")
     desired_profile: Optional[str] = Field(None, description="Description of the desired candidate profile")
     work_environment: Optional[str] = Field(None, description="Description of the work environment")
-    company: Optional[str] = Field(None, description="ID of the company")
-    created_by_company: Optional[str] = Field(None, description="ID of the company that created the mission")
     duration: Optional[int] = Field(None, ge=1, description="Duration of the mission")
     duration_type: Optional[DurationType] = Field(None, description="Duration type: DAYS, MONTHS, YEARS")
     is_renewable: Optional[bool] = Field(None, description="Indicates if the mission is renewable")
