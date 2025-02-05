@@ -2,14 +2,13 @@ from pydantic import BaseModel
 from typing import Any, Dict, Optional
 from .address_dto import AddressDto
 from .timezone_dto import TimezoneDto
-from ...utils.enums import EnumUserType
-
+from ...enums.company_type_enum import CompanyType
 class CompanyDto(BaseModel):
     id: Optional[str] = None
     siret: str
     name: str
     activity: str
-    type: EnumUserType
+    type: CompanyType
     timeZone: Optional[TimezoneDto] = None
    
     email: Optional[str] = None

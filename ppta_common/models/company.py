@@ -3,7 +3,7 @@ from mongoengine import StringField, EmbeddedDocumentField, BooleanField, IntFie
 from .address import Address
 from .base_document import BaseDocument
 from .timezone import TimeZone
-from ..utils.enums import EnumUserType
+from ..enums.company_type_enum import CompanyType
 from ..utils.utils import Utils
 from datetime import datetime
 
@@ -11,7 +11,7 @@ class Company(BaseDocument):
     siret = StringField(required=False)
     name = StringField(required=False)
     activity = StringField(required=False)
-    type = StringField(choices=[e.value for e in EnumUserType], required=True)
+    type = StringField(choices=[e.value for e in CompanyType], required=True)
     timeZone = EmbeddedDocumentField(TimeZone, required=True)
     stripe_customer_id = StringField(required=True)
     subscription_id = StringField(required=False)
