@@ -33,3 +33,4 @@ class MissionUpdateDto(BaseModel):
     duration_type: Optional[DurationType] = Field(None, description="Duration type: DAYS, MONTHS, YEARS")
     is_renewable: Optional[bool] = Field(None, description="Indicates if the mission is renewable")
     visibility: Optional[MissionVisibility] = Field(None, description="Defines the mission visibility")
+    client: Optional[str] = Field(None, description="Field for to indicate the client for this tender call")
