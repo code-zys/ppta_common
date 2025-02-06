@@ -1,8 +1,9 @@
 from .base_document import BaseDocument
-from mongoengine import ReferenceField, StringField, IntField, BooleanField, EmbeddedDocumentField
+from mongoengine import ReferenceField, StringField, IntField, BooleanField, EmbeddedDocumentField, ListField
 from ..enums.application_status_enum import ApplicationStatus
 from .company import Company
 from .member import Member
+from .answer import Answer
 from ..enums.application_direction_enum import EnumApplicationDirection
 from .application_match import ApplicationMatch
 
@@ -19,7 +20,7 @@ class Application(BaseDocument):
     applied_for_member = ReferenceField(Member, required=True)
     origin = StringField(choices=[e.value for e in EnumApplicationDirection], required=True)
     matching = EmbeddedDocumentField(ApplicationMatch,required=False)
-
+    answers = ListField(EmbeddedDocumentField(Answer),required=False)
 
     meta = {
         "collection": "applications",
