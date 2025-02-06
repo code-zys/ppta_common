@@ -1,6 +1,7 @@
 from enum import Enum
 
-
 class AnswerStatus(Enum):
     TIMEOUT = "TIMEOUT"
-    ANSWERING = "ANSWERING"
+    PENDING = "PENDING"
+    ANSWERED = "ANSWERED"
+    INITIAL = "INITIAL"

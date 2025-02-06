@@ -18,7 +18,6 @@ class MissionMatch(BaseDocument):
     percentage_match = FloatField(min_value=0, max_value=100, required=True)
     type = StringField(choices=[e.value for e in MissionMatchType], required=True)
 
-
     meta = {
         "collection": "mission_matches"
     }

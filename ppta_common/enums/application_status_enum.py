@@ -5,3 +5,4 @@ class ApplicationStatus(Enum):
     ACCEPTED = "ACCEPTED"
     REJECTED = "REJECTED"
     CANCELLED = "CANCELLED"
+    INVITED = "INVITED"
