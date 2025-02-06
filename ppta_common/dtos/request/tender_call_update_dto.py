@@ -6,9 +6,8 @@ from ...enums.experience_level_enum import ExperienceLevel
 from ...enums.remote_work_type_enum import RemoteWorkType
 from ...enums.duration_type_enum import DurationType
 from .workplace_dto import WorkplaceDto
-from ...enums.mission_visibility_enum import MissionVisibility
 
-class MissionUpdateDto(BaseModel):
+class TenderCallUpdateDto(BaseModel):
     job_title: Optional[str] = Field(None, description="Title of the job")
     contract_types: Optional[list[ContractType]] = Field(None, description="Type of contracts for the mission")
     min_daily_rate: Optional[float] = Field(None, description="Min daily rate for freelance contract")
