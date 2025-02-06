@@ -8,7 +8,7 @@ from ..enums.application_direction_enum import EnumApplicationDirection
 from .application_match import ApplicationMatch
 
 class Application(BaseDocument):
-    mission = ReferenceField("Mission", required=True)
+    tender_call = ReferenceField("TenderCall", required=True)
     company = ReferenceField(Company, required=True)
     applicant_message = StringField(required=False)
     company_message = StringField(required=False)
@@ -27,7 +27,7 @@ class Application(BaseDocument):
         "strict": False,
         'indexes': [
             {
-                'fields': ['company', 'mission','applied_for_member'],
+                'fields': ['company', 'tender_call','applied_for_member'],
                 'unique': True 
             }
         ]
