@@ -1,12 +1,12 @@
-from .base_document import BaseDocument, EmbeddedDocumentField
+from pydantic import BaseModel
 from typing import Dict
 
-class WkhtmltopdfOptions(EmbeddedDocumentField):
+class WkhtmltopdfOptions(BaseModel):
     orientation: str
     title: str
     margin: str
 
-class SqsMessage(BaseDocument):
+class SqsMessage(BaseModel):
     source_bucket: str
     destination_bucket: str
     input_file_key: str
