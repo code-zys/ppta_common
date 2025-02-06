@@ -1,5 +1,6 @@
 from mongoengine import StringField, FloatField, IntField, BooleanField, ListField, EmbeddedDocumentField, EnumField, DateField, ReferenceField, DictField
-from ppta_common.models.company import Company
+from ..models.company import Company
+from ..models.question import Question
 from .base_document import BaseDocument
 from ..enums.contract_type_enum import ContractType
 from ..enums.experience_level_enum import ExperienceLevel
@@ -10,7 +11,6 @@ from .skill import Skill
 from .job import Job
 from .application import Application
 from ..enums.mission_status_enum import MissionStatus
-from ..enums.mission_visibility_enum import MissionVisibility
 from .know_how import KnowHow
 
 class TenderCall(BaseDocument):
@@ -46,7 +46,7 @@ class TenderCall(BaseDocument):
     application_accepted_date = IntField(required=False)
     client = ReferenceField(Company, required=False, description="The final client company for which the tender call was created")
     is_client_public = BooleanField(required=False, default=False, description="the fields indicates if the client can be displayed to applicants")
-    questions = ListField(DictField(required=True), default = [], required=False)
+    questions = ListField(EmbeddedDocumentField(Question), default = [], required=False)
 
     meta = {
         'collection': 'tender_calls',
