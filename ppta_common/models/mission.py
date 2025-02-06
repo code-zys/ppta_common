@@ -13,7 +13,7 @@ from ..enums.mission_status_enum import MissionStatus
 from ..enums.mission_visibility_enum import MissionVisibility
 from .know_how import KnowHow
 
-class Mission(BaseDocument):
+class TenderCall(BaseDocument):
     job_title = StringField(required=True, description="Title of the job")
     slug = StringField(required=True, description="Title of the job")
     reference = StringField(required=True, description="Reference identifier for the mission")
@@ -49,7 +49,7 @@ class Mission(BaseDocument):
     questions = ListField(DictField(required=True), default = [], required=False)
 
     meta = {
-        'collection': 'offer_requests',
+        'collection': 'tender_calls',
         'indexes': [
             {'fields': ['reference', 'company', 'slug'], 'unique': True},
         ],
