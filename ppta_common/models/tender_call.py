@@ -16,7 +16,7 @@ from .know_how import KnowHow
 class TenderCall(BaseDocument):
     job_title = StringField(required=True, description="Title of the job")
     slug = StringField(required=True, description="Title of the job")
-    reference = StringField(required=True, description="Reference identifier for the mission")
+    reference = StringField(required=True, description="Reference identifier for the mission") #TODO: update reference with date
     contract_types = ListField(EnumField(ContractType), required=True, description="Types of contracts for the mission")
     min_daily_rate = FloatField(required=True, min_value=0, default=0)
     max_daily_rate = FloatField(required=True, min_value=0, default=0)
