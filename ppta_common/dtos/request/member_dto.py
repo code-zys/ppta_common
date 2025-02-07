@@ -10,7 +10,9 @@ class MemberDto(BaseModel):
     key_skills:  Optional[dict] = Field(None, description="List of expected skills, e.g., AWS, Python, Pandas")
     general_skills:  Optional[dict] = Field(None, description="List of expected skills, e.g., AWS, Python, Pandas")
     know_how:  Optional[dict] = Field(None, description="List of expected skills, e.g., AWS, Python, Pandas")
-    job:Optional[dict] =Field(None, description="The main daily activities")
+    job: Optional[dict] =Field(None, description="The main daily activities")
+    cv: Optional[str] =Field(None, description="The s3 key of the cv of the member")
+
     def to_dict(self) -> Dict[str, Any]:
         """Return the dictionary representation of the model using alias.
         This has the following differences from calling pydantic's
