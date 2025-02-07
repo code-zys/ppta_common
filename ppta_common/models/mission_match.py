@@ -13,7 +13,7 @@ class MissionMatch(BaseDocument):
     member_company = ReferenceField(Company, required=True)
     mission_company = ReferenceField(Company, required=True)
     member = ReferenceField("Member", required=True)
-    mission = ReferenceField("Mission", required=True)
+    tender_call = ReferenceField("TenderCall", required=True)
     mission_skills = ListField(StringField(max_length=100), required=True)
     percentage_match = FloatField(min_value=0, max_value=100, required=True)
     type = StringField(choices=[e.value for e in MissionMatchType], required=True)
