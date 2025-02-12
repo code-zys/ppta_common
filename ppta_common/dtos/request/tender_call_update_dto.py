@@ -29,5 +29,5 @@ class TenderCallUpdateDto(BaseModel):
     duration: Optional[int] = Field(None, ge=1, description="Duration of the mission")
     duration_type: Optional[DurationType] = Field(None, description="Duration type: DAYS, MONTHS, YEARS")
     is_renewable: Optional[bool] = Field(None, description="Indicates if the mission is renewable")
-    client: Optional[str] = Field(None, description="Field for to indicate the client for this tender call")
+    final_client: Optional[str] = Field(None, description="Field for to indicate the final client for this tender call")
     is_client_public: Optional[bool] = Field(False, description="the fields indicates if the client can be displayed to applicants")

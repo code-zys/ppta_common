@@ -44,7 +44,7 @@ class TenderCall(BaseDocument):
 
     application_accepted = ReferenceField(Application, required=False)
     application_accepted_date = IntField(required=False)
-    client = ReferenceField(Company, required=False, description="The final client company for which the tender call was created")
+    final_client = StringField(required=False)
     is_client_public = BooleanField(required=False, default=False, description="the fields indicates if the client can be displayed to applicants")
     questions = ListField(EmbeddedDocumentField(Question), default = [], required=False)
 
