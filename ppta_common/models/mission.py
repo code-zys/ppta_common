@@ -10,9 +10,10 @@ class Mission(Document):
     start_date = DateTimeField(required=True)
     end_date = DateTimeField()
     
-    consultant = ReferenceField(Member, required=True)
+    consultant = ReferenceField(Member, required=False)
     commercial = ReferenceField(Member)
-    final_client = ReferenceField(Company, required=True)
+    final_client = ReferenceField(Company, required=False)
+    
     status = EnumField(MissionStatus, required=True, description="Status of the mission", default=MissionStatus.PENDING)
     application = ReferenceField(Application,required=True)
     meta = {'collection': 'missions'}
