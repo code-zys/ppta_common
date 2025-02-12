@@ -9,8 +9,7 @@ from ..enums.remote_work_type_enum import RemoteWorkType
 from ..enums.duration_type_enum import DurationType
 from .skill import Skill
 from .job import Job
-from .application import Application
-from ..enums.mission_status_enum import MissionStatus
+from ..enums.tender_call_status_enum import TenderCallStatus
 from .know_how import KnowHow
 
 class TenderCall(BaseDocument):
@@ -40,10 +39,8 @@ class TenderCall(BaseDocument):
     currency = StringField(required=True)
     skills = DictField(EmbeddedDocumentField(Skill))
     job = EmbeddedDocumentField(Job, default=None)
-    status = EnumField(MissionStatus, required=True, description="Status of the mission", default=MissionStatus.UNPUBLISHED)
+    status = EnumField(TenderCallStatus, required=True, description="Status of the tender call", default=TenderCallStatus.UNPUBLISHED)
 
-    application_accepted = ReferenceField(Application, required=False)
-    application_accepted_date = IntField(required=False)
     final_client = StringField(required=False)
     is_client_public = BooleanField(required=False, default=False, description="the fields indicates if the client can be displayed to applicants")
     questions = ListField(EmbeddedDocumentField(Question), default = [], required=False)
