@@ -46,8 +46,8 @@ class TenderCall(BaseDocument):
     questions = ListField(EmbeddedDocumentField(Question), default = [], required=False)
 
     client = ReferenceField(Company, required = True)
-    recruter = ReferenceField(Company, required = True)
-    
+    recruter = ReferenceField(Company, required = False)
+
     meta = {
         'collection': 'tender_calls',
         'indexes': [
