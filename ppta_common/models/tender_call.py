@@ -45,6 +45,9 @@ class TenderCall(BaseDocument):
     is_client_public = BooleanField(required=False, default=False, description="the fields indicates if the client can be displayed to applicants")
     questions = ListField(EmbeddedDocumentField(Question), default = [], required=False)
 
+    client = ReferenceField(Company, required = True)
+    recruter = ReferenceField(Company, required = True)
+    
     meta = {
         'collection': 'tender_calls',
         'indexes': [

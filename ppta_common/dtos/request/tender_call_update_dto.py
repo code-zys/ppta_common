@@ -31,3 +31,4 @@ class TenderCallUpdateDto(BaseModel):
     is_renewable: Optional[bool] = Field(None, description="Indicates if the mission is renewable")
     final_client: Optional[str] = Field(None, description="Field for to indicate the final client for this tender call")
     is_client_public: Optional[bool] = Field(False, description="the fields indicates if the client can be displayed to applicants")
+    is_client_recruter: Optional[bool] = Field(True, description="Indicates if the client is the recruter for the tender call")
