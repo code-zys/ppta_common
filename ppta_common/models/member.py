@@ -19,7 +19,7 @@ class Member(BaseDocument):
     user_type = StringField(choices=[e.value for e in EnumUserType], required=True)
     is_consultant = BooleanField(default=False)
     is_commercial = BooleanField(default=False)
-    key_skills = DictField(EmbeddedDocumentField(Skill))
+    key_skills = DictField(EmbeddedDocumentField(Skill), required=False)
     general_skills=  DictField(EmbeddedDocumentField(Skill), required=False, description="The général skills of the member")
     know_how = DictField(EmbeddedDocumentField(KnowHow), required=False, description="List of soft skills, e.g., communication, confidence")
     job= EmbeddedDocumentField(Job, default=None)
