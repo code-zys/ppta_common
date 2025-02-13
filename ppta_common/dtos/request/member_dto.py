@@ -7,6 +7,8 @@ from typing import Optional
 
 class MemberDto(BaseModel):
     professional_info: Optional[ProfessionalInfoDto] = Field(None, description="List of expected skills, e.g., AWS, Python, Pandas")
+    legal_representative_firstname: str=Field(None, description="The first name of the legar representant")
+    legal_representative_lastname: str=Field(None, description="The last name of the legar representant")
     user_type: Optional[EnumUserType] = Field(..., description="List of expected skills, e.g., AWS, Python, Pandas")
     key_skills: dict = Field(..., description="List of expected skills, e.g., AWS, Python, Pandas")
     general_skills: Optional[dict] = Field(None, description="List of expected skills, e.g., AWS, Python, Pandas")

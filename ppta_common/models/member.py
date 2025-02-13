@@ -12,6 +12,8 @@ class Member(BaseDocument):
     professional_info = EmbeddedDocumentField(ProfessionalInfo, default=None)
     role = StringField(choices=[e.value for e in EnumRole], required=True)
     user = ReferenceField(User)
+    legal_representative_firstname= StringField(required=False, description="The first name of the legar representant")
+    legal_representative_lastname=StringField(required=False, description="The last name of the legar representant")
     company = ReferenceField(Company)
     approved = BooleanField(required=True)
     approved_at = IntField(default=None)
