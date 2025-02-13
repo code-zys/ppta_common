@@ -27,7 +27,7 @@ class Member(BaseDocument):
     other_cvs = ListField(StringField(), required=False, default = [])
 
     photo = StringField(required=False, description="The S3 key of the picture of the member")
-    departments = ListField(StringField(), required=True,description="The list of departments were the member can work" )
-    min_average_daily_rate = FloatField(required=True)
-    max_average_daily_rate = FloatField(required=True)
-    availability_date = IntField(required=True, description="The availability date of the member")
+    departments = ListField(StringField(), required=False,description="The list of departments were the member can work" )
+    min_average_daily_rate = FloatField(required=False)
+    max_average_daily_rate = FloatField(required=False)
+    availability_date = IntField(required=False, description="The availability date of the member")
