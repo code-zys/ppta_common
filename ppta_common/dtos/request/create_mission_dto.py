@@ -8,4 +8,5 @@ class MissionCreateDto(BaseModel):
     description: Optional[str] = None
     start_date: datetime
     end_date: Optional[datetime] = None
-    application_id: str
+    application_id: Optional[str] = None
+    consultant_id: Optional[str] = None

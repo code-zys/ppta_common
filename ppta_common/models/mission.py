@@ -23,5 +23,5 @@ class Mission(BaseDocument):
     client = ReferenceField(Company, required=False)
 
     status = EnumField(MissionStatus, required=True, description="Status of the mission", default=MissionStatus.PENDING)
-    application = ReferenceField(Application,required=True)
+    application = ReferenceField(Application,required=False)
     meta = {'collection': 'missions'}

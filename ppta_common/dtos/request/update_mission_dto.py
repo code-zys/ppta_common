@@ -8,3 +8,4 @@ class MissionUpdateDto(BaseModel):
     start_date: Optional[datetime] = None
     end_date: Optional[datetime] = None
     application_id: Optional[str] = None
+    consultant_id: Optional[str] = None
