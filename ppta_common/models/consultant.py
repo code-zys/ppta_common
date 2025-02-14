@@ -5,9 +5,9 @@ from .company import Company
 from ..utils.enums import EnumConsultantType, EnumConsultantStatus
 
 class Consultant(BaseDocument):
-    member_id = ReferenceField(Member)
-    company = ReferenceField(Company)
-    origin_company = ReferenceField(Company)
+    member = ReferenceField(Member, required=True)
+    company = ReferenceField(Company, required=True)
+    origin_company = ReferenceField(Company, required=True)
     availability_date = IntField(required=False, description="The availability date of the member")
     min_average_daily_rate = FloatField(required=False, min_value=0)
     max_average_daily_rate = FloatField(required=False, min_value=0)
