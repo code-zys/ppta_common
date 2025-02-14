@@ -2,7 +2,9 @@ from mongoengine import StringField, ReferenceField, IntField, FloatField
 from .member import Member
 from .base_document import BaseDocument
 from .company import Company
-from ..utils.enums import EnumConsultantType, EnumConsultantStatus
+from ..enums.consultant_status_enum import  EnumConsultantStatus
+from ..enums.consultant_type_enum import  EnumConsultantType
+
 
 class Consultant(BaseDocument):
     member = ReferenceField(Member, required=True)
