@@ -11,8 +11,12 @@ class Mission(BaseDocument):
     end_date = DateTimeField()
     
     consultant = ReferenceField(Member, required=False)
+    consultant_original_company = ReferenceField(Company)
+    
     commercial = ReferenceField(Member)
-    final_client = ReferenceField(Company, required=False)
+    commercial_company = ReferenceField(Company)
+
+    client = ReferenceField(Company, required=False)
 
     status = EnumField(MissionStatus, required=True, description="Status of the mission", default=MissionStatus.PENDING)
     application = ReferenceField(Application,required=True)
