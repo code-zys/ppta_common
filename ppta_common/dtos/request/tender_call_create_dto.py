@@ -33,4 +33,4 @@ class TenderCallCreateDto(BaseModel):
     is_final: Optional[bool] = Field(False, description="Indicates if tender call should be marked as unpublished or maintained as draft after creation")
     final_client: Optional[str] = Field(None, description="Field for to indicate the final client for this tender call")
     is_client_public: Optional[bool] = Field(False, description="the fields indicates if the client can be displayed to applicants")
-    is_client_recruter: bool = Field(True, description="Indicates if the client is the recruter for the tender call")
+    is_client_recruiter: bool = Field(True, description="Indicates if the client is the recruiter for the tender call")
