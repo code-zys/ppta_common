@@ -4,11 +4,15 @@ from .member import Member
 from .application import Application
 from ..enums.mission_status_enum import MissionStatus
 from .base_document import BaseDocument
+from ..enums.mission_type_enum import MissionType
+
 class Mission(BaseDocument):
     title = StringField(required=True)
     description = StringField()
     start_date = DateTimeField(required=True)
     end_date = DateTimeField()
+    type = EnumField(MissionType, required=True, description="Type of the mission")
+
     
     consultant = ReferenceField(Member, required=False)
     consultant_original_company = ReferenceField(Company)
