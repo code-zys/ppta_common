@@ -45,4 +45,4 @@ class RunInvoiceContent(BaseDocument):
 
     
     def __str__(self):
-        return f"RunInvoiceContent<file_path = {self.file_path}, run_invoice_id = {self.run_invoice_id}, invoice_received_date = {self.invoice_received_date}, subject = {self.subject}>"
+        return f"RunInvoiceContent<file_path = {self.file_path}, run_invoice_id = {self.run_invoice_id}, invoice_received_date = {self.invoice_received_date}, ocr_data = {self.ocr_data}, subject = {self.subject}>"
