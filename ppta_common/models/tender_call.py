@@ -11,6 +11,7 @@ from .skill import Skill
 from .job import Job
 from ..enums.tender_call_status_enum import TenderCallStatus
 from .know_how import KnowHow
+from .mission import Mission
 
 class TenderCall(BaseDocument):
     job_title = StringField(required=True, description="Title of the job")
@@ -47,6 +48,8 @@ class TenderCall(BaseDocument):
 
     client = ReferenceField(Company, required = True)
     recruiter = ReferenceField(Company, required = False)
+
+    mission = ReferenceField(Mission, required=False)
 
     meta = {
         'collection': 'tender_calls',
