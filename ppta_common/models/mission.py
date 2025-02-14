@@ -12,6 +12,7 @@ class Mission(BaseDocument):
     start_date = DateTimeField(required=True)
     end_date = DateTimeField()
     type = EnumField(MissionType, required=True, description="Type of the mission")
+    company = ReferenceField(Company, required=True)
 
     
     consultant = ReferenceField(Member, required=False)
