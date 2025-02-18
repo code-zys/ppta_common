@@ -26,3 +26,6 @@ class Mission(BaseDocument):
     status = EnumField(MissionStatus, required=True, description="Status of the mission", default=MissionStatus.PENDING)
     application = ReferenceField(Application,required=False)
     meta = {'collection': 'missions'}
+
+    #TODO: all commercials in recruiter company can update those with tender call
+    #TODO: for internal missions, only the commercial who is attached to it can update it

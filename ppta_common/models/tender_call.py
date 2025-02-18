@@ -12,6 +12,7 @@ from .job import Job
 from ..enums.tender_call_status_enum import TenderCallStatus
 from .know_how import KnowHow
 from .mission import Mission
+from .member import Member
 
 class TenderCall(BaseDocument):
     job_title = StringField(required=True, description="Title of the job")
@@ -47,7 +48,7 @@ class TenderCall(BaseDocument):
     questions = ListField(EmbeddedDocumentField(Question), default = [], required=False)
 
     client = ReferenceField(Company, required = True)
-    recruiter = ReferenceField(Company, required = False)
+    recruiter = ReferenceField(Member, required = False)
 
     mission = ReferenceField(Mission, required=False)
 
