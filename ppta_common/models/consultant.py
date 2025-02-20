@@ -4,6 +4,7 @@ from .base_document import BaseDocument
 from .company import Company
 from ..enums.consultant_status_enum import  EnumConsultantStatus
 from ..enums.consultant_type_enum import  EnumConsultantType
+from .user import User
 
 
 class Consultant(BaseDocument):
@@ -18,7 +19,7 @@ class Consultant(BaseDocument):
     invitation_token=StringField(required=False, description="The encripted token that will validate if the invitation is comming from the company")
     email=StringField(required=True, description="The email of the consultant")
     status_date = IntField(required=False)
-
+    user = ReferenceField(User, required=False)
     meta = {
         "collection": "consultants",
         "strict": False
