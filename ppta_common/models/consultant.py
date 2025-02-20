@@ -17,6 +17,7 @@ class Consultant(BaseDocument):
     status= StringField(choices=[e.value for e in EnumConsultantStatus], required=True)
     invitation_token=StringField(required=False, description="The encripted token that will validate if the invitation is comming from the company")
     email=StringField(required=True, description="The email of the consultant")
+    status_date = IntField(required=False)
 
     meta = {
         "collection": "consultants",
