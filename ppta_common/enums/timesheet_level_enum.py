@@ -2,5 +2,6 @@ from enum import Enum
 
 class TimeSheetLevel(Enum):
     CONSULTANT = "CONSULTANT"
-    SUPERVISON = "SUPERVISON"
+    SUPERVISOR = "SUPERVISOR"
     CLIENT = "CLIENT"
+    VALIDATED = "VALIDATED"
