@@ -8,6 +8,8 @@ from ..utils.enums import EnumRole, EnumUserType
 from .job import Job
 from .skill import Skill
 from .know_how import KnowHow
+from .language import Language
+
 class Member(BaseDocument):
     professional_info = EmbeddedDocumentField(ProfessionalInfo, default=None)
     role = StringField(choices=[e.value for e in EnumRole], required=True)
@@ -27,6 +29,8 @@ class Member(BaseDocument):
     job= EmbeddedDocumentField(Job, default=None)
     cv = StringField(required=False)
     other_cvs = ListField(StringField(), required=False, default = [])
+    languages = ListField(EmbeddedDocumentField(Language))
+
 
     photo = StringField(required=False, description="The S3 key of the picture of the member")
     departments = ListField(StringField(), required=False,description="The list of departments were the member can work" )
