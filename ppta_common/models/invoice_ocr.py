@@ -6,11 +6,11 @@ from .total import Totals
 
 class InvoiceOCR(EmbeddedDocument):
     invoice_id = StringField(required=True)
-    currency = StringField(choices=[c.value for c in Currency], required=True)
-    total = EmbeddedDocumentField(Totals, required=True)
-    invoice_date = DateTimeField(required=True)
-    sender_name = StringField(required=True)
-    sender_address = StringField(required=True)
+    currency = StringField(choices=[c.value for c in Currency], required=False)
+    total = EmbeddedDocumentField(Totals, required=False)
+    invoice_date = DateTimeField(required=False)
+    sender_name = StringField(required=False)
+    sender_address = StringField(required=False)
     pricing = DictField(field=EmbeddedDocumentField(Totals), required=False, default={})
 
     meta = {
