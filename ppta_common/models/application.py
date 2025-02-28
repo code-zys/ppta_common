@@ -5,6 +5,7 @@ from .company import Company
 from .member import Member
 from .answer import Answer
 from ..enums.application_direction_enum import EnumApplicationDirection
+from ..enums.generation_app_profile_status_enum import GenerationAppProfileStatus
 from .application_match import ApplicationMatch
 
 class Application(BaseDocument):
@@ -22,6 +23,7 @@ class Application(BaseDocument):
     matching = EmbeddedDocumentField(ApplicationMatch,required=False)
     answers = ListField(EmbeddedDocumentField(Answer),required=False)
     application_profile_s3_file_key = StringField(required=False)
+    profile_status = StringField(choices=[e.value for e in GenerationAppProfileStatus], required=False)
     
 
     meta = {
