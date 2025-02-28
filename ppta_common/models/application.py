@@ -21,6 +21,8 @@ class Application(BaseDocument):
     origin = StringField(choices=[e.value for e in EnumApplicationDirection], required=True)
     matching = EmbeddedDocumentField(ApplicationMatch,required=False)
     answers = ListField(EmbeddedDocumentField(Answer),required=False)
+    application_profile_s3_file_key = StringField(required=False)
+    
 
     meta = {
         "collection": "applications",
