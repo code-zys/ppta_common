@@ -8,11 +8,12 @@ from ..enums.timesheet_approval_status_enum import TimesheetApprovalStatus
 # from ..enums.timesheet_status_enum import TimeSheetStatus
 from .base_document import BaseDocument
 from ..enums.timesheet_level_enum import TimeSheetLevel
+from .consultant import Consultant
 
 class Timesheet(BaseDocument):
     month = IntField(min_value=1, max_value=12, required=True)
     year = StringField(min_value=2000, required=True)
-    consultant = ReferenceField(Member, required=True)
+    consultant = ReferenceField(Consultant, required=True)
     mission = ReferenceField(Mission, required=True)
     # function = EmbeddedDocumentField(Function)
     # project = StringField(default=None) #TODO: title of mission by default, can be updated

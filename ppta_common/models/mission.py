@@ -5,6 +5,7 @@ from .application import Application
 from ..enums.mission_status_enum import MissionStatus
 from .base_document import BaseDocument
 from ..enums.mission_type_enum import MissionType
+from .consultant import Consultant
 
 class Mission(BaseDocument):
     title = StringField(required=True)
@@ -15,7 +16,7 @@ class Mission(BaseDocument):
     company = ReferenceField(Company, required=True)
 
     
-    consultant = ReferenceField(Member, required=False)
+    consultant = ReferenceField(Consultant, required=False)
     consultant_original_company = ReferenceField(Company)
     
     commercial = ReferenceField(Member)

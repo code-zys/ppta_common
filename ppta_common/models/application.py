@@ -7,6 +7,7 @@ from .answer import Answer
 from ..enums.application_direction_enum import EnumApplicationDirection
 from ..enums.generation_app_profile_status_enum import GenerationAppProfileStatus
 from .application_match import ApplicationMatch
+from .consultant import Consultant
 
 class Application(BaseDocument):
     tender_call = ReferenceField("TenderCall", required=True)
@@ -18,7 +19,7 @@ class Application(BaseDocument):
     application_date = IntField(required=True)
     interview_completed = BooleanField(default=False)  
     applied_by_member = ReferenceField(Member, required=True)
-    applied_for_member = ReferenceField(Member, required=True)
+    applied_for_consultant = ReferenceField(Consultant, required=True)
     origin = StringField(choices=[e.value for e in EnumApplicationDirection], required=True)
     matching = EmbeddedDocumentField(ApplicationMatch,required=False)
     answers = ListField(EmbeddedDocumentField(Answer),required=False)
