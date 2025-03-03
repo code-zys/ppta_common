@@ -32,7 +32,7 @@ class Application(BaseDocument):
         "strict": False,
         'indexes': [
             {
-                'fields': ['company', 'tender_call','applied_for_member'],
+                'fields': ['company', 'tender_call','applied_for_consultant'],
                 'unique': True 
             }
         ]
