@@ -18,7 +18,7 @@ class Timesheet(BaseDocument):
     # function = EmbeddedDocumentField(Function)
     # project = StringField(default=None) #TODO: title of mission by default, can be updated
     # team = StringField(default=None)
-    type = StringField(required=True,choices=[e.value for e in TimesheetType],default=TimesheetType.OTHER.value)
+    type = StringField(required=True,choices=[e.value for e in TimesheetType])
 
     published_by_company = ReferenceField(Company, required=True)
     published_for_company = ReferenceField(Company, required=True)
