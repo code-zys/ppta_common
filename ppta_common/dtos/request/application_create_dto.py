@@ -1,7 +1,7 @@
-from pydantic import BaseModel, HttpUrl
+from pydantic import BaseModel
 
 class ApplicationCreateDto(BaseModel):
     message: str
-    cv: HttpUrl
+    cv: str
     mission_id: str
     applied_for_consultant_id: str
