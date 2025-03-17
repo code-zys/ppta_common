@@ -16,7 +16,6 @@ class NotificationService:
         if notification.to_company:
             company_dto = CompanyDto(
                 id=str(notification.to_company.id),
-                siren=notification.to_company.siren,
                 siret=notification.to_company.siret,
                 name=notification.to_company.name,
                 activity=notification.to_company.activity,
