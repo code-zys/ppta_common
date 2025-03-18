@@ -1,5 +1,5 @@
 from .base_document import BaseDocument
-from mongoengine import ReferenceField, StringField, IntField, BooleanField, EmbeddedDocumentField, ListField
+from mongoengine import ReferenceField, StringField, IntField, BooleanField, EmbeddedDocumentField, ListField, FloatField
 from ..enums.application_status_enum import ApplicationStatus
 from .company import Company
 from .member import Member
@@ -8,6 +8,7 @@ from ..enums.application_direction_enum import EnumApplicationDirection
 from ..enums.generation_app_profile_status_enum import GenerationAppProfileStatus
 from .application_match import ApplicationMatch
 from .consultant import Consultant
+from ..enums.contract_type_enum import ContractType
 
 class Application(BaseDocument):
     tender_call = ReferenceField("TenderCall", required=True)
@@ -26,6 +27,12 @@ class Application(BaseDocument):
     application_profile_s3_file_key = StringField(required=False)
     profile_status = StringField(choices=[e.value for e in GenerationAppProfileStatus], required=False)
     
+    contract_type = StringField(choices=[e.value for e in ContractType], required=False)
+    min_daily_rate = FloatField(required=False)
+    max_daily_rate = FloatField(required=False)
+    min_annual_gross_salary = FloatField(required=False)
+    max_annual_gross_salary = FloatField(required=False)
+
 
     meta = {
         "collection": "applications",
