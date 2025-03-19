@@ -1,4 +1,4 @@
-from mongoengine import StringField, ReferenceField, IntField, ListField, EmbeddedDocumentField
+from mongoengine import StringField, ReferenceField, IntField, ListField, EmbeddedDocumentField, DictField
 from .member import Member
 from .mission import Mission
 from .company import Company
@@ -9,6 +9,8 @@ from ..enums.timesheet_approval_status_enum import TimesheetApprovalStatus
 from .base_document import BaseDocument
 from ..enums.timesheet_level_enum import TimeSheetLevel
 from .consultant import Consultant
+from .total_days import TotalDays
+
 
 class Timesheet(BaseDocument):
     month = IntField(min_value=1, max_value=12, required=True)
@@ -28,7 +30,7 @@ class Timesheet(BaseDocument):
     consultant_approved_at = IntField(default=None)
     supervisor_approved_at = IntField(default=None)
     company_approved_at = IntField(default=None)
-    total_worked_days = IntField(default=None)
+    total_days = DictField(field=EmbeddedDocumentField(TotalDays), required=False, default={})
     # consultant_approval_status = StringField(default=None,choices=[e.value for e in TimesheetApprovalStatus])
     # supervisor_approval_status = StringField(default=None,choices=[e.value for e in TimesheetApprovalStatus])
     # company_approval_status = StringField(default=None,choices=[e.value for e in TimesheetApprovalStatus])
