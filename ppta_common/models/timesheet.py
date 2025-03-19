@@ -10,8 +10,6 @@ from .base_document import BaseDocument
 from ..enums.timesheet_level_enum import TimeSheetLevel
 from .consultant import Consultant
 from .total_days import TotalDays
-
-
 class Timesheet(BaseDocument):
     month = IntField(min_value=1, max_value=12, required=True)
     year = StringField(min_value=2000, required=True)
@@ -30,7 +28,7 @@ class Timesheet(BaseDocument):
     consultant_approved_at = IntField(default=None)
     supervisor_approved_at = IntField(default=None)
     company_approved_at = IntField(default=None)
-    total_days = DictField(field=EmbeddedDocumentField(TotalDays), required=False, default={})
+    total_days = EmbeddedDocumentField(TotalDays, required=False)
     # consultant_approval_status = StringField(default=None,choices=[e.value for e in TimesheetApprovalStatus])
     # supervisor_approval_status = StringField(default=None,choices=[e.value for e in TimesheetApprovalStatus])
     # company_approval_status = StringField(default=None,choices=[e.value for e in TimesheetApprovalStatus])
