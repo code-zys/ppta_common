@@ -32,7 +32,7 @@ class Application(BaseDocument):
     max_daily_rate = FloatField(required=False)
     min_annual_gross_salary = FloatField(required=False)
     max_annual_gross_salary = FloatField(required=False)
-    viewed = BooleanField(default=False) 
+    views_count=IntField(default=0)
 
 
     meta = {
