@@ -9,7 +9,7 @@ from .workplace_dto import WorkplaceDto
 
 class TenderCallCreateDto(BaseModel):
     job_title: str = Field(..., description="Title of the job")
-    reference: str = Field(..., description="Reference identifier for the tender call")
+    reference: Optional[str] = Field(..., description="Reference identifier for the tender call")
     contract_types: list[ContractType] = Field(..., description="Type of contracts for the tender call")
     min_daily_rate: Optional[float] = Field(None, description="Daily min rate range for freelance contracts ")
     max_daily_rate: Optional[float] = Field(None, description="Daily max rate range for freelance contracts ")
