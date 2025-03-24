@@ -49,6 +49,7 @@ class TenderCall(BaseDocument):
 
     client = ReferenceField(Company, required = True)
     recruiter = ReferenceField(Member, required = False)
+    published_at = IntField(required=False)
 
     mission = ReferenceField(Mission, required=False)
 
