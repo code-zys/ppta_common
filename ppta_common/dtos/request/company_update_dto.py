@@ -6,7 +6,6 @@ from ...enums.company_type_enum import CompanyType
 
 class CompanyUpdateDto(BaseModel):
     id: Optional[str] = None
-    siret: Optional[str]
     name: Optional[str]
     activity: Optional[str]
     type: Optional[CompanyType] = None
