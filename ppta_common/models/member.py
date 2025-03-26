@@ -1,4 +1,4 @@
-from mongoengine import StringField, EmbeddedDocumentField, BooleanField, ReferenceField, IntField, DictField, FloatField, ListField
+from mongoengine import StringField, EmbeddedDocumentField, BooleanField, ReferenceField, IntField, DictField, FloatField, ListField, EnumField
 from .base_document import BaseDocument
 from .company import Company
 from .professional_info import ProfessionalInfo
@@ -9,6 +9,7 @@ from .job import Job
 from .skill import Skill
 from .know_how import KnowHow
 from .language import Language
+from ..enums.experience_level_enum import ExperienceLevel
 
 class Member(BaseDocument):
     professional_info = EmbeddedDocumentField(ProfessionalInfo, default=None)
@@ -30,10 +31,10 @@ class Member(BaseDocument):
     cv = StringField(required=False)
     other_cvs = ListField(StringField(), required=False, default = [])
     languages = ListField(EmbeddedDocumentField(Language))
-
-
     photo = StringField(required=False, description="The S3 key of the picture of the member")
     departments = ListField(StringField(), required=False,description="The list of departments were the member can work" )
     min_average_daily_rate = FloatField(required=False)
     max_average_daily_rate = FloatField(required=False)
     availability_date = IntField(required=False, description="The availability date of the member")
+    years_of_experience = EnumField(ExperienceLevel, required=False, description="Experience level of the member")
+    place_of_residence = StringField(required=False)
