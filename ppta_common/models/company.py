@@ -13,7 +13,7 @@ class Company(BaseDocument):
     activity = StringField(required=False)
     type = StringField(choices=[e.value for e in CompanyType], required=True)
     timeZone = EmbeddedDocumentField(TimeZone, required=True)
-    stripe_customer_id = StringField(required=True)
+    stripe_customer_id = StringField(required=False)
     subscription_id = StringField(required=False)
     member_count = IntField(required=True, default = 0)
     start_activity_date = IntField(default=Utils.convert_date_in_gmt_and_timstamp(datetime.now()))
