@@ -9,6 +9,7 @@ from ..enums.generation_app_profile_status_enum import GenerationAppProfileStatu
 from .application_match import ApplicationMatch
 from .consultant import Consultant
 from ..enums.contract_type_enum import ContractType
+from .google_meet import GoogleMeet
 
 class Application(BaseDocument):
     tender_call = ReferenceField("TenderCall", required=True)
@@ -36,6 +37,8 @@ class Application(BaseDocument):
     viewed_at = IntField(required=False)
     is_automatic_matching = BooleanField(default=False)
     is_invited_answer_question = BooleanField(default=False)
+    technical_interview_completed = BooleanField(default=False)
+    google_meet = EmbeddedDocumentField(GoogleMeet, required=False)
 
 
     meta = {
