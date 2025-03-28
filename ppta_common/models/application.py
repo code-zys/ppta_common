@@ -37,7 +37,6 @@ class Application(BaseDocument):
     viewed_at = IntField(required=False)
     is_automatic_matching = BooleanField(default=False)
     is_invited_answer_question = BooleanField(default=False)
-    technical_interview_completed = BooleanField(default=False)
     google_meet = EmbeddedDocumentField(GoogleMeet, required=False)
 
 
