@@ -1,7 +1,8 @@
 from enum import Enum
 
 
-class ConnectionType(str,Enum):
+class ConnectionType(str, Enum):
     SMTP = 'SMTP'
-    OAUTH = 'OAUTH2'
+    OAUTH2 = 'OAUTH2'
+    OAUTH = 'OAUTH'
     DRIVE = 'DRIVE'
