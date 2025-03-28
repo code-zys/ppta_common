@@ -34,6 +34,8 @@ class Application(BaseDocument):
     max_annual_gross_salary = FloatField(required=False)
     views_count = IntField(default=0)
     viewed_at = IntField(required=False)
+    is_automatic_matching = BooleanField(default=False)
+    is_invited_answer_question = BooleanField(default=False)
 
 
     meta = {
