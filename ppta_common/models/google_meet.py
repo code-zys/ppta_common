@@ -9,6 +9,6 @@ class GoogleMeet(EmbeddedDocument):
     interview_date = DateTimeField(required=True)
     start_time = DateTimeField(required=True)
     end_time = DateTimeField(required=True)
-    notification_before = IntField(required=False)
+    notification_before = ListField(IntField(), required=False)
     additional_participants_email = ListField(StringField(), required=False)
     
