@@ -34,3 +34,4 @@ class Company(BaseDocument):
     logo = StringField(required=False)
     bridge_user_uuid = StringField(required=False)
     currency = StringField(required=False)
+    google_meet_agenda = StringField(required=False)
