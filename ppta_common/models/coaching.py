@@ -8,7 +8,6 @@ class Coaching(BaseDocument):
     client = StringField(required=True)
     payment_id = StringField(required=True)
     date = StringField(required=True)
-    meeting_link = StringField(required=False)
     description = StringField(required=False)
     name = StringField(required=True)
     sessions = ListField(EmbeddedDocumentField(Session), required=True)
