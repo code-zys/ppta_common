@@ -1,5 +1,5 @@
 from mongoengine import EmbeddedDocument, StringField
-from ..enums.rating_level import EnumRatingLevel
+from ..enums.rating_level_enum import EnumRatingLevel
 
 class Note(EmbeddedDocument):
     name = StringField(required=True)

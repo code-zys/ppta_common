@@ -1,5 +1,5 @@
 from mongoengine import EmbeddedDocument, StringField, BooleanField
-from ..enums.time_range_type import EnumTimeRangeType
+from ..enums.time_range_type_enum import EnumTimeRangeType
 
 class TimeRange(EmbeddedDocument):
     date = StringField(required=True)
