@@ -2,6 +2,8 @@ from mongoengine import  StringField, ListField, BooleanField, IntField, Embedde
 from .base_document import BaseDocument
 from .note import Note
 from .time_range import TimeRange
+from .workplaces import Workplace
+
 
 class Coach(BaseDocument):
     """
@@ -13,7 +15,7 @@ class Coach(BaseDocument):
     language = ListField(StringField(), required=True)
     min_booking_time = IntField(required=False)
     notes = ListField(EmbeddedDocumentField(Note), required=False)
-    workplaces = ListField(ReferenceField('Workplace'), required=False)
+    workplaces = ListField(EmbeddedDocumentField(Workplace), required=False) 
     member_id = StringField(required=False)
     is_coaching_profile_visible = BooleanField(default=False)
     is_profile_verified= BooleanField(default=False)
