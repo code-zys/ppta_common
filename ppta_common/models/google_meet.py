@@ -1,4 +1,3 @@
-import datetime
 from mongoengine import EmbeddedDocument, StringField, DateTimeField, IntField, ListField
 
 class GoogleMeet(EmbeddedDocument):

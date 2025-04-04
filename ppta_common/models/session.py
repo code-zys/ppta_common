@@ -7,5 +7,6 @@ class Session(BaseDocument):
     is_client_absent = BooleanField(default=False)
     is_coach_absent = BooleanField(default=False)
     meeting_link = StringField(required=True)
+    event_id = StringField(required=True)
     notification_before = ListField(IntField(), required=False)
     is_confirmed = BooleanField(default=False)
