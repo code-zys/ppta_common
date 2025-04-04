@@ -1,4 +1,4 @@
-from mongoengine import StringField, EmbeddedDocumentField, BooleanField, ReferenceField, ListField, DateField
+from mongoengine import StringField, BooleanField, ReferenceField, ListField, DateField
 from .base_document import BaseDocument
 from .session import Session
 from .coach import Coach
@@ -9,6 +9,6 @@ class Coaching(BaseDocument):
     payment_id = StringField(required=True)
     description = StringField(required=False)
     name = StringField(required=True)
-    sessions = ListField(EmbeddedDocumentField(Session), required=True)
+    sessions = ListField(ReferenceField(Session), required=True)
     user = StringField(required=True)
     is_confirmed = BooleanField(default=False)
