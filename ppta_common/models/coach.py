@@ -3,6 +3,7 @@ from .base_document import BaseDocument
 from .note import Note
 from .time_range import TimeRange
 from .company import Company
+from .workplace import Workplace
 
 
 class Coach(BaseDocument):
