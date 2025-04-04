@@ -7,7 +7,6 @@ class Coaching(BaseDocument):
     coach_id = ReferenceField(Coach, required=True)
     client = StringField(required=True)
     payment_id = StringField(required=True)
-    date = DateField(required=True)
     description = StringField(required=False)
     name = StringField(required=True)
     sessions = ListField(EmbeddedDocumentField(Session), required=True)

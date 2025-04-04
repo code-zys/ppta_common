@@ -1,8 +1,11 @@
-from mongoengine import EmbeddedDocument, StringField, BooleanField, EmbeddedDocumentField
+from mongoengine import StringField, BooleanField, ListField, IntField, ReferenceField
 from .time_range import TimeRange
+from .base_document import BaseDocument
 
-class Session(EmbeddedDocument):
-    time_range = EmbeddedDocumentField(TimeRange, required=True)
+class Session(BaseDocument):
+    time_range = ReferenceField(TimeRange, required=True)
     is_client_absent = BooleanField(default=False)
     is_coach_absent = BooleanField(default=False)
     meeting_link = StringField(required=True)
+    notification_before = ListField(IntField(), required=False)
+    is_confirmed = BooleanField(default=False)
