@@ -1,7 +1,6 @@
-from mongoengine import EmailField, StringField,IntField
-from .base_document import BaseDocument
+from mongoengine import EmailField, StringField,IntField, EmbeddedDocument
 
-class Customer(BaseDocument):
+class Customer(EmbeddedDocument):
     email = EmailField(required=False)
     name = StringField(required=True)
     phone =StringField(required=False)
