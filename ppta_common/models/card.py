@@ -1,7 +1,6 @@
-from mongoengine import StringField, IntField
-from .base_document import BaseDocument
+from mongoengine import StringField, IntField, EmbeddedDocument
 
-class Card(BaseDocument):
+class Card(EmbeddedDocument):
     country = StringField(required=False)
     last4 = StringField(required=False)
     paymentMethodId = StringField(required=True)

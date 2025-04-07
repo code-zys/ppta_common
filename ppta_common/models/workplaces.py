@@ -1,6 +1,6 @@
-from mongoengine import EmbeddedDocumentField, StringField, BooleanField, ListField
+from mongoengine import EmbeddedDocument, StringField, BooleanField, ListField
 
-class Workplace(EmbeddedDocumentField):
+class Workplace(EmbeddedDocument):
     """
     Workplace embedded document
     """

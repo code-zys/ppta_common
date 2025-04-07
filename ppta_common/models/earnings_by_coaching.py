@@ -5,5 +5,5 @@ from .coaching import Coaching
 
 class EarningsByCoaching(BaseDocument):
     amount = FloatField(required=False)
-    coach = ReferenceField(Coach,required=True)
-    coaching = ReferenceField(Coaching,required=True)
+    coach = ReferenceField(Coach, required=True)
+    coaching = ReferenceField(Coaching, required=True)
