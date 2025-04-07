@@ -7,3 +7,4 @@ class Note(BaseDocument):
     value = StringField(choices=[e.value for e in EnumRatingLevel], required=True)
     comment = StringField(required=False)
     client = StringField(required=True)
+    coach_id = StringField(required=True)
