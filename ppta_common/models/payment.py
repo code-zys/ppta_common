@@ -1,6 +1,6 @@
 from mongoengine import  StringField, FloatField, IntField, BooleanField, EmbeddedDocumentField
 from ..enums.currency_type_enum import EnumCurencyType
-from card import Card
+from .card import Card
 from ..enums.card_type_enum import EnumCardType
 from .customer import Customer
 from .payment_detail import PaymentDetails
