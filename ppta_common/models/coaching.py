@@ -4,7 +4,7 @@ from .session import Session
 from .coach import Coach
 
 class Coaching(BaseDocument):
-    coach_id = ReferenceField(Coach, required=True)
+    coach = ReferenceField(Coach, required=True)
     client = StringField(required=True)
     payment_id = StringField(required=True)
     description = StringField(required=False)
