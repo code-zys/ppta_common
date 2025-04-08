@@ -4,6 +4,7 @@ class GoogleMeet(EmbeddedDocument):
     name = StringField(required=True)
     description = StringField(required=True)
     link = StringField(required=True)
+    event_id = StringField(required=True)
     candidate_email = StringField(required=True)
     interview_date = DateTimeField(required=True)
     start_time = DateTimeField(required=True)
