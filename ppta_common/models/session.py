@@ -13,4 +13,5 @@ class Session(BaseDocument):
     end_date = DateTimeField(required=True)
     timezone = StringField(required=True)
     is_cancelled = BooleanField(default=False)
+    additional_participants_emails = ListField(StringField(), required=False)
     
