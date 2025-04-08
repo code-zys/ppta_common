@@ -1,4 +1,4 @@
-from mongoengine import StringField, BooleanField, ReferenceField, ListField, DateField
+from mongoengine import StringField, BooleanField, ReferenceField, ListField
 from .base_document import BaseDocument
 from .session import Session
 from .coach import Coach
