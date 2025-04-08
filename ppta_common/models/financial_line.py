@@ -1,0 +1,22 @@
+from mongoengine import StringField,IntField, ReferenceField, EmbeddedDocumentField, FloatField, BooleanField
+
+from .user_metadata import UserMetadata
+from .base_document import BaseDocument
+from ppta_common.models.session import Session
+from ppta_common.models.coaching import Coaching
+from ppta_common.models.coach import Coach
+from ppta_common.enums.financial_line_type_enum import EnumFinancialLineType
+
+class FinancialLine(BaseDocument):
+    session = ReferenceField(Session, required=True)
+    date = IntField(required=True)
+    transaction_id = StringField(required=True)
+    client = EmbeddedDocumentField(UserMetadata, required=True)
+    amount = FloatField(required=True)
+    start_date  = IntField(required=True)
+    end_date  = IntField(required=True)
+    coaching = ReferenceField(Coaching, required=True)
+    coach = ReferenceField(Coach, required=True)
+    type = origin = StringField(choices=[e.value for e in EnumFinancialLineType], required=True)
+    is_coach_paid = BooleanField(default=False)
+    paid_at = IntField(default=False)
