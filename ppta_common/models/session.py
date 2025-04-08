@@ -16,5 +16,5 @@ class Session(BaseDocument):
     timezone = StringField(required=True)
     is_cancelled = BooleanField(default=False)
     additional_participants_emails = ListField(StringField(), required=False)
-    period_id = ReferenceField('AvailablePeriod', required=True)
+    period = ReferenceField('AvailablePeriod', required=True)
     
