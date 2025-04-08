@@ -1,5 +1,6 @@
 from mongoengine import StringField, BooleanField, ListField, IntField, ReferenceField, DateTimeField
 from .base_document import BaseDocument
+from .available_period import AvailablePeriod
 
 class Session(BaseDocument):
     coaching = ReferenceField('Coaching', required=True)
@@ -14,4 +15,5 @@ class Session(BaseDocument):
     timezone = StringField(required=True)
     is_cancelled = BooleanField(default=False)
     additional_participants_emails = ListField(StringField(), required=False)
+    period_id = ReferenceField('AvailablePeriod', required=True)
     

@@ -16,7 +16,7 @@ class AvailablePeriod(BaseDocument):
         'indexes': [
             {
                 'fields': ['coach_id', 'date'],
-                'unique': True 
+                'unique': False, 
             },
             'coach_id',
         ]
