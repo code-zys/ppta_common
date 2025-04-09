@@ -17,6 +17,6 @@ class FinancialLine(BaseDocument):
     end_date  = IntField(required=True)
     coaching = ReferenceField(Coaching, required=True)
     coach = ReferenceField(Coach, required=True)
-    type = origin = StringField(choices=[e.value for e in EnumFinancialLineType], required=True)
+    type = StringField(choices=[e.value for e in EnumFinancialLineType], required=True)
     is_coach_paid = BooleanField(default=False)
     paid_at = IntField(default=False)
