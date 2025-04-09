@@ -9,7 +9,7 @@ class Coaching(BaseDocument):
     payment_id = StringField(required=True)
     description = StringField(required=False)
     name = StringField(required=True)
-    sessions = ListField(ReferenceField(Session), required=True)
+    sessions = ListField(ReferenceField(Session), required=False)
     user = StringField(required=True)
     is_confirmed = BooleanField(default=False)
     is_cancelled = BooleanField(default=False)

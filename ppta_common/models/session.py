@@ -3,7 +3,7 @@ from .base_document import BaseDocument
 from .available_period import AvailablePeriod
 
 class Session(BaseDocument):
-    coaching = ReferenceField('Coaching', required=False)
+    coaching = ReferenceField('Coaching', required=True)
     is_client_absent = BooleanField(default=False)
     is_coach_absent = BooleanField(default=False)
     meeting_link = StringField(required=True)
