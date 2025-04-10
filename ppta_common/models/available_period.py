@@ -1,8 +1,6 @@
 from mongoengine import IntField, StringField, EmbeddedDocumentField, BooleanField, ReferenceField
 from .base_document import BaseDocument
 from .initial_time_period import InitialTimePeriod
-from .coaching import Coaching
-from .session import Session
 
 class AvailablePeriod(BaseDocument):
     date = IntField(required=True)
