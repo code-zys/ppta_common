@@ -1,4 +1,4 @@
-from mongoengine import StringField, BooleanField, ListField, IntField, ReferenceField, DateTimeField
+from mongoengine import StringField, BooleanField, ListField, IntField, ReferenceField, FloatField
 from .base_document import BaseDocument
 from .available_period import AvailablePeriod
 
@@ -13,4 +13,6 @@ class Session(BaseDocument):
     is_cancelled = BooleanField(default=False)
     additional_participants_emails = ListField(StringField(), required=False)
     period = ReferenceField('AvailablePeriod', required=True)
+    iyvo_income = FloatField(required=False)
+    coach_income = FloatField(required=False)
     

@@ -5,6 +5,7 @@ from .skill import Skill
 from .base_document import BaseDocument
 from .company import Company
 from .workplace import Workplace
+from .timezone import TimeZone
 
 
 class Coach(BaseDocument):
@@ -30,7 +31,7 @@ class Coach(BaseDocument):
     skills = ListField(EmbeddedDocumentField(Skill), required=False)
     hourly_rate = FloatField(required=False)
     price_id = StringField(required=True)
-    timezone = StringField(required=True)
+    timeZone = EmbeddedDocumentField(TimeZone, required=True)
     
     meta = {
         'indexes': [

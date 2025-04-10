@@ -17,3 +17,4 @@ class Payment(BaseDocument):
     type = StringField(choices=[e.value for e in EnumCardType], required=False)
     coach_percentage = FloatField(required=False)
     invoice_link = StringField(required=False)
+    transaction_id= StringField(required=False)

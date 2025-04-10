@@ -11,7 +11,7 @@ class FinancialLine(BaseDocument):
     session = ReferenceField(Session, required=True)
     date = IntField(required=True)
     transaction_id = StringField(required=True)
-    client = EmbeddedDocumentField(UserMetadata, required=True)
+    client = StringField(required=False)
     amount = FloatField(required=True)
     start_date  = IntField(required=True)
     end_date  = IntField(required=True)
