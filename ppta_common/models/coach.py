@@ -30,6 +30,7 @@ class Coach(BaseDocument):
     skills = ListField(EmbeddedDocumentField(Skill), required=False)
     hourly_rate = FloatField(required=False)
     price_id = StringField(required=True)
+    timezone = StringField(required=True)
     
     meta = {
         'indexes': [
