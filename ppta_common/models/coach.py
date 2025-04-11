@@ -33,6 +33,7 @@ class Coach(BaseDocument):
     hourly_rate = FloatField(required=False)
     price_id = StringField(required=True)
     timezone = EmbeddedDocumentField(TimeZone, required=True)
+    stripe_account_id = StringField(required=False)
     
     meta = {
         'indexes': [
