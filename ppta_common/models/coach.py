@@ -34,6 +34,7 @@ class Coach(BaseDocument):
     price_id = StringField(required=True)
     timezone = EmbeddedDocumentField(TimeZone, required=True)
     stripe_account_id = StringField(required=False)
+    has_set_up_stripe_connected_account = BooleanField(default=False)
     
     meta = {
         'indexes': [
