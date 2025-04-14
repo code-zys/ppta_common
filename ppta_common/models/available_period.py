@@ -1,7 +1,6 @@
 from mongoengine import IntField, StringField, EmbeddedDocumentField, BooleanField, ReferenceField
 from .base_document import BaseDocument
 from .initial_time_period import InitialTimePeriod
-from ..enums.available_period_status_enum import AvailablePeriodStatus
 
 class AvailablePeriod(BaseDocument):
     date = IntField(required=True)
@@ -13,8 +12,6 @@ class AvailablePeriod(BaseDocument):
     is_occupied = BooleanField(default=False)
     coaching = ReferenceField('Coaching', required=False, default=None)
     session = ReferenceField('Session', required=False, default=None)
-    status = StringField(choices=[e.value for e in AvailablePeriodStatus], required=True)
-    elapsed_time = IntField(required=False, default=None)
     
     meta = {
         'collection': 'available_periods',
