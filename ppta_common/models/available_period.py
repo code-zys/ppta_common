@@ -1,7 +1,7 @@
-from mongoengine import IntField, StringField, EmbeddedDocumentField, BooleanField, ReferenceField
+from mongoengine import IntField, StringField, EmbeddedDocumentField, ReferenceField
 from .base_document import BaseDocument
 from .initial_time_period import InitialTimePeriod
-from ..enums.available_period_status_enum import AvailablePeriodStatus
+from ..enums.available_period_status_enum import EnumAvailablePeriodStatus
 
 class AvailablePeriod(BaseDocument):
     date = IntField(required=True)
@@ -12,7 +12,7 @@ class AvailablePeriod(BaseDocument):
     initial_time_period = EmbeddedDocumentField(InitialTimePeriod, required=False,default=None)
     coaching = ReferenceField('Coaching', required=False, default=None)
     session = ReferenceField('Session', required=False, default=None)
-    status = StringField(choices=[e.value for e in AvailablePeriodStatus], required=True)
+    status = StringField(choices=[e.value for e in EnumAvailablePeriodStatus], required=True)
     reserved_until = IntField(required=False, default=None)
     
     meta = {
