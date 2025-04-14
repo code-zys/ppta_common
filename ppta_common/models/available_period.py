@@ -10,11 +10,10 @@ class AvailablePeriod(BaseDocument):
     timezone = StringField(required=True)
     coach_id = StringField(required=True)
     initial_time_period = EmbeddedDocumentField(InitialTimePeriod, required=False,default=None)
-    is_occupied = BooleanField(default=False)
     coaching = ReferenceField('Coaching', required=False, default=None)
     session = ReferenceField('Session', required=False, default=None)
     status = StringField(choices=[e.value for e in AvailablePeriodStatus], required=True)
-    elapsed_time = IntField(required=False, default=None)
+    reserved_until = IntField(required=False, default=None)
     
     meta = {
         'collection': 'available_periods',
