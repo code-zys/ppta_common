@@ -1,6 +1,7 @@
 from mongoengine import StringField, BooleanField, ListField, IntField, ReferenceField, FloatField
 from .base_document import BaseDocument
 from .available_period import AvailablePeriod
+from ..enums.session_status_enum import EnumSessionStatus
 
 class Session(BaseDocument):
     coaching = ReferenceField('Coaching', required=True)
@@ -15,4 +16,5 @@ class Session(BaseDocument):
     period = ReferenceField('AvailablePeriod', required=True)
     iyvo_income = FloatField(required=False)
     coach_income = FloatField(required=False)
+    status = StringField(choices=[e.value for e in EnumSessionStatus], required=False)
     
