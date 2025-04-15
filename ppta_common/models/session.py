@@ -11,7 +11,6 @@ class Session(BaseDocument):
     event_id = StringField(required=False)
     notification_before = ListField(IntField(), required=False)
     is_confirmed = BooleanField(default=False)
-    is_cancelled = BooleanField(default=False)
     additional_participants_emails = ListField(StringField(), required=False)
     period = ReferenceField('AvailablePeriod', required=True)
     iyvo_income = FloatField(required=False)
