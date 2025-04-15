@@ -13,8 +13,8 @@ class AvailablePeriod(BaseDocument):
     coaching = ReferenceField('Coaching', required=False, default=None)
     session = ReferenceField('Session', required=False, default=None)
     status = StringField(choices=[e.value for e in EnumAvailablePeriodStatus], required=True)
-    reserved_since = IntField(required=False, default=None)
-    expires_at = IntField(required=False, default=None)
+    reserved_since = IntField(required=False, null=True)
+    expires_at = IntField(required=False, null=True)
     
     meta = {
         'collection': 'available_periods',
