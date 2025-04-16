@@ -16,5 +16,5 @@ class Session(BaseDocument):
     period = ReferenceField('AvailablePeriod', required=True)
     iyvo_income = FloatField(required=False)
     coach_income = FloatField(required=False)
-    status = StringField(choices=[e.value for e in EnumSessionStatus], required=False)
+    status = StringField(choices=[e.value for e in EnumSessionStatus], required=True, default=EnumSessionStatus.DRAFT)
     
