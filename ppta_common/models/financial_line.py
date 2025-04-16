@@ -1,11 +1,11 @@
-from mongoengine import StringField,IntField, ReferenceField, EmbeddedDocumentField, FloatField, BooleanField
+from mongoengine import StringField,IntField, ReferenceField, FloatField, BooleanField
 
-from .user_metadata import UserMetadata
 from .base_document import BaseDocument
 from ppta_common.models.session import Session
 from ppta_common.models.coaching import Coaching
 from ppta_common.models.coach import Coach
 from ppta_common.enums.financial_line_type_enum import EnumFinancialLineType
+from ppta_common.enums.financial_line_status_enum import EnumFinancialLineStatus
 
 class FinancialLine(BaseDocument):
     session = ReferenceField(Session, required=True)
@@ -18,5 +18,7 @@ class FinancialLine(BaseDocument):
     coaching = ReferenceField(Coaching, required=True)
     coach = ReferenceField(Coach, required=True)
     type = StringField(choices=[e.value for e in EnumFinancialLineType], required=True)
-    is_coach_paid = BooleanField(default=False)
     paid_at = IntField(default=False)
+    status = StringField(choices=[e.value for e in EnumFinancialLineStatus], required=True)
+    cancelled_at = IntField(required=False)
+    destination = StringField(choices=[e.value for e in EnumFinancialLineType], required=False)

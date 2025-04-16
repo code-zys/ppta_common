@@ -6,7 +6,6 @@ from .coach import Coach
 class Coaching(BaseDocument):
     coach = ReferenceField(Coach, required=True)
     client = StringField(required=True)
-    payment_id = StringField(required=False)
     description = StringField(required=False)
     name = StringField(required=True)
     sessions = ListField(ReferenceField(Session), required=False)
