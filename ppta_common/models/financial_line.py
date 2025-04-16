@@ -9,7 +9,7 @@ from ppta_common.enums.destination_enum import EnumDestinationStatus
 
 class FinancialLine(BaseDocument):
     session = ReferenceField(Session, required=True)
-    date = IntField(required=True)
+    date = IntField(required=False)
     transaction_id = StringField(required=False)
     client = StringField(required=False)
     amount = FloatField(required=False)
@@ -21,4 +21,4 @@ class FinancialLine(BaseDocument):
     paid_at = IntField(default=False)
     status = StringField(choices=[e.value for e in EnumFinancialLineStatus], required=True)
     cancelled_at = IntField(required=False)
-    destination = StringField(choices=[e.value for e in EnumDestinationStatus], required=False)
+    destination = StringField(choices=[e.value for e in EnumDestinationStatus], required=True)
