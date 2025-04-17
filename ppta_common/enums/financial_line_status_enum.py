@@ -5,3 +5,4 @@ class EnumFinancialLineStatus(str, Enum):
     PENDING = "PENDING"
     CONFIRMED = "CONFIRMED"
     CANCELLED = "CANCELLED"
+    TO_BE_PAID = "TO_BE_PAID"
