@@ -7,7 +7,7 @@ from ..enums.withdraw_request_status_enum import EnumWithdrawRequestStatus
 
 class Withdrawal(BaseDocument):
     amount_withdrawn = FloatField(required=False)
-    type = StringField(choices=[e.value for e in EnumCardType], required=True)
+    type = StringField(choices=[e.value for e in EnumCardType], required=False)
     coach = ReferenceField(Coach, required=False)
     receipt = StringField(required=False)
     card = EmbeddedDocumentField(

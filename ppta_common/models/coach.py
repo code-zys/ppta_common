@@ -31,7 +31,6 @@ class Coach(BaseDocument):
     address = EmbeddedDocumentField(Address, required=False)
     skills = ListField(EmbeddedDocumentField(Skill), required=False)
     hourly_rate = FloatField(required=False)
-    price_id = StringField(required=True)
     timezone = EmbeddedDocumentField(TimeZone, required=True)
     stripe_account_id = StringField(required=False)
     has_set_up_stripe_connected_account = BooleanField(default=False)
