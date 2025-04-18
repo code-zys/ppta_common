@@ -2,12 +2,13 @@ from mongoengine import IntField, StringField, EmbeddedDocumentField, ReferenceF
 from .base_document import BaseDocument
 from .initial_time_period import InitialTimePeriod
 from ..enums.available_period_status_enum import EnumAvailablePeriodStatus
+from .timezone import TimeZone
 
 class AvailablePeriod(BaseDocument):
     date = IntField(required=True)
     start_time = IntField(required=True)
     end_time = IntField(required=True)
-    timezone = StringField(required=True)
+    timezone = EmbeddedDocumentField(TimeZone, required=True)
     coach_id = StringField(required=True)
     initial_time_period = EmbeddedDocumentField(InitialTimePeriod, required=False,default=None)
     coaching = ReferenceField('Coaching', required=False, default=None)
