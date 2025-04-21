@@ -1,4 +1,4 @@
-from mongoengine import EmbeddedDocument, StringField, BooleanField, ListField, EmbeddedDocumentField
+from mongoengine import EmbeddedDocument, StringField, BooleanField, ListField, EmbeddedDocumentField, IntField
 from .skill import Skill
 
 class Workplace(EmbeddedDocument):
@@ -11,3 +11,4 @@ class Workplace(EmbeddedDocument):
     skills = ListField(EmbeddedDocumentField(Skill), required=False)
     description = StringField(required=False)
     verified = BooleanField(required=False, default=False)
+    verified_at = IntField(required=False)

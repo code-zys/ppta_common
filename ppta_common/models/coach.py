@@ -35,6 +35,7 @@ class Coach(BaseDocument):
     stripe_account_id = StringField(required=False)
     has_set_up_stripe_connected_account = BooleanField(default=False)
     years_of_experience = IntField(required=True, default=0)
+    verified_at = IntField(required=False)
     
     meta = {
         'indexes': [
