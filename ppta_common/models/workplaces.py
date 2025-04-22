@@ -12,3 +12,5 @@ class Workplace(EmbeddedDocument):
     description = StringField(required=False)
     verified = BooleanField(required=False, default=False)
     verified_at = IntField(required=False)
+    start_date = IntField(required=False)
+    end_date = IntField(required=False)
