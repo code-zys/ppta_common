@@ -1,4 +1,4 @@
-from mongoengine import StringField, FloatField, ReferenceField, IntField, EmbeddedDocumentField
+from mongoengine import StringField, FloatField, ReferenceField, IntField, EmbeddedDocumentField, ListField
 from ..models.card import Card
 from ..models.coach import Coach
 from ..enums.card_type_enum import EnumCardType
@@ -17,3 +17,4 @@ class Withdrawal(BaseDocument):
     status = StringField(choices=[e.value for e in EnumWithdrawRequestStatus], required=True)
     accepted_at = IntField(required=False, description="The date of the withdrawal acceptance")
     refused_at = IntField(required=False, description="The date of the withdrawal refused")
+    financial_lines = ListField(StringField, required=True, description="The The list of finacial line to be use on this widrwal")
