@@ -17,4 +17,4 @@ class Withdrawal(BaseDocument):
     status = StringField(choices=[e.value for e in EnumWithdrawRequestStatus], required=True)
     accepted_at = IntField(required=False, description="The date of the withdrawal acceptance")
     refused_at = IntField(required=False, description="The date of the withdrawal refused")
-    financial_lines = ListField(StringField, required=True, description="The The list of finacial line to be use on this widrwal")
+    financial_lines = ListField(StringField(), required=True, description="The The list of finacial line to be use on this widrwal")
