@@ -11,4 +11,5 @@ class Coaching(BaseDocument):
     sessions = ListField(ReferenceField(Session), required=False)
     user = StringField(required=True)
     is_cancelled = BooleanField(default=False)
+    is_confirmed = BooleanField(default=False)
     invoice_links = ListField(StringField(),default=[],required=False)
