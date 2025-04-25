@@ -2,7 +2,7 @@ import json
 import pprint
 from typing import Optional
 from pydantic import BaseModel
-from typing import List, Optional, Self, Dict, Any, ClassVar
+from typing import Optional, Self, Dict, Any
 
 class UserMetadataResponse(BaseModel):
     id: Optional[str] = None

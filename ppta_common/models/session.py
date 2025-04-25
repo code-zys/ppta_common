@@ -19,4 +19,5 @@ class Session(BaseDocument):
     status = StringField(choices=[e.value for e in EnumSessionStatus], required=True, default=EnumSessionStatus.DRAFT)
     is_payment_transfered_to_coach = BooleanField(default=False)
     payment_transfered_to_coach_at = IntField(default=False)
+    payment_intent=StringField(required=False)
     

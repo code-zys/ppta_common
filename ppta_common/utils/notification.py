@@ -1,6 +1,4 @@
 import requests
-
-
 from ..models.notification import Notification
 from ..dtos.request.notification_dto import NotificationDto
 from ..dtos.request.company_dto import CompanyDto
