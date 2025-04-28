@@ -10,8 +10,8 @@ from .billing_details import BillingDetails
 class Payment(BaseDocument):
     amount=FloatField(required=True)
     currency= StringField(choices=[e.value for e in EnumCurencyType], required=True)
-    receivedDate = IntField( required=True)
-    isSuccessful = BooleanField( required=False)
+    received_date = IntField( required=True)
+    is_successful = BooleanField( required=False)
     payment_method_details = EmbeddedDocumentField(PaymentDetails, required=False, description="Details du payment", default=None)
     customer = EmbeddedDocumentField(Customer, required=False, description="The card of the payment", default=None)
     card = EmbeddedDocumentField(Card, description="The card of the payment", required=False)
