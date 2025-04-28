@@ -1,4 +1,4 @@
-from mongoengine import StringField,IntField, ReferenceField, FloatField
+from mongoengine import StringField,IntField, ReferenceField, FloatField, DictField
 from .base_document import BaseDocument
 from ppta_common.models.session import Session
 from ppta_common.models.coaching import Coaching
@@ -22,3 +22,4 @@ class FinancialLine(BaseDocument):
     status = StringField(choices=[e.value for e in EnumFinancialLineStatus], required=True)
     cancelled_at = IntField(required=False)
     destination = StringField(choices=[e.value for e in EnumDestinationStatus], required=True)
+    metadata = DictField(required=False)
