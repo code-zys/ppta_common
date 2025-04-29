@@ -5,8 +5,8 @@ from ..enums.session_status_enum import EnumSessionStatus
 
 class Session(BaseDocument):
     coaching = ReferenceField('Coaching', required=True)
-    is_client_absent = BooleanField(default=False)
-    is_coach_absent = BooleanField(default=False)
+    cancel_by_coach = BooleanField(default=False)
+    cancel_by_client = BooleanField(default=False)
     payment_id = StringField(required=False)
     meeting_link = StringField(required=False)
     event_id = StringField(required=False)
