@@ -43,6 +43,8 @@ class Subscription(Document):
     cancel_at_period_end = BooleanField(required=False)
     cancelReason = StringField(required=False)
 
+
+
     meta = {'collection': 'subscriptions',
             'strict': False
         }
