@@ -19,4 +19,5 @@ class Session(BaseDocument):
     is_payment_transfered_to_coach = BooleanField(default=False)
     payment_transfered_to_coach_at = IntField(default=False)
     payment_intent=StringField(required=False)
+    cancelled_at = IntField(required=False)
     
