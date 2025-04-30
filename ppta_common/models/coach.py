@@ -36,6 +36,8 @@ class Coach(BaseDocument):
     has_set_up_stripe_connected_account = BooleanField(default=False)
     years_of_experience = IntField(required=True, default=0)
     verified_at = IntField(required=False)
+    average_rating = FloatField(required=False, default=0)
+    total_raters = IntField(required=False, default=0)
     
     meta = {
         'indexes': [
