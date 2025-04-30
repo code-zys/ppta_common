@@ -12,7 +12,7 @@ class FinancialLine(BaseDocument):
     date = IntField(required=False)
     transaction_id = StringField(required=False)
     client = StringField(required=False)
-    amount = FloatField(required=False)
+    amount = IntField(required=False)
     start_date = IntField(required=True)
     end_date = IntField(required=True)
     coaching = ReferenceField(Coaching, required=True)
