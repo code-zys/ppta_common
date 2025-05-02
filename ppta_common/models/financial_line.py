@@ -1,4 +1,4 @@
-from mongoengine import StringField,IntField, ReferenceField, FloatField
+from mongoengine import StringField,IntField, ReferenceField, BooleanField
 from .base_document import BaseDocument
 from ppta_common.models.session import Session
 from ppta_common.models.coaching import Coaching
@@ -23,3 +23,4 @@ class FinancialLine(BaseDocument):
     cancelled_at = IntField(required=False)
     invoice_link = StringField(required=False)
     destination = StringField(choices=[e.value for e in EnumDestinationStatus], required=True)
+    is_full_refund = BooleanField(required=False)
