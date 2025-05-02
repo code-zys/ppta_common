@@ -19,8 +19,11 @@ class Session(BaseDocument):
     payment_transfered_to_coach_at = IntField(default=False)
     payment_intent=StringField(required=False)
     cancelled_at = IntField(required=False)
+    total_ht = FloatField(required=False)
+    total_ttc = FloatField(required=False)
     amount_to_transfer = FloatField(
         required=False,
         description="In the case de user cancel or the coach cancel the amount will not be the coach_income",
     )
+    is_transferable = BooleanField(default=False)
     
