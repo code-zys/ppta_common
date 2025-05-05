@@ -26,4 +26,5 @@ class Session(BaseDocument):
         description="In the case de user cancel or the coach cancel the amount will not be the coach_income",
     )
     is_transferable = BooleanField(default=False)
+    coach_hourly_rate = FloatField(required=True)
     
