@@ -27,4 +27,5 @@ class Session(BaseDocument):
     )
     is_transferable = BooleanField(default=True)
     coach_hourly_rate = FloatField(required=True)
+    platform_coaching_percent = FloatField(required=True)
     
