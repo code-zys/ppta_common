@@ -25,5 +25,5 @@ class Session(BaseDocument):
         required=False,
         description="In the case de user cancel or the coach cancel the amount will not be the coach_income",
     )
-    is_transferable = BooleanField(default=True)
+    note_expired_time = IntField(required=False)
     

@@ -26,3 +26,5 @@ class FinancialLine(BaseDocument):
     is_full_refund = BooleanField(required=False)
     total_ht = FloatField(required=False)
     total_ttc = FloatField(required=False)
+    is_transferable = BooleanField(default=True)
+    transfer_id = StringField(required=False)
