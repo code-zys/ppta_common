@@ -13,8 +13,6 @@ class Session(BaseDocument):
     notification_before = ListField(IntField(), required=False)
     additional_participants_emails = ListField(StringField(), required=False)
     period = ReferenceField('AvailablePeriod', required=True)
-    iyvo_income = FloatField(required=False)
-    coach_income = FloatField(required=False)
     status = StringField(choices=[e.value for e in EnumSessionStatus], required=True, default=EnumSessionStatus.DRAFT)
     payment_transfered_to_coach_at = IntField(default=False)
     payment_intent=StringField(required=False)
@@ -26,6 +24,4 @@ class Session(BaseDocument):
         description="In the case de user cancel or the coach cancel the amount will not be the coach_income",
     )
     is_transferable = BooleanField(default=True)
-    coach_hourly_rate = FloatField(required=True)
-    platform_coaching_percent = FloatField(required=True)
     
