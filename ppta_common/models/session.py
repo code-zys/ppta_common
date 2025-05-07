@@ -1,7 +1,8 @@
-from mongoengine import StringField, BooleanField, ListField, IntField, ReferenceField, FloatField
+from mongoengine import StringField, BooleanField, ListField, IntField, ReferenceField, FloatField, EmbeddedDocumentField
 from .base_document import BaseDocument
 from .available_period import AvailablePeriod
 from ..enums.session_status_enum import EnumSessionStatus
+from .session_feedback import SessionFeedback
 
 class Session(BaseDocument):
     coaching = ReferenceField('Coaching', required=True)
@@ -24,4 +25,5 @@ class Session(BaseDocument):
         description="In the case de user cancel or the coach cancel the amount will not be the coach_income",
     )
     note_expired_time = IntField(required=False)
+    session_feedback = EmbeddedDocumentField(SessionFeedback, required=False)
     
