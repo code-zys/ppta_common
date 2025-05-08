@@ -1,11 +1,17 @@
-from mongoengine import StringField, BooleanField, ReferenceField, ListField
+from mongoengine import StringField, BooleanField, ReferenceField, ListField, EmbeddedDocumentField
 from .base_document import BaseDocument
 from .session import Session
 from .coach import Coach
+from ..enums.coaching_category_enum import EnumCoachingCategory
+from .basic_skill import BasicSkill
 
 class Coaching(BaseDocument):
-    coach = ReferenceField(Coach, required=True)
-    client = StringField(required=True)
+    coach = ReferenceField(Coach, required=True) 
+    client = StringField(required=True) #TODO: To be removed 
+    workplace_code = StringField(required=False)
+    workplace_name = StringField(required=False)
+    category = StringField(choices=[e.value for e in EnumCoachingCategory], required=True)
+    skills = ListField(EmbeddedDocumentField(BasicSkill), required=False)
     description = StringField(required=False)
     name = StringField(required=True)
     sessions = ListField(ReferenceField(Session), required=False)

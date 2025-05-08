@@ -1,4 +1,4 @@
-from mongoengine import  StringField, FloatField, IntField, BooleanField, EmbeddedDocumentField, ReferenceField
+from mongoengine import  StringField, FloatField, IntField, BooleanField, EmbeddedDocumentField
 from ..enums.currency_type_enum import EnumCurencyType
 from .card import Card
 from ..enums.card_type_enum import EnumCardType
@@ -17,7 +17,7 @@ class Payment(BaseDocument):
     customer = EmbeddedDocumentField(Customer, required=False, description="The card of the payment", default=None)
     card = EmbeddedDocumentField(Card, description="The card of the payment", required=False)
     type = StringField(choices=[e.value for e in EnumCardType], required=False)
-    coach_percentage = FloatField(required=False)
+    coach_percentage = FloatField(required=False) #TODO: To be removed
     invoice_link = StringField(required=False)
     transaction_id= StringField(required=False)
     billing_details = EmbeddedDocumentField(BillingDetails, required=True)
