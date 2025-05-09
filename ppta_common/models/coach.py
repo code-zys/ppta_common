@@ -16,7 +16,7 @@ class Coach(BaseDocument):
     email = StringField(max_length=50, required=True)
     phone = StringField(max_length=50, required=True)
     languages = ListField(EmbeddedDocumentField(Language), required=False)
-    min_booking_time = IntField(required=False)
+    min_booking_time = IntField(required=False, description="Minimum booking time in minutes")
     workplaces = EmbeddedDocumentListField(Workplace, required=False)  #TODO: To be removed 
     member_id = StringField(required=False)
     is_coaching_profile_visible = BooleanField(default=True)
@@ -45,7 +45,7 @@ class Coach(BaseDocument):
     mission_default_pricing = FloatField(required=False, description="Default price for the first person") 
     
     interview_support = BooleanField(default=False)
-    interview_workplace = EmbeddedDocumentListField(Workplace, required=False)
+    interview_workplace = EmbeddedDocumentListField(Workplace, required=False, nullable=True)
     interview_another_pricing = FloatField(required=False)
     interview_default_pricing = FloatField(required=False)
     
@@ -55,7 +55,7 @@ class Coach(BaseDocument):
     communication_default_pricing = FloatField(required=False)
     
     it_support = BooleanField(default=False)
-    it_skills = ListField(EmbeddedDocumentField(BasicSkill), required=False)
+    it_skills = ListField(EmbeddedDocumentField(BasicSkill), required=False, nullable=True)
     it_another_pricing = FloatField(required=False)
     it_default_pricing = FloatField(required=False)
     
