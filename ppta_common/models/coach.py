@@ -6,6 +6,7 @@ from .company import Company
 from .workplaces import Workplace
 from .timezone import TimeZone
 from .basic_skill import BasicSkill
+from .skill import Skill
 
 class Coach(BaseDocument):
     """
@@ -23,6 +24,7 @@ class Coach(BaseDocument):
     is_profile_disabled_by_admin = BooleanField(default=False)
     company_approved_coach = BooleanField(default=True)
     company = ReferenceField(Company, required=True)
+    skills = ListField(EmbeddedDocumentField(Skill), required=False) #TODO: To be removed 
     bio = StringField(required=False)
     job_title = StringField(required=False)
     profile_picture = StringField(required=False)
