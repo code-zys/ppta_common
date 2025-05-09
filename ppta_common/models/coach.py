@@ -72,14 +72,14 @@ class Coach(BaseDocument):
                 'fields': [
                     '$name',                # le champ name
                     '$bio',                 # le champ bio
-                    '$skills.name',         # les compétences
+                    '$it_skills.name',         # les compétences
                     '$workplaces.description'  # la description des workplaces
                 ],
                 'default_language': 'french',
                 'weights': {
                     'name': 10,
                     'bio': 5,
-                    'skills.name': 8,
+                    'it_skills.name': 8,
                     'workplaces.description': 3
                 }
             }

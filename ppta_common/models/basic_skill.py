@@ -1,5 +1,5 @@
-from mongoengine import  StringField, EmbeddedDocumentField
+from mongoengine import  StringField, EmbeddedDocument
 
-class BasicSkill(EmbeddedDocumentField):
+class BasicSkill(EmbeddedDocument):
     name = StringField(required=True)
     description = StringField(required=False)

@@ -31,3 +31,4 @@ class FinancialLine(BaseDocument):
     total_ttc = FloatField(required=False)
     is_transferable = BooleanField(default=True)
     transfer_id = StringField(required=False)
+    refund_id = StringField(required=False)
