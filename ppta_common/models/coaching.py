@@ -10,7 +10,7 @@ class Coaching(BaseDocument):
     client = StringField(required=True) #TODO: To be removed 
     workplace_code = StringField(required=False)
     workplace_name = StringField(required=False)
-    category = StringField(choices=[e.value for e in EnumCoachingCategory], required=True)
+    category = StringField(choices=[e.value for e in EnumCoachingCategory], required=False) # TODO: To be set to true
     skills = ListField(EmbeddedDocumentField(BasicSkill), required=False)
     description = StringField(required=False)
     name = StringField(required=True)
