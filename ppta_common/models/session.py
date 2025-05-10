@@ -2,7 +2,9 @@ from mongoengine import StringField, BooleanField, ListField, IntField, Referenc
 from .base_document import BaseDocument
 from .available_period import AvailablePeriod
 from ..enums.session_status_enum import EnumSessionStatus
+from ..enums.coaching_category_enum import EnumCoachingCategory
 from .session_feedback import SessionFeedback
+
 
 class Session(BaseDocument):
     coaching = ReferenceField('Coaching', required=True)
@@ -20,6 +22,7 @@ class Session(BaseDocument):
     cancelled_at = IntField(required=False)
     total_ht = FloatField(required=False)
     total_ttc = FloatField(required=False)
+    session_type = StringField(choices=[e.value for e in EnumCoachingCategory], required=True)
     amount_to_transfer = FloatField(
         required=False,
         description="In the case de user cancel or the coach cancel the amount will not be the coach_income",
