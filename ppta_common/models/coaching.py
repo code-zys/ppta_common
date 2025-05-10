@@ -6,11 +6,10 @@ from ..enums.coaching_category_enum import EnumCoachingCategory
 from .basic_skill import BasicSkill
 
 class Coaching(BaseDocument):
-    coach = ReferenceField(Coach, required=True) 
-    client = StringField(required=True) #TODO: To be removed 
+    coach = ReferenceField(Coach, required=True)
     workplace_code = StringField(required=False)
     workplace_name = StringField(required=False)
-    category = StringField(choices=[e.value for e in EnumCoachingCategory], required=False) # TODO: To be set to true
+    category = StringField(choices=[e.value for e in EnumCoachingCategory], required=True)
     skills = ListField(EmbeddedDocumentField(BasicSkill), required=False)
     description = StringField(required=False)
     name = StringField(required=True)
