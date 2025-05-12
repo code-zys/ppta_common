@@ -13,10 +13,10 @@ class FinancialLine(BaseDocument):
     transaction_id = StringField(required=False) #TODO: To be removed 
     client = StringField(required=False) #TODO: To be removed 
     amount = IntField(required=False) #TODO: To be removed 
-    start_date = IntField(required=True) #TODO: To be removed 
-    end_date = IntField(required=True) #TODO: To be removed 
-    coaching = ReferenceField(Coaching, required=True) #TODO: To be removed
-    coach = ReferenceField(Coach, required=True) #TODO: To be removed
+    start_date = IntField(required=False) #TODO: To be removed 
+    end_date = IntField(required=False) #TODO: To be removed 
+    coaching = ReferenceField(Coaching, required=False) #TODO: To be removed
+    coach = ReferenceField(Coach, required=False) #TODO: To be removed
     coaching_id = StringField(required=False)
     coach_id = StringField(required=False)
     type = StringField(choices=[e.value for e in EnumFinancialLineType], required=True)
