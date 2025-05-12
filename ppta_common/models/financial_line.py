@@ -17,8 +17,8 @@ class FinancialLine(BaseDocument):
     end_date = IntField(required=False) #TODO: To be removed 
     coaching = ReferenceField(Coaching, required=False) #TODO: To be removed
     coach = ReferenceField(Coach, required=False) #TODO: To be removed
-    coaching_id = StringField(required=False)
-    coach_id = StringField(required=False)
+    coaching_id = StringField(required=True)
+    coach_id = StringField(required=True)
     type = StringField(choices=[e.value for e in EnumFinancialLineType], required=True)
     paid_at = IntField(default=False)
     status = StringField(choices=[e.value for e in EnumFinancialLineStatus], required=True)
