@@ -1,4 +1,4 @@
-from mongoengine import StringField,IntField, ReferenceField, BooleanField, FloatField
+from mongoengine import StringField,IntField, ReferenceField, BooleanField, FloatField, ListField, EmbeddedDocumentField
 from .base_document import BaseDocument
 from ppta_common.models.session import Session
 from ppta_common.models.coaching import Coaching
@@ -6,6 +6,7 @@ from ppta_common.models.coach import Coach
 from ppta_common.enums.financial_line_type_enum import EnumFinancialLineType, EnumRefundReason
 from ppta_common.enums.financial_line_status_enum import EnumFinancialLineStatus
 from ppta_common.enums.destination_enum import EnumDestinationStatus
+from ppta_common.models.payment_intent import PaymentIntentEmbeddedDocument
 
 class FinancialLine(BaseDocument):
     session = ReferenceField(Session, required=True)
@@ -32,3 +33,4 @@ class FinancialLine(BaseDocument):
     is_transferable = BooleanField(default=True)
     transfer_id = StringField(required=False)
     refund_id = StringField(required=False)
+    payment_itents = ListField(EmbeddedDocumentField(PaymentIntentEmbeddedDocument), required=False)
