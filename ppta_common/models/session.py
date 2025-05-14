@@ -18,7 +18,7 @@ class Session(BaseDocument):
     period = ReferenceField('AvailablePeriod', required=True)
     status = StringField(choices=[e.value for e in EnumSessionStatus], required=True, default=EnumSessionStatus.DRAFT)
     payment_transfered_to_coach_at = IntField(default=False)
-    payment_intent = StringField(required=False)
+    payment_intent = StringField(required=False) #TODO: To be removed
     cancelled_at = IntField(required=False)
     total_ht = FloatField(required=False)
     total_ttc = FloatField(required=False)
@@ -29,4 +29,4 @@ class Session(BaseDocument):
     note_expired_time = IntField(required=False)
     session_feedback = EmbeddedDocumentField(SessionFeedback, required=False)
     attendees_count = IntField(required=False, min_value=1, default=1)
-    payment_intents = ListField(PaymentIntent, required=False)   
+    payment_intents = ListField(ReferenceField(PaymentIntent), required=False)   

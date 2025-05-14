@@ -6,7 +6,7 @@ from ppta_common.models.coach import Coach
 from ppta_common.enums.financial_line_type_enum import EnumFinancialLineType, EnumRefundReason
 from ppta_common.enums.financial_line_status_enum import EnumFinancialLineStatus
 from ppta_common.enums.destination_enum import EnumDestinationStatus
-from ppta_common.models.payment_intent import PaymentIntentEmbeddedDocument
+from ppta_common.models.payment_intent import refundFragment
 
 class FinancialLine(BaseDocument):
     session = ReferenceField(Session, required=True)
@@ -33,4 +33,4 @@ class FinancialLine(BaseDocument):
     is_transferable = BooleanField(default=True)
     transfer_id = StringField(required=False)
     refund_id = StringField(required=False)
-    payment_intents = ListField(EmbeddedDocumentField(PaymentIntentEmbeddedDocument), required=False)
+    payment_intents = ListField(EmbeddedDocumentField(refundFragment), required=False)

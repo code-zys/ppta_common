@@ -3,10 +3,7 @@ from .base_document import BaseDocument
 from ..enums.refund_status_enum import EnumRefundStatus
 
 
-class PaymentIntentEmbeddedDocument(EmbeddedDocument):
-    """
-    PaymentIntent model
-    """
+class refundFragment(EmbeddedDocument):
     payment_intent_id = StringField(
         required=True, description="The id of the payment_intent provided by stripe"
     )
