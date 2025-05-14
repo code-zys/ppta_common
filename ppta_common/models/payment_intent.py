@@ -1,5 +1,6 @@
 from mongoengine import StringField, FloatField, EmbeddedDocument
 from .base_document import BaseDocument
+from ..enums.refund_status_enum import EnumRefundStatus
 
 
 class PaymentIntentEmbeddedDocument(EmbeddedDocument):
@@ -17,8 +18,5 @@ class PaymentIntent(BaseDocument):
         required=True, description="The id of the payment_intent provided by stripe"
     )
     amount = FloatField(required=True)
-    refunded_amount = FloatField(
-        required=True,
-        default=0,
-        description="Amount of thy payment intent already used for refund"
-    )
+    refund_id = StringField(required=True)
+    status = StringField(required=True,choices=[status.value for status in EnumRefundStatus])

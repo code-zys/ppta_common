@@ -33,4 +33,4 @@ class FinancialLine(BaseDocument):
     is_transferable = BooleanField(default=True)
     transfer_id = StringField(required=False)
     refund_id = StringField(required=False)
-    payment_itents = ListField(EmbeddedDocumentField(PaymentIntentEmbeddedDocument), required=False)
+    payment_intents = ListField(EmbeddedDocumentField(PaymentIntentEmbeddedDocument), required=False)

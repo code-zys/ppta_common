@@ -3,7 +3,7 @@ from .base_document import BaseDocument
 from .available_period import AvailablePeriod
 from ..enums.session_status_enum import EnumSessionStatus
 from .session_feedback import SessionFeedback
-from .payment_intent import PaymentIntentEmbeddedDocument
+from .payment_intent import PaymentIntent
 
 
 class Session(BaseDocument):
@@ -29,4 +29,4 @@ class Session(BaseDocument):
     note_expired_time = IntField(required=False)
     session_feedback = EmbeddedDocumentField(SessionFeedback, required=False)
     attendees_count = IntField(required=False, min_value=1, default=1)
-    payment_intents = ListField(EmbeddedDocumentField('PaymentIntentEmbeddedDocument'), required=False)   
+    payment_intents = ListField(PaymentIntent, required=False)   
