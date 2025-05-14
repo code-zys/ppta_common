@@ -11,6 +11,8 @@ class PaymentIntentEmbeddedDocument(EmbeddedDocument):
         required=True, description="The id of the payment_intent provided by stripe"
     )
     amount = FloatField(required=True)
+    refund_id = StringField(required=True)
+    status = StringField(required=True,choices=[status.value for status in EnumRefundStatus])
 
 
 class PaymentIntent(BaseDocument):
@@ -18,5 +20,8 @@ class PaymentIntent(BaseDocument):
         required=True, description="The id of the payment_intent provided by stripe"
     )
     amount = FloatField(required=True)
-    refund_id = StringField(required=True)
-    status = StringField(required=True,choices=[status.value for status in EnumRefundStatus])
+    refunded_amount = FloatField(
+        required=True,
+        default=0,
+        description="Amount of thy payment intent already used for refund"
+    )
