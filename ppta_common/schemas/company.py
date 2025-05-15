@@ -1,7 +1,6 @@
 from ppta_common.models.company import Company
 from ppta_common.utils.logs import logger
 
-
 def my_entity(item) -> dict:
     try:
         result = {

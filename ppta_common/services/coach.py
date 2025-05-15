@@ -34,7 +34,7 @@ class CoachService:
         member_info: MemberInfo,
         min_price: float,
         mininum_coach_booking_time: int,
-        iyvo_coaching_percentage: float,
+        iyvo_coaching_percentage: float
     ) -> OrchestrationResult:
         """
         Create a new coach.
