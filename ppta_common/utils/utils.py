@@ -1,5 +1,7 @@
-from typing import Any, Tuple, Optional
+import re
 import pytz, boto3, datetime, os, io, base64, calendar, json, xml.etree.ElementTree as ET
+
+from typing import Any, Tuple, Optional
 from datetime import timedelta
 
 from tzlocal import get_localzone
@@ -573,4 +575,27 @@ class Utils:
             "media_type": "application/xml",
             "file_name": file_name
         }
- 
+    
+    def generate_next_slug(slug: str):
+        """
+        Generate a new slug by appending an incrementing number to the existing slug.
+        """
+        pattern = r"^(.*?)(?:-(\d+))?$"
+        match = re.match(pattern, slug)
+
+        if match:
+            base_slug = match.group(1)
+            counter = int(match.group(2)) + 1 if match.group(2) else 1
+            return f"{base_slug}_{counter}"
+
+        return f"{slug}-1"
+    
+    def check_min_price(price: float, min_price: float) -> float:
+        """
+        Check if the price is greater than or equal to the minimum price.
+        """
+        min_price = min_price
+        if price is None:
+            return min_price
+        return price if price >= min_price else min_price
+

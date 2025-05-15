@@ -3,3 +3,4 @@ tzlocal
 pytz
 iso4217
 iso4217parse
+slugify
