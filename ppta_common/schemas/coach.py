@@ -1,5 +1,5 @@
-from schemas.company import companyEntity
-from schemas.workplace import workPlaceEntities
+from ppta_common.schemas.company import companyEntity
+from ppta_common.schemas.workplace import workPlaceEntities
 from ppta_common.utils.logs import logger
 
 
