@@ -31,7 +31,7 @@ class CoachService:
         company: Company,
         payload: CoachCreationDto,
         current_user: UserDtoMetadata,
-        member_info: MemberInfo,
+        member_id: str,
         min_price: float,
         mininum_coach_booking_time: int,
         iyvo_coaching_percentage: float
@@ -42,7 +42,7 @@ class CoachService:
         try:
             # Check if the coach already exists
             existing_coach: Coach = Coach.objects(
-                member_id=member_info.memberId, deleted=False
+                member_id=member_id, deleted=False
             ).first()
             if existing_coach:
                 return OrchestrationResult.Failure(
@@ -162,7 +162,7 @@ class CoachService:
                     min_price
                 )
 
-            coach.member_id = member_info.memberId
+            coach.member_id = member_id
             coach.is_profile_verified = False
             coach.is_profile_disabled_by_admin = False
             coach.company = company
