@@ -7,4 +7,4 @@ class SessionFeedback(EmbeddedDocument):
     reason = StringField(choices=[e.value for e in SessionNoteReason], required=False, default=None)
     description = StringField(required=False)
     feedback_at = IntField(required=False)
-    is_litigation_resolved = BooleanField(required=False)
+    is_litigation_resolved = BooleanField(default=True)
