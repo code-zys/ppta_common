@@ -1,4 +1,3 @@
-from bson import ObjectId
 from datetime import datetime
 
 from ppta_common.models.coach import Coach
@@ -40,6 +39,7 @@ class CoachService:
         Create a new coach.
         """
         try:
+            logger.debug(f"Creating a new coach {payload} for company {payload.name}")
             # Check if the coach already exists
             existing_coach: Coach = Coach.objects(
                 member_id=member_id, deleted=False
