@@ -6,7 +6,7 @@ from ..enums.session_note_reason import SessionNoteReason
 class Note(BaseDocument):
     value = IntField(required=True)
     comment = StringField(required=False)
-    client = StringField(required=True)
+    client = StringField(required=False) #TODO: To be removed
     coach_id = StringField(required=True)
     coaching_id = StringField(required=True)
     session = ReferenceField(Session, required=True)
