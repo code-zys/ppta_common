@@ -28,7 +28,7 @@ class CoachService:
 
     @staticmethod
     def create_coach(
-        company_id: str,
+        company: Company,
         payload: CoachCreationDto,
         current_user: UserDtoMetadata,
         member_info: MemberInfo,
@@ -40,11 +40,6 @@ class CoachService:
         Create a new coach.
         """
         try:
-            company = Company.objects(id=ObjectId(company_id), deleted=False).first()
-            if not company:
-                return OrchestrationResult.Failure(
-                    "Company not found", EnumStatusCode.NOT_FOUND
-                )
             # Check if the coach already exists
             existing_coach: Coach = Coach.objects(
                 member_id=member_info.memberId, deleted=False
