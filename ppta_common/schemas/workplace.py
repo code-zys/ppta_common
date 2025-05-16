@@ -26,7 +26,7 @@ def workPlaceEntity(item) -> dict:
         raise exc
 
 
-def workPlaceEntities(entity) -> list:
+def workplace_entities(entity) -> list:
     return [workPlaceEntity(item) for item in entity]
 
 

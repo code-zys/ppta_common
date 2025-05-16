@@ -1,15 +1,15 @@
-from ppta_common.schemas.company import companyEntity
-from ppta_common.schemas.workplace import workPlaceEntities
+from ppta_common.schemas.company import company_entity
+from ppta_common.schemas.workplace import workplace_entities
 from ppta_common.utils.logs import logger
 
 
-def coachEntity(item, iyvo_coaching_percentage: float, is_public_data: bool = False) -> dict:
+def coach_entity(item, iyvo_coaching_percentage: float, is_public_data: bool = False) -> dict:
     try:
         result = {
             "id": str(item.id),
             "name": item.name,
             "job_title": item.job_title if item.job_title else None,
-            "company": companyEntity(item.company) if item.company else None,
+            "company": company_entity(item.company) if item.company else None,
             "address": (
                 {
                     "country": item.address.country,
@@ -51,7 +51,7 @@ def coachEntity(item, iyvo_coaching_percentage: float, is_public_data: bool = Fa
         }
 
         if item.interview_support:
-            result["interview_workplace"] = workPlaceEntities(item.interview_workplace)
+            result["interview_workplace"] = workplace_entities(item.interview_workplace)
             result["public_interview_another_pricing"] = (
                 (
                     item.interview_another_pricing
@@ -74,7 +74,7 @@ def coachEntity(item, iyvo_coaching_percentage: float, is_public_data: bool = Fa
             )
 
         if item.mission_support:
-            result["mission_workplace"] = workPlaceEntities(item.mission_workplace)
+            result["mission_workplace"] = workplace_entities(item.mission_workplace)
             result["public_mission_another_pricing"] = (
                 item.mission_another_pricing
                 + (
@@ -172,15 +172,15 @@ def coachEntity(item, iyvo_coaching_percentage: float, is_public_data: bool = Fa
         raise exc
 
 
-def coachEntities(entity, is_public_data: bool = False) -> list:
-    return [coachEntity(item, is_public_data) for item in entity]
+def coach_entities(entity, is_public_data: bool = False) -> list:
+    return [coach_entity(item, is_public_data) for item in entity]
 
 
-def coachingEntityPaginated(entity, is_public_data: bool = False) -> list:
+def coaching_entity_paginated(entity, is_public_data: bool = False) -> list:
     if not entity:
         result = []
     else:
-        result = coachEntities(entity.items, is_public_data)
+        result = coach_entities(entity.items, is_public_data)
 
     return {
         "items": result,

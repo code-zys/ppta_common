@@ -71,11 +71,11 @@ def my_entity(item) -> dict:
         raise exc
 
 
-def companiesEntity(entity) -> list:
+def companies_entity(entity) -> list:
     return [my_entity(item) for item in entity]
 
 
-def previewCompanyEntity(entity: Company) -> dict:
+def preview_company_entity(entity: Company) -> dict:
     company_dict = entity.to_dict()
     return {
         "id": company_dict["id"],
@@ -85,7 +85,7 @@ def previewCompanyEntity(entity: Company) -> dict:
     }
 
 
-def partialCompanyEntity(item) -> dict:
+def partial_company_entity(item) -> dict:
     return {
         "id": str(item.id),
         "name": item.name,
@@ -95,19 +95,19 @@ def partialCompanyEntity(item) -> dict:
     }
 
 
-def previewCompaniesEntity(entity) -> list:
-    return [previewCompanyEntity(item) for item in entity]
+def preview_companies_entity(entity) -> list:
+    return [preview_company_entity(item) for item in entity]
 
 
-def companyEntity(entity) -> dict:
+def company_entity(entity) -> dict:
     return my_entity(entity)
 
 
-def companiesEntityPaginated(entity) -> dict:
+def company_entity_paginated(entity) -> dict:
     if not entity:
         result = []
     else:
-        result = companiesEntity(entity.items)
+        result = companies_entity(entity.items)
     return {
         "items": result,
         "total_items": entity.total_items,

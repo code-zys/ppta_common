@@ -18,7 +18,7 @@ from ppta_common.utils.logs import logger
 from ppta_common.utils.utils import Utils
 from slugify import slugify
 
-from ppta_common.schemas.coach import coachEntity
+from ppta_common.schemas.coach import coach_entity
 
 class CoachService:
     """
@@ -188,7 +188,7 @@ class CoachService:
             coach.save()
             
             return OrchestrationResult.Success(
-                EnumStatusCode.CREATED_SUCCESSFULLY, coachEntity(coach, iyvo_coaching_percentage)
+                EnumStatusCode.CREATED_SUCCESSFULLY, coach_entity(coach, iyvo_coaching_percentage)
             )
         except Exception as e:
             logger.error(e)
