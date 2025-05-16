@@ -38,4 +38,4 @@ class Member(BaseDocument):
     availability_date = IntField(required=False, description="The availability date of the member")
     years_of_experience = EnumField(ExperienceLevel, required=False, description="Experience level of the member")
     place_of_residence = StringField(required=False)
-    is_coach = BooleanField(default=True, description="If the member is a coach and approved by the company")
+    is_coach = BooleanField(default=False, description="If the member is a coach and approved by the company")
