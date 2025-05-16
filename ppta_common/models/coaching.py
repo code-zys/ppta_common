@@ -4,8 +4,10 @@ from .session import Session
 from .coach import Coach
 from ..enums.coaching_category_enum import EnumCoachingCategory
 from .basic_skill import BasicSkill
+from .company import Company
 
 class Coaching(BaseDocument):
+    company = ReferenceField(Company, required=False) #TODO: To set to true
     coach = ReferenceField(Coach, required=True)
     workplace_code = StringField(required=False)
     workplace_name = StringField(required=False)
@@ -14,7 +16,7 @@ class Coaching(BaseDocument):
     description = StringField(required=False)
     name = StringField(required=True)
     sessions = ListField(ReferenceField(Session), required=False)
-    user = StringField(required=True)
+    user = StringField(required=True) #TODO: To be removed
     is_cancelled = BooleanField(default=False)
     is_confirmed = BooleanField(default=False)
     invoice_links = ListField(StringField(),default=[],required=False)
