@@ -5,9 +5,11 @@ from ..enums.card_type_enum import EnumCardType
 from .base_document import BaseDocument
 from ..enums.withdraw_request_status_enum import EnumWithdrawRequestStatus
 from ..enums.payment_status_enum import EnumPaymentStatus
+from ..enums.currency_type_enum import EnumCurencyType
 
 class Withdrawal(BaseDocument):
     amount_withdrawn = FloatField(required=False)
+    currency= StringField(choices=[e.value for e in EnumCurencyType], required=True)
     type = StringField(choices=[e.value for e in EnumCardType], required=False)
     coach = ReferenceField(Coach, required=False)
     receipt = StringField(required=False)
