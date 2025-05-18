@@ -1,4 +1,4 @@
-from mongoengine import  StringField, FloatField, IntField, BooleanField, EmbeddedDocumentField
+from mongoengine import  StringField, FloatField, IntField, BooleanField, EmbeddedDocumentField,ReferenceField
 from ..enums.currency_type_enum import EnumCurencyType
 from .card import Card
 from ..enums.card_type_enum import EnumCardType
