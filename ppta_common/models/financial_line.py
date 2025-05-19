@@ -2,6 +2,7 @@ from mongoengine import StringField,IntField, ReferenceField, BooleanField, Floa
 from .base_document import BaseDocument
 from ppta_common.models.session import Session
 from ppta_common.models.coaching import Coaching
+from ppta_common.models.company import Company
 from ppta_common.models.coach import Coach
 from ppta_common.enums.financial_line_type_enum import EnumFinancialLineType, EnumRefundReason
 from ppta_common.enums.financial_line_status_enum import EnumFinancialLineStatus
@@ -34,3 +35,4 @@ class FinancialLine(BaseDocument):
     transfer_id = StringField(required=False)
     refund_id = StringField(required=False)
     refund_fragment = ListField(EmbeddedDocumentField(RefundFragment), required=False)
+    company = ReferenceField(Company, required=False)
