@@ -35,3 +35,4 @@ class Company(BaseDocument):
     bridge_user_uuid = StringField(required=False)
     currency = StringField(required=False)
     google_calender_id = StringField(required=False)
+    vat_number = StringField(required=False)

@@ -64,6 +64,8 @@ class Coach(BaseDocument):
     other_description = StringField(required=False)
     other_another_pricing = FloatField(required=False)
     other_default_pricing = FloatField(required=False)
+    vat_number = StringField(required=False)
+
     
     meta = {
         'indexes': [
